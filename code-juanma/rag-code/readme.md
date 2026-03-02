@@ -7,8 +7,8 @@ Sistema RAG local. El sistema lee, procesa y fragmenta documentos de forma intel
 * **Parsing:** usa `Docling` (Hybrid Chunker) para extraer texto entendiendo la estructura visual del documento (tablas, títulos, párrafos) sin romper el contexto.
 * **Embeddings:** utiliza el modelo `BAAI/bge-m3` para búsquedas semánticas avanzadas en español e inglés.
 * **Búsqueda (RAG-Fusion):** implementa *Multi-Query* y *Reciprocal Rank Fusion (RRF)* para recuperar los fragmentos más relevantes.
-* **Local:** El LLM funciona de manera local a través de LM Studio.
-* **Interfaz web (gradio):** incluye un chat con memoria y un *Inspector* para auditar qué fragmentos exactos del documento usó el modelo para responder.
+* **Local:** el LLM funciona de manera local a través de LM Studio.
+* **Interfaz web (gradio):** incluye un chat y un *Inspector* para auditar qué fragmentos exactos del documento usó el modelo para responder.
 
 ---
 
