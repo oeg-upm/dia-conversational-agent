@@ -33,7 +33,11 @@ Acceder a la carpeta `frontend` y ejecutar:
 ```bash
 python3 app.py
 ```
-acceder al la interfaz en http://127.0.0.1:7860/
+acceder a la interfaz
+
+```
+ http://127.0.0.1:7860/
+ ```
 ---
 
 
