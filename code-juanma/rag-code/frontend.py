@@ -2,7 +2,8 @@ import gradio as gr
 import requests
 import os
 
-API_URL = "http://127.0.0.1:8001"
+#API_URL = "http://127.0.0.1:8001"
+API_URL = "http://backend:8001"
 
 # --- API communication functions ---
 
@@ -124,4 +125,8 @@ with gr.Blocks(title="RAG") as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch(theme=gr.themes.Soft(), server_port=7860)
+    demo.launch(
+        theme=gr.themes.Soft(), 
+        server_port=7860, 
+        server_name="0.0.0.0"
+    )

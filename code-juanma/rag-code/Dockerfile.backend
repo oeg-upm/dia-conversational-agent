@@ -1,0 +1,26 @@
+FROM nvidia/cuda:13.1.1-cudnn-devel-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    python3-dev \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Update pip to the latest version
+RUN pip3 install --no-cache-dir --upgrade pip
+
+# Copy requirements.txt
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip3 install --no-cache-dir fastapi uvicorn gradio requests python-multipart pydantic chromadb langchain-openai langchain-huggingface langchain-chroma langchain-community sentence_transformers langchain-docling docling easyocr && \
+    pip3 install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+
+COPY . .
+
+CMD ["uvicorn", "backend:app", "--host", "0.0.0.0", "--port", "8001"]

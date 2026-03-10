@@ -6,6 +6,7 @@ from typing import List, Dict
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from pydantic import BaseModel
 import chromadb
+import torch
 
 # --- LangChain Imports ---
 from langchain_openai import ChatOpenAI
@@ -33,22 +34,24 @@ print("Initializing FastAPI backend...")
 # LLM Local (Llama 3.2 LM Studio)
 llm = ChatOpenAI(
     model="llama-3.2-3b-instruct",
-    base_url="http://127.0.0.1:1234/v1",
+    base_url="http://host.docker.internal:1234/v1",
     api_key="not_required",
     temperature=0.1
 )
 
 # Embeddings
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
 embeddings = HuggingFaceEmbeddings(
     model_name="BAAI/bge-m3",
-    model_kwargs={'device': 'cuda'}, # 'cuda' for GPU, 'cpu' for CPU
+    model_kwargs={'device': device}, # 'cuda' for GPU, 'cpu' for CPU
     encode_kwargs={'normalize_embeddings': True} # Normalize embeddings to unit length for better cosine similarity performance
 )
 
 embeddings._client.max_seq_length = 620 # Max tokens for BGE-M3 (it can handle up to 8192)
 
 # ChromaDB client
-chroma_client = chromadb.HttpClient(host="localhost", port=8000)
+chroma_client = chromadb.HttpClient(host="chromadb", port=8000)
 vectorstore = Chroma(
     client=chroma_client,
     collection_name="rag_collection",

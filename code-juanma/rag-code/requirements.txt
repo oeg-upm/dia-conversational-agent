@@ -1,8 +1,14 @@
+fastapi
+uvicorn
 gradio
-langchain_openai
-langchain_huggingface
-langchain_chroma
-langchain_community
+requests
+python-multipart
+pydantic
+chromadb
+langchain-openai
+langchain-huggingface
+langchain-chroma
+langchain-community
 sentence_transformers
 langchain-docling
 docling
@@ -10,4 +16,3 @@ easyocr
 torch
 torchvision
 torchaudio
---index-url https://download.pytorch.org/whl/cu124
