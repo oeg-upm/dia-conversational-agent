@@ -56,7 +56,7 @@ Una vez que se han construido las imágenes, se pueden volver a levantar con el 
 
 - Windows:
 ```bash
-docker-compose up --build -d
+docker-compose up -d
 ```
 
 - MacOS:
