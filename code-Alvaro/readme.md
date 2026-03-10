@@ -45,3 +45,21 @@ acceder a la interfaz
 
 - LM Studio, el LLM esta corriendo en local (llama-3.2-3b-instruct) con el servidor en http://127.0.0.1:1234
 - Correr chromadb en docker
+
+## 4. Recomendado utilizar entorno virtual
+
+Crear entorno virtual en python
+
+```bash
+python3 -m venv venv
+```
+Acceder al entorno virtual
+
+```bash
+source venv/bin/activate
+```
+Instalar todas las dependencias del proyecto
+
+```bash
+pip install -r requirements.txt
+```
