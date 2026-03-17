@@ -1,6 +1,6 @@
 # Generación del Dataset de Evaluación para el Sistema RAG
 
-En este documento se presenta un análisis de las estrategias descritas en https://arxiv.org/abs/2411.19710 para la generación del dataset de evaluación de nuestro sistema RAG del departamento de inteligencia artificial.
+En este documento se presenta un análisis de las estrategias descritas en: Know Your RAG: Dataset Taxonomy and Generation Strategies for Evaluating RAG Systems (https://arxiv.org/abs/2411.19710), para la generación del dataset de evaluación de nuestro sistema RAG del departamento de inteligencia artificial.
 
 ---
 
