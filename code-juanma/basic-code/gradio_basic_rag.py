@@ -15,7 +15,7 @@ print("Initializing system...")
 # Local LLM (Llama 3.2 via LM Studio)
 llm = ChatOpenAI(
     model="llama-3.2-3b-instruct",
-    base_url="http://127.0.0.1:1234/v1",
+    base_url="https://138.4.144.36/proxy/5000/llm",
     api_key="not_required",
     temperature=0.1
 )
