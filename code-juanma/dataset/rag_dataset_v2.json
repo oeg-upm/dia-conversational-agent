@@ -1,0 +1,213 @@
+[
+    {
+        "question": "¿Cuál es la duración del curso Sistemas de Planificación?",
+        "ground_truth": "Septiembre-Enero",
+        "reference_contexts": [
+            "Período de impartición: Septiembre-Enero"
+        ],
+        "question_type": "factual",
+        "topic": "general_info",
+        "difficulty": "easy",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Qué actividades se realizan en el curso Sistemas de Planificación?",
+        "ground_truth": "Actividades presenciales en aula, laboratorio y tele-enseñanza",
+        "reference_contexts": [
+            "Actividades presenciales en aula, laboratorio y tele-enseñanza con duraciones y tipos de actividades especificados."
+        ],
+        "question_type": "procedural",
+        "topic": "schedule",
+        "difficulty": "medium",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Cuál es la diferencia entre el análisis Medios-Fines y Strips en planificación?",
+        "ground_truth": "El análisis Medios-Fines se centra en los objetivos y medios para alcanzarlos, mientras que Strips es una representación formal de acciones en la planificación.",
+        "reference_contexts": [
+            "1. Planificación\n2. 1.1. Análisis Medios-Fines\n3. 1.2. Strips"
+        ],
+        "question_type": "comparative",
+        "topic": "syllabus",
+        "difficulty": "hard",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Se puede aplicar la planificación en un entorno virtual?",
+        "ground_truth": "",
+        "reference_contexts": [],
+        "question_type": "out_of_scope",
+        "topic": "",
+        "difficulty": "medium",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Qué significa la integración de planificación y ejecución?",
+        "ground_truth": "",
+        "reference_contexts": [
+            "3.2. Integración de Planificación y Ejecución"
+        ],
+        "question_type": "ambiguous",
+        "topic": "syllabus",
+        "difficulty": "hard",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Cuántos créditos ECTS tiene el curso Sistemas de Planificación?",
+        "ground_truth": "Créditos: 3 ECTS",
+        "reference_contexts": [
+            "Créditos: 3 ECTS, Carácter: Optativa, Curso: Cuarto curso, Semestre: Séptimo semestre, Período de impartición: Septiembre-Enero, Idioma de impartición: Castellano, Titulación: Grado en Ingeniería Informática"
+        ],
+        "question_type": "factual",
+        "topic": "general_info",
+        "difficulty": "EASY",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Qué competencias y resultados se esperan del estudiante en este curso?",
+        "ground_truth": "CG-5 - Capacidad de gestión de la información, CG-6 - Capacidad de abstracción, análisis y síntesis, RA284 - Capacitación para diseñar las líneas maestras de un proyecto, RA283 - Experiencia del desempeño profesional del ingeniero y de sus funciones más habituales en un entorno real de empresa, RA515 - Aplicar técnicas para planificar",
+        "reference_contexts": [
+            "CG-5 - Capacidad de gestión de la información, CG-6 - Capacidad de abstracción, análisis y síntesis, RA284 - Capacitación para diseñar las líneas maestras de un proyecto, RA283 - Experiencia del desempeño profesional del ingeniero y de sus funciones más habituales en un entorno real de empresa, RA515 - Aplicar técnicas para planificar"
+        ],
+        "question_type": "comparative",
+        "topic": "competencies_and_outcomes",
+        "difficulty": "MEDIUM",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Cómo se evalúa el curso Sistemas de Planificación?",
+        "ground_truth": "Evaluación continua: Defensa de prácticas del Tema 1 (30%), Defensa de la Práctica del Tema 2 (30%), Defensa de la Práctica del Tema 3 (40%). Evaluación sólo prueba final: Examen de Evaluación Prueba Final (100%)",
+        "reference_contexts": [
+            "Evaluación continua: Defensa de prácticas del Tema 1 (30%), Defensa de la Práctica del Tema 2 (30%), Defensa de la Práctica del Tema 3 (40%). Evaluación sólo prueba final: Examen de Evaluación Prueba Final (100%)"
+        ],
+        "question_type": "procedural",
+        "topic": "evaluation_criteria",
+        "difficulty": "MEDIUM",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Qué tipo de actividades se realizan durante el curso?",
+        "ground_truth": "",
+        "reference_contexts": [],
+        "question_type": "out_of_scope",
+        "topic": "",
+        "difficulty": "DIFICULT",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Qué bibliografía se utiliza en el curso?",
+        "ground_truth": "Inteligencia Artificial. Un enfoque Moderno., Inteligencia Artificial. Una nueva síntesis, Artificial Intelligenca",
+        "reference_contexts": [
+            "Inteligencia Artificial. Un enfoque Moderno., Inteligencia Artificial. Una nueva síntesis, Artificial Intelligenca"
+        ],
+        "question_type": "ambiguous",
+        "topic": "bibliography_and_resources",
+        "difficulty": "EASY",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Cuántos créditos ECTS tiene el curso Sistemas de Planificación?",
+        "ground_truth": "3",
+        "reference_contexts": [
+            "Créditos: 3 ECTS, Carácter: Optativa, Curso: Cuarto curso, Semestre: Séptimo semestre"
+        ],
+        "question_type": "factual",
+        "topic": "general_info",
+        "difficulty": "easy",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Cuáles son los pasos para la evaluación continua en el curso Sistemas de Planificación?",
+        "ground_truth": "Defensa de prácticas del Tema 1 (30%), Defensa de la Práctica del Tema 2 (30%), Defensa de la Práctica del Tema 3 (40%)",
+        "reference_contexts": [
+            "Evaluación continua: Defensa de prácticas del Tema 1 (30%), Defensa de la Práctica del Tema 2 (30%), Defensa de la Práctica del Tema 3 (40%). Evaluación sólo prueba final: Examen de Evaluación Prueba Final (100%)"
+        ],
+        "question_type": "procedural",
+        "topic": "evaluation_criteria",
+        "difficulty": "medium",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Cuáles son las principales diferencias entre la planificación práctica y la planificación condicional?",
+        "ground_truth": "La planificación práctica incluye temas como Strips y Descomposición Jerárquica, mientras que la planificación condicional se centra en la integración de planificación y ejecución.",
+        "reference_contexts": [
+            "1. Planificación\n2. 1.1. Análisis Medios-Fines\n3. 1.2. Strips\n2. Planificación Práctica\n5. 2.1. Planificación Práctica\n6. 2.2. Descomposición Jerárquica",
+            "8. 3.1. Planificación Condicional\n9. 3.2. Integración de Planificación y Ejecución"
+        ],
+        "question_type": "comparative",
+        "topic": "syllabus",
+        "difficulty": "hard",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Qué tipo de actividades se imparten en el curso de Sistemas de Planificación?",
+        "ground_truth": "",
+        "reference_contexts": [],
+        "question_type": "out_of_scope",
+        "topic": "schedule",
+        "difficulty": "medium",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Qué materiales adicionales se recomiendan para el curso?",
+        "ground_truth": "",
+        "reference_contexts": [],
+        "question_type": "ambiguous",
+        "topic": "bibliography_and_resources",
+        "difficulty": "hard",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Cuántos créditos ECTS tiene el curso Sistemas de Planificación?",
+        "ground_truth": "3",
+        "reference_contexts": [
+            "Créditos: 3 ECTS"
+        ],
+        "question_type": "factual",
+        "topic": "course_description",
+        "difficulty": "easy",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Cuáles son las competencias generales CG-5 y CG-6 del curso?",
+        "ground_truth": "CG-5 - Capacidad de gestión de la información, CG-6 - Capacidad de abstracción, análisis y síntesis",
+        "reference_contexts": [
+            "CG-5 - Capacidad de gestión de la información, CG-6 - Capacidad de abstracción, análisis y síntesis"
+        ],
+        "question_type": "factual",
+        "topic": "competencies_and_outcomes",
+        "difficulty": "medium",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "Describe el proceso para la evaluación continua del curso.",
+        "ground_truth": "Evaluación continua: Defensa de prácticas del Tema 1 (30%), Defensa de la Práctica del Tema 2 (30%), Defensa de la Práctica del Tema 3 (40%).",
+        "reference_contexts": [
+            "Evaluación continua: Defensa de prácticas del Tema 1 (30%), Defensa de la Práctica del Tema 2 (30%), Defensa de la Práctica del Tema 3 (40%)"
+        ],
+        "question_type": "procedural",
+        "topic": "evaluation_criteria",
+        "difficulty": "medium",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "Compara la evaluación continua con la evaluación sólo por prueba final.",
+        "ground_truth": "La evaluación continua se basa en tres defensas de prácticas (30%, 30% y 40%) mientras que la evaluación solo prueba final es un examen del 100%.",
+        "reference_contexts": [
+            "Evaluación continua: Defensa de prácticas del Tema 1 (30%), Defensa de la Práctica del Tema 2 (30%), Defensa de la Práctica del Tema 3 (40%). Evaluación sólo prueba final: Examen de Evaluación Prueba Final (100%)"
+        ],
+        "question_type": "comparative",
+        "topic": "evaluation_criteria",
+        "difficulty": "hard",
+        "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+        "question": "¿Cómo se realiza la evaluación práctica en un curso de matemáticas?",
+        "ground_truth": "",
+        "reference_contexts": [],
+        "question_type": "out_of_scope",
+        "topic": "",
+        "difficulty": "easy",
+        "source_document": "Sistemas de Planificación.pdf"
+    }
+]

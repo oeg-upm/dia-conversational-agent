@@ -33,8 +33,8 @@ print("Initializing FastAPI backend...")
 
 # LLM Local (Llama 3.2 LM Studio)
 llm = ChatOpenAI(
-    model="llama-3.2-3b-instruct",
-    base_url="http://host.docker.internal:1234/v1",
+    model="qwen2.5:32b", 
+    base_url="http://100.83.249.109:5000/v1",
     api_key="not_required",
     temperature=0.1
 )
@@ -303,6 +303,110 @@ async def chat_response(request: ChatRequest):
     })
     
     return {"response": response}
+
+
+@app.post("/qa_chat")
+async def chat_response(request: ChatRequest):
+    
+    if not request.message: 
+        raise HTTPException(status_code=400, detail="Empty message")
+    if not request.selected_files: 
+        return {"response": "Please select at least one file from the panel."}
+    
+    history_str = ""
+    for msg in request.chat_history:
+        role = "User" if msg["role"] == "user" else "Assistant"
+        history_str += f"{role}: {msg['content']}\n"
+    
+    if not history_str:
+        history_str = "No previous history. This is the first question."
+
+    print(f"\n--- Starting RAG-Fusion for: '{request.message}' ---")
+
+    # --- 1. Multi-Query Generation ---
+    mq_template = """
+        You are an AI assistant. Generate 5 different versions of the given 
+        user question to retrieve relevant documents from a vector database.
+
+        By generating multiple perspectives, help overcome limitations of 
+        distance-based similarity search.
+
+        Chat history:
+        {chat_history}
+
+        User question:
+        {question}
+
+        Output only the alternative questions, one per line.
+
+    """
+    
+    prompt_mq = PromptTemplate.from_template(mq_template)
+    mq_chain = prompt_mq | llm | StrOutputParser()
+    
+    generated_queries_str = mq_chain.invoke({
+        "question": request.message, 
+        "chat_history": ""
+    })
+
+    queries = [request.message] + [q.strip() for q in generated_queries_str.split('\n') if q.strip()]
+    print(f"Generated queries:\n{queries}")
+
+    # --- 2. Parallel recovery ---
+    retriever = vectorstore.as_retriever(
+        search_kwargs={"k": 3, "filter": {"source": {"$in": request.selected_files}}}
+    )
+    
+    all_retrieved_results = []
+    tasks = [retriever.ainvoke(q) for q in queries]
+    all_retrieved_results = await asyncio.gather(*tasks)
+
+    # --- 3. Reciprocal Rank Fusion (RRF) ---
+    fused_docs = reciprocal_rank_fusion(all_retrieved_results)
+    final_top_docs = [doc for doc, score in fused_docs[:6]]
+
+    print(f"Fusion completed. {len(final_top_docs)} unique chunks selected for the response.\n")
+
+    print(f"Final retrived chunks (after RRF):")
+    for i, doc in enumerate(final_top_docs):
+        print(f"  {i+1}. {doc.metadata.get('source', 'Unknown')} - Chunk {doc.metadata.get('chunk_index', 0)}")
+
+    # --- 4. Generation of response ---
+    template_qa = (
+        "You are a question-answering assistant.\n"
+        "Answer the user's question using ONLY the information provided in the context.\n"
+        "Rules:\n"
+        "- Do NOT use any external knowledge.\n"
+        "- If the answer is not explicitly stated in the context, say that you don't know.\n"
+        "- Do NOT guess or infer missing information.\n"
+        "- Be concise and precise.\n\n"
+        
+        "Chat History:\n"
+        "{chat_history}\n\n"
+        
+        "Context:\n"
+        "{context}\n\n"
+        
+        "Question:\n"
+        "{question}\n\n"
+        
+        "Answer:\n"
+    )
+    
+    prompt_qa = ChatPromptTemplate.from_template(template_qa)
+    qa_chain = prompt_qa | llm | StrOutputParser()
+    
+    context_text = "\n\n".join(doc.page_content for doc in final_top_docs)
+
+    contexts = [doc.page_content for doc in final_top_docs]
+
+    response = qa_chain.invoke({
+        "context": context_text,
+        "question": request.message,
+        "chat_history": history_str
+    })
+    
+    return {"response": response, "context": contexts}
 
 
 @app.get("/inspector")

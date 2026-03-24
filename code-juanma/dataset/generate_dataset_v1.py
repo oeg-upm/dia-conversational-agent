@@ -56,15 +56,15 @@ class QADataset(BaseModel):
 # Note: Extractor uses low temperature for facts, Generator uses higher temperature for creativity.
 
 llm_extractor = ChatOpenAI(
-    model="llama-3.2-3b-instruct",
-    base_url="http://localhost:1234/v1",
+    model="qwen2.5:32b",
+    base_url=f"http://100.127.116.95:5000/v1",
     api_key="not_required",
     temperature=0.1 
 )
 
 llm_generator = ChatOpenAI(
-    model="llama-3.2-3b-instruct",
-    base_url="http://localhost:1234/v1",
+    model="qwen2.5:32b",
+    base_url=f"http://100.127.116.95:5000/v1",
     api_key="not_required",
     temperature=0.7 
 )
@@ -154,7 +154,7 @@ if __name__ == "__main__":
     final_dataset = generate_questions(extracted_schema, num_questions=20)
     
     # D. Save results
-    output_file = "dataset.json"
+    output_file = "rag_dataset_v1.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(final_dataset.model_dump(), f, ensure_ascii=False, indent=4)
         
