@@ -3,7 +3,7 @@ import random
 import requests
 import chromadb
 import warnings
-from typing import List
+from typing import List, Literal
 from pydantic import BaseModel, Field, ConfigDict
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
@@ -21,7 +21,7 @@ BACKEND_URL = "http://localhost:8001"
 
 LLM_CONFIG = {
     "model": "qwen2.5:32b",
-    "base_url": "http://100.83.249.109:5000/v1",
+    "base_url": "http://100.74.82.26:5000/v1",
     "api_key": "not_required",
     "temperature": 0.7
 }
@@ -35,8 +35,16 @@ class QAPair(BaseModel):
     model_config = ConfigDict(extra='ignore')
     
     sample_id: str = Field(description="Consecutive ID.")
-    generation_method: str = Field(description="always 'llm_generated'")
-    language: str = Field(description="es (spanish), en (english), etc.")
+
+    generation_method: Literal["llm_generated"] = Field(
+        default="llm_generated", 
+        description="Method used for generation"
+    )
+
+    language: str = Field(
+        description="ISO language code (e.g., 'es', 'en', 'it')",
+        pattern=r"^[a-z]{2}$" 
+    )
     
     question: str = Field(description="Student query.")
     answer: str = Field(default="", description="Real RAG system response.")
@@ -48,33 +56,53 @@ class QAPair(BaseModel):
     source_document: str = Field(description="Filename of the source PDF.")
     chunk_id: str = Field(description="Unique identifier for the chunk.")
     
-    question_type: str = Field(description="factual, procedural, comparative, out_of_scope, ambiguous")
-    topic: str = Field(description="Thematic area, 'plan_de_estudios', 'matricula', 'tfm', 'profesorado', etc.")
-    difficulty: str = Field(description="easy, medium or hard")
+    question_type: str = Field(description="factual, procedural, comparative, out_of_scope or ambiguous")
+
+    topic: Literal["plan_de_estudios", "matricula", "tfm", "profesorado", "otros"] = Field(
+        description="Thematic area"
+    )
+
+    difficulty: Literal["easy", "medium", "hard"] = Field(
+        description="Difficulty based on synthesis and implicitness"
+    )
 
 # ==========================================
 # 3. UTILS & RAG API CALL
 # ==========================================
 
-def get_rag_response(question: str, source_file: str) -> str:
-    """Sends the question to the real RAG backend to get the answer."""
+def get_rag_response(question: str, chunk_metadata: dict) -> dict:
+    """Sends the question to the real RAG backend using the new hierarchical context."""
     try:
-        # We send the specific file as selected_files to ensure context
+        # Extract metadata for ContextItem
+        course = chunk_metadata.get("course", "Unknown")
+        degree = chunk_metadata.get("degree", "Unknown")
+        source = chunk_metadata.get("source", "Unknown")
+
+        # Build the payload
         payload = {
             "message": question,
-            "selected_files": [source_file] if source_file != "N/A" else []
+            "selected_context": [
+                {
+                    "course": course,
+                    "degree": degree,
+                    "source": source
+                }
+            ],
+            "chat_history": [] # Empty history for evaluation
         }
-        response = requests.post(f"{BACKEND_URL}/qa_chat", json=payload)
+
+        
+        response = requests.post(f"{BACKEND_URL}/chat?context=True", json=payload)
         response.raise_for_status()
         data = response.json()
-        response = data.get("response", "No response from RAG")
-        context = data.get("context", "No context returned")
-
-        return {"response": response, "context": context}
-
+        
+        return {
+            "response": data.get("response", "No response from RAG"),
+            "context": data.get("context", [])
+        }
 
     except Exception as e:
-        return f"RAG Error: {str(e)}"
+        return {"response": f"RAG Error: {str(e)}", "context": []}
 
 def get_db_chunks():
     """Fetches chunks from ChromaDB."""
@@ -103,6 +131,7 @@ def get_db_chunks():
 
 def generate_evaluation_dataset(n: int = 20):
     chunks = get_db_chunks()
+    print(f"---- Total chunks in DB: {len(chunks)}")
     if not chunks: return
     
     # Shuffle chunks to get a diverse sample if n < total
@@ -112,15 +141,25 @@ def generate_evaluation_dataset(n: int = 20):
     llm = ChatOpenAI(**LLM_CONFIG)
     
     prompt = ChatPromptTemplate.from_messages([
-        ("system", """You are an academic evaluator. Generate a QA pair in Spanish.
-        Taxonomy:
+        ("system", """You are an academic evaluator for RAG systems. Your task is to generate high-quality QA pairs in Spanish.
+
+        STRICT FORMAT RULES:
+        1. language: Use ONLY two-letter ISO codes (e.g., 'es', 'en').
+        2. generation_method: Always use 'llm_generated'.
+        3. topic: Categorize into: plan_de_estudios, matricula, tfm, profesorado, or otros.
+        4. difficulty: 
+           - 'easy': Answer is explicitly stated in a single sentence.
+           - 'medium': Requires consulting multiple parts of the text or minor paraphrasing.
+           - 'hard': Answer is implicit, requires synthesis of multiple sources, or the question is open-ended.
+
+        Taxonomy of question_type:
         - factual: Single-hop fact.
         - procedural: Step-by-step process.
-        - comparative: Synthesis of info.
+        - comparative: Synthesis of information.
         - out_of_scope: Plausible but missing from text.
         - ambiguous: Vague query.
         """),
-        ("human", "Context: {chunk_text}\nMetadata: {metadata}\nType: '{q_type}'")
+        ("human", "Context: {chunk_text}\nMetadata: {metadata}\nType requested: '{q_type}'")
     ])
 
     generator = prompt | llm.with_structured_output(QAPair)
@@ -161,7 +200,7 @@ def generate_evaluation_dataset(n: int = 20):
             
             # 5. Get RAG answer
             print(f"      > Fetching RAG response for: '{record.question[:50]}...'")
-            res = get_rag_response(record.question, record.source_document)
+            res = get_rag_response(record.question, chunk['metadata'])
             record.answer = res['response']
             record.contexts = res['context']
 
@@ -174,14 +213,9 @@ def generate_evaluation_dataset(n: int = 20):
 
 if __name__ == "__main__":
     # Generate 20 samples
-    data = generate_evaluation_dataset(20)
+    data = generate_evaluation_dataset(100)
     if data:
         output_file = "rag_dataset_v3.json"
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
         print(f"Done! Dataset saved to {output_file}")
-
-
-
-
-# Falta el contexto, son los retrived chunks

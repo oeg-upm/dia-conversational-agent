@@ -2,29 +2,46 @@ import gradio as gr
 import requests
 import os
 
-#API_URL = "http://127.0.0.1:8001"
+# API_URL = "http://127.0.0.1:8001"
 API_URL = "http://backend:8001"
+
+# Internal cache to store the hierarchy from the backend
+DB_CACHE = {"hierarchy": {}}
 
 # --- API communication functions ---
 
 def load_existing_files_ui():
-    """It runs when the page loads or when the refresh button is clicked.."""
-    print("Requesting files from the backend...")
+    """Initial load of the database hierarchy."""
+    global DB_CACHE
+    print("Requesting hierarchy from the backend...")
     try:
         response = requests.get(f"{API_URL}/files")
         response.raise_for_status()
-        files = response.json().get("files", [])
+        DB_CACHE["hierarchy"] = response.json().get("hierarchy", {})
         
-        print(f"Files received from backend: {files}")
+        # Get unique sorted courses
+        courses = sorted(list(DB_CACHE["hierarchy"].keys()))
+        print(f"Courses loaded: {courses}")
         
-        return gr.update(choices=files, value=files)
+        # Reset selectors
+        return gr.update(choices=courses, value=[]), gr.update(choices=[], value=[])
     except Exception as e:
-        print(f"Error loading files: {e}")
-        return gr.update(choices=[], value=[])
+        print(f"Error loading hierarchy: {e}")
+        return gr.update(choices=[], value=[]), gr.update(choices=[], value=[])
+
+def update_degree_dropdown(selected_courses):
+    """Updates the degree list based on selected course(s)."""
+    degrees = set()
+    for course in selected_courses:
+        if course in DB_CACHE["hierarchy"]:
+            degrees.update(DB_CACHE["hierarchy"][course].keys())
+    
+    return gr.update(choices=sorted(list(degrees)), value=[])
 
 def process_files_ui(files):
+    """Uploads new files to the backend."""
     if not files:
-        return gr.update(), "No files were uploaded."
+        return gr.update(), gr.update(), "No files were uploaded."
 
     print(f"Uploading {len(files)} files to the backend...")
     upload_data = [('files', (os.path.basename(f.name), open(f.name, 'rb'))) for f in files]
@@ -32,23 +49,39 @@ def process_files_ui(files):
     try:
         response = requests.post(f"{API_URL}/upload", files=upload_data)
         response.raise_for_status()
-        data = response.json()
         
-        choices = data.get("processed_files", [])
-        status = data.get("status_message", "")
-        
-        print(f"Upload completed. New list of files: {choices}")
-        
-        return gr.update(choices=choices, value=choices), status
+        # Refresh the whole UI after upload
+        return load_existing_files_ui() + ("Upload completed successfully.",)
     except Exception as e:
         print(f"Error uploading files: {e}")
-        return gr.update(), f"Error connecting to backend: {e}"
+        return gr.update(), gr.update(), f"Error connecting to backend: {e}"
 
-def chat_response_ui(message, history, selected_files):
-    if not message: return ""
-    if not selected_files: return "Please select at least one file from the left panel."
+def chat_response_ui(message, history, selected_courses, selected_degrees):
+    """Bridge between ChatInterface and RAG backend."""
+    if not message: 
+        return ""
+    if not selected_degrees: 
+        return "Please select at least one Course and Degree from the left panel."
 
-    payload = {"message": message, "selected_files": selected_files}
+    selected_context = []
+    
+    for course in selected_courses:
+        if course in DB_CACHE["hierarchy"]:
+            for degree in selected_degrees:
+                if degree in DB_CACHE["hierarchy"][course]:
+                    for display_name in DB_CACHE["hierarchy"][course][degree]:
+                        raw_filename = display_name.split("] ", 1)[-1]
+                        selected_context.append({
+                            "course": course,
+                            "degree": degree,
+                            "source": raw_filename
+                        })
+    
+    payload = {
+        "message": message, 
+        "selected_context": selected_context,
+        "chat_history": history
+    }
     
     try:
         response = requests.post(f"{API_URL}/chat", json=payload)
@@ -58,6 +91,7 @@ def chat_response_ui(message, history, selected_files):
         return f"Error connecting to backend: {e}"
 
 def visualize_extended_context_ui():
+    """Fetches the HTML visualization of the chunks used."""
     try:
         response = requests.get(f"{API_URL}/inspector")
         response.raise_for_status()
@@ -65,9 +99,10 @@ def visualize_extended_context_ui():
     except Exception as e:
         return f"<p>Error connecting to backend: {e}</p>"
 
+
 # --- Gradio interface ---
 
-with gr.Blocks(title="RAG") as demo:
+with gr.Blocks(title="RAG DIA") as demo:
     gr.Markdown("# RAG DIA")
     
     with gr.Row():
@@ -79,14 +114,23 @@ with gr.Blocks(title="RAG") as demo:
             
             gr.Markdown("### 2. Context active")
             btn_refresh_files = gr.Button("🔄 Refresh list of DB", variant="secondary", size="sm")
-            file_selector = gr.CheckboxGroup(label="Files available in the database", choices=[])
+            
+            course_selector = gr.CheckboxGroup(
+                label="Select Course(s)", 
+                choices=[]
+            )
+            
+            degree_selector = gr.CheckboxGroup(
+                label="Select Degree/Master", 
+                choices=[]
+            )
 
         with gr.Column(scale=3):
             with gr.Tabs():
                 with gr.TabItem("Chatbot"):
                     chatbot = gr.ChatInterface(
                         fn=chat_response_ui,
-                        additional_inputs=[file_selector],
+                        additional_inputs=[course_selector, degree_selector],
                         description="Ask questions. The system will search in the selected documents."
                     )
 
@@ -103,31 +147,37 @@ with gr.Blocks(title="RAG") as demo:
 
     # --- Events ---
     
-    # Event 1: automatically upload files when opening the page
+    # Load data on page load
     demo.load(
         fn=load_existing_files_ui,
         inputs=[],
-        outputs=[file_selector]
+        outputs=[course_selector, degree_selector]
     )
 
-    # Event 2: manual button to refresh the database list
+    # Manual refresh
     btn_refresh_files.click(
         fn=load_existing_files_ui,
         inputs=[],
-        outputs=[file_selector]
+        outputs=[course_selector, degree_selector]
     )
 
-    # Event 3: upload new files
+    # Cascaded update: When course changes, update degrees
+    course_selector.change(
+        fn=update_degree_dropdown,
+        inputs=[course_selector],
+        outputs=[degree_selector]
+    )
+
+    # Upload and refresh
     upload_btn.click(
         fn=process_files_ui,
         inputs=[file_upload],
-        outputs=[file_selector, status_msg]
+        outputs=[course_selector, degree_selector, status_msg]
     )
 
 if __name__ == "__main__":
     demo.launch(
-        theme=gr.themes.Soft(), 
         server_port=7860, 
-        server_name="0.0.0.0"
+        server_name="0.0.0.0",
+        theme=gr.themes.Soft()
     )
-
