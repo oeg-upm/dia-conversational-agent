@@ -20,8 +20,8 @@ COLLECTION_NAME = "rag_collection"
 BACKEND_URL = "http://localhost:8001"
 
 LLM_CONFIG = {
-    "model": "qwen2.5:32b",
-    "base_url": "http://100.74.82.26:5000/v1",
+    "model": "llama3.1:8b",
+    "base_url": "http://100.114.130.128:5000/v1",
     "api_key": "not_required",
     "temperature": 0.7
 }

@@ -16,10 +16,13 @@ Sistema RAG local. El sistema lee, procesa y fragmenta documentos de forma intel
 ## Contenido
 * **`backend.py`**: lógica de FastAPI y motor de búsqueda RAG-Fusion.
 * **`frontend.py`**: interfaz de usuario interactiva creada con Gradio.
+* **`process_documents.py`**: procesa los documentos y guarda los chunks en ChromaDB.
 * **`Dockerfile.backend`**: imagen del backend.
 * **`Dockerfile.frontend`**: imagen ligera para el despliegue de la interfaz web.
 * **`docker-compose.yml`**: orquestador de servicios, redes y volúmenes de datos.
 * **`requirements.txt`**: listado de dependencias y librerías necesarias del sistema.
+
+* **`data.zip`**: datos de ChromaDB procesados con el embedding *qwen3-embedding:8b* (no subido aún).
 
 ---
 
@@ -28,7 +31,7 @@ Sistema RAG local. El sistema lee, procesa y fragmenta documentos de forma intel
 Antes de ejecutar el proyecto, asegúrate de tener instalado:
 1. **Python 3.10+**
 2. **Docker** (para levantar los servicios).
-3. **LM Studio** corriendo un modelo local (ej. `llama-3.2-3b-instruct`) con el servidor local activado en `http://127.0.0.1:1234/v1`.
+3. **LM Studio** (si no se quiere usar el clúster) corriendo un modelo local (ej. `llama-3.2-3b-instruct`) con el servidor local activado en `http://127.0.0.1:1234/v1`.
 4. **Tailscale** e iniciado el clúster, si se quiere utilizar tanto el LLM como el modelo de embedding en remoto.
 
 
@@ -81,7 +84,7 @@ docker logs -f rag_frontend
 docker-compose down
 ```
 
-- Borrar la base de datos para empezar de cero:
+- Borrar la base de datos para empezar desde cero:
 ```bash
 docker-compose down -v
 ```

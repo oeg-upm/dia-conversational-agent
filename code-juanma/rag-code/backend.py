@@ -30,17 +30,18 @@ app = FastAPI(title="RAG DIA")
 # --- 1. Initialization ---
 print("Initializing FastAPI backend...")
 
-ollama_url = "http://100.74.82.26:5000" 
+ollama_url = "http://100.114.130.128:5000" 
 
 # LLM Local / Cluster
 llm = ChatOpenAI(
-    model="qwen2.5:32b", 
+    model="llama3.1:8b", 
     base_url=ollama_url + "/v1",
     api_key="not_required",
     temperature=0.1
 )
 
 # Embeddings (cluster)
+
 embeddings = OllamaEmbeddings(
     model="qwen3-embedding:8b",
     base_url=ollama_url
@@ -270,7 +271,7 @@ async def chat_response(request: ChatRequest, context: bool = False):
         for turn in SESSION_HISTORY:
             formatted_history += f"User: {turn['user']}\nAssistant: {turn['bot']}\n"
         
-        if not formatted_history:
+        if not formatted_history or context:
             formatted_history = "Beginning of the conversation."
 
 
@@ -345,7 +346,7 @@ async def chat_response(request: ChatRequest, context: bool = False):
             "1. NO EXTERNAL KNOWLEDGE: use only the provided fragments. If the context doesn't contain the answer, "
             "simply state that you don't know.\n"
             "2. CLARITY: be concise but clear. If the question is ambiguous, state that you don't understand and ask for clarification instead of guessing.\n"
-            "3. STRUCTURE: use bullet points or numbered lists for complex information (like evaluation criteria or syllabus).\n"
+            "3. STRUCTURE: use bullet points or numbered lists for complex information if it is needed (like evaluation criteria or syllabus).\n"
             "4. NO HALLUCINATIONS: do not invent dates, names of professors, or percentages if they are not explicitly in the context.\n"
             "5. LANGUAGE: respond in the same language as the user's question.\n\n"
             
