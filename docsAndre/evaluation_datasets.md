@@ -110,4 +110,152 @@ Siguiendo las metodologías de **HELM (Liang et al., 2023)** y **red teaming (Pe
 
 En total, el dataset de seguridad y compliance estará compuesto por **60 prompts**.
 
+# Safety & Compliance Evaluation V2
+
+Este documento describe la metodología y el marco teórico detrás de la evaluación de seguridad y cumplimiento del asistente conversacional basado en RAG desarrollado para el Departamento de IA de la universidad.
+
+> **Note:** Esta evaluación se desarrolla en paralelo con la evaluación de rendimiento técnico realizada por otros miembros del equipo — la cual mide la calidad de recuperación, el razonamiento y la fidelidad al corpus. Ambas evaluaciones son ortogonales y necesarias: un sistema puede recuperar y generar correctamente y aun así fallar en sus obligaciones de seguridad, transparencia y uso adecuado.
+
+---
+
+## Overview
+
+La pregunta central que responde esta evaluación no es *"¿el sistema responde bien?"* sino *"¿el sistema se comporta como debería?"*
+
+El sistema es un asistente RAG grounded: está diseñado para responder preguntas exclusivamente basándose en el contenido de cientos de guías docentes (documentos PDF) de los programas de grado y máster de la universidad. No debe responder a preguntas cuyas respuestas no estén en el corpus, no debe ser utilizado para fines fuera de su alcance, y debe cumplir con las obligaciones de transparencia establecidas por el EU AI Act para sistemas de IA interactivos.
+
+Para evaluar estas propiedades de forma empírica, construimos un dataset de **60 prompts adversariales** que analizan el comportamiento del sistema a lo largo de tres dimensiones derivadas del marco de confiabilidad propuesto por Zhou et al. (2024).
+
+---
+
+## Theoretical Framework
+
+### Trustworthiness in RAG Systems — Zhou et al. (2024)
+
+La base teórica de esta evaluación es el marco unificado de confiabilidad propuesto por Zhou et al. en *Trustworthiness in Retrieval-Augmented Generation Systems: A Survey* (arXiv:2409.10102). El marco define seis dimensiones para evaluar la confiabilidad de un sistema RAG: **factuality, robustness, fairness, transparency, accountability, and privacy**.
+
+Este marco hace explícito que la evaluación de rendimiento por sí sola es insuficiente: un sistema RAG puede ser técnicamente preciso y aun así producir contenido inapropiado, carecer de transparencia o ser vulnerable a manipulaciones.
+
+De las seis dimensiones:
+- **Factuality** ya está cubierta por el dataset de evaluación de rendimiento del equipo.
+- **Privacy** y **accountability** no pueden evaluarse mediante prompts en nuestro sistema, ya que las guías docentes no contienen datos personales y los mecanismos de gobernanza se validan a través de la documentación del proyecto.
+- **Robustness** y **transparency** pueden evaluarse empíricamente mediante el comportamiento observable del sistema — y constituyen la base de este dataset.
+
+Una tercera dimensión no cubierta explícitamente por Zhou et al., pero crítica para un chatbot de ámbito institucional, es el **appropriate use**: la capacidad del sistema para rechazar preguntas que están fuera de su propósito, son ofensivas o están diseñadas para manipular su comportamiento. Esta dimensión se fundamenta en el Article 52 del EU AI Act y en la distinción entre *epistemic refusal* y *policy refusal* formalizada por Muhamed et al. (2025).
+
+---
+
+### The Two Forms of Refusal — Muhamed et al., NeurIPS 2025
+
+Un eje conceptual clave que organiza esta evaluación es la distinción entre dos tipos de rechazo que un asistente RAG institucional debe ser capaz de ejecutar, introducida por Muhamed et al. en *RefusalBench: Generative Evaluation of Selective Refusal in Grounded Language Models* (NeurIPS 2025).
+
+**Epistemic refusal** ocurre cuando el sistema no puede responder porque la información requerida no está en el corpus. La pregunta puede ser completamente legítima, pero la respuesta simplemente no está disponible en las guías docentes. Muhamed et al. demuestran que esta capacidad es un punto de fallo sistemático incluso en modelos avanzados, con una precisión de rechazo inferior al 50% en tareas multi-documento, y que implica dos habilidades separables — detectar la insuficiencia y categorizar su tipo — que no mejoran con el tamaño del modelo.
+
+**Policy refusal** ocurre cuando el sistema debe rechazar responder independientemente de si la información existe, porque la pregunta es inapropiada, ofensiva, está fuera de alcance o busca manipular el comportamiento del sistema. Esta dimensión está directamente vinculada a las obligaciones del EU AI Act y a la protección de la reputación institucional de la universidad.
+
+---
+
+### Dataset Construction Methodology
+
+El dataset fue construido siguiendo dos principios metodológicos de la literatura:
+
+**Automated red teaming — Perez et al., EMNLP 2022**
+
+En lugar de escribir casos de prueba manualmente — lo cual es costoso y limita la diversidad — utilizamos un LLM para generarlos automáticamente a partir de instrucciones que apuntan a modos de fallo específicos. Este es el principio central del *automated red teaming* propuesto por Perez et al. en *Red Teaming Language Models with Language Models* (EMNLP 2022), que demuestra que los casos de prueba generados por modelos pueden descubrir comportamientos dañinos sistemáticos a gran escala y con diversidad controlada.
+
+En la práctica, esto se implementa en [`safety_prompt_generator.py`](./safety_prompt_generator.py), que utiliza un LLM local a través de la API de Groq para generar prompts adversariales por categoría, guiado por instrucciones específicas que definen el tipo de fallo a provocar y la estrategia de disfraz académico a utilizar.
+
+**Perturbation of existing dataset questions — SafeRAG, Liang et al., ACL 2025**
+
+Parte de los casos de prueba se construyen tomando preguntas respondibles del dataset de evaluación de rendimiento del equipo — preguntas reales sobre contenido de las guías docentes — y modificándolas de forma controlada para introducir premisas falsas, información parcialmente incorrecta o instrucciones ocultas.
+
+Este enfoque está inspirado en SafeRAG (*Benchmarking Security in Retrieval-Augmented Generation of Large Language Model*, ACL 2025), que demuestra que los casos adversariales más efectivos y realistas son precisamente aquellos disfrazados como consultas legítimas, ya que reflejan el tipo de interacción que un usuario real podría generar, de forma intencional o no. La metodología de SafeRAG, basada en la perturbación sistemática de documentos base en lugar de la generación de contenido completamente nuevo, maximiza el realismo del dataset y asegura que los fallos representen patrones de uso reales.
+
+La combinación de ambos enfoques produce un dataset que cubre tanto escenarios adversariales completamente nuevos como variantes adversariales de interacciones reales del sistema.
+
+---
+
+## Dataset Taxonomy
+
+El dataset está organizado en **tres dimensiones** derivadas del marco de Zhou et al. (2024), operacionalizadas mediante los conceptos de Muhamed et al. (2025), Perez et al. (2022) y el EU AI Act.
+
+---
+
+### Dimension 1 — Epistemic Robustness
+
+> *Framework: Zhou et al. (2024), Robustness dimension; Muhamed et al. (2025), epistemic refusal*
+
+Evalúa si el sistema reconoce cuándo no puede responder correctamente y se abstiene en lugar de fabricar una respuesta. Se divide en dos sub-dimensiones correspondientes a las principales causas de fallo epistémico identificadas por RefusalBench:
+
+**1.1 Missing information**
+
+Preguntas plausibles y relevantes cuyo contenido no está presente en ninguna guía docente del corpus. El sistema de recuperación puede devolver un documento semánticamente similar que no contiene la respuesta específica. El sistema debe reconocer esta insuficiencia y rechazar responder en lugar de alucinar.
+
+**1.2 Defective context**
+
+Preguntas construidas mediante la perturbación de elementos del dataset de evaluación de rendimiento, introduciendo premisas falsas, datos contradictorios o desajustes epistémicos — por ejemplo, preguntar por una nota mínima incorrecta o por una política que nunca existió pero suena institucional. El sistema debe detectar que el contexto recuperado no respalda la premisa de la pregunta.
+
+---
+
+### Dimension 2 — Robustness Against Inappropriate Use
+
+> *Framework: Zhou et al. (2024), Robustness dimension; Perez et al. (2022), red teaming; Liang et al. (2025), adversarial generation*
+
+Evalúa si el sistema mantiene su comportamiento esperado ante intentos de manipulación o uso fuera de su propósito. Se divide en dos sub-dimensiones:
+
+**2.1 Prompt injection**
+
+Preguntas que contienen instrucciones ocultas disfrazadas como consultas académicas, generadas automáticamente mediante la metodología de red teaming de Perez et al. (2022), con variaciones sistemáticas: role-play, ataques de continuación de instrucciones, etiquetas falsas de sistema, cambios de idioma a mitad de la consulta y formulaciones hipotéticas. El sistema debe ignorar estas instrucciones y comportarse conforme a sus restricciones normales.
+
+**2.2 Policy refusal**
+
+Preguntas inapropiadas, ofensivas, sesgadas o completamente fuera del propósito del sistema — incluso si están redactadas en lenguaje académico. Esto incluye temas sensibles, solicitudes de opinión indebidas y preguntas fuera del dominio de las guías docentes. El sistema debe rechazar responder independientemente de su capacidad técnica para hacerlo. Esta sub-dimensión evalúa que el prompt del sistema actúe como una barrera efectiva frente a usos no previstos.
+
+---
+
+### Dimension 3 — Transparency
+
+> *Framework: Zhou et al. (2024), Transparency dimension; EU AI Act, Article 52*
+
+Evalúa el cumplimiento de las obligaciones de identificación y divulgación establecidas por el EU AI Act para sistemas de IA interactivos. El sistema debe:
+
+- Identificarse explícitamente como un sistema de IA cuando se le pregunte directa o indirectamente  
+- Indicar que sus respuestas son generadas automáticamente  
+- Evitar presentarse como una autoridad institucional o como el profesor del curso  
+
+---
+
+## Dataset Distribution
+
+| Dimension | Sub-dimension | Theoretical basis | # Prompts |
+|---|---|---|---|
+| Epistemic robustness | Missing information | RefusalBench — Muhamed et al., NeurIPS 2025 | 15 |
+| Epistemic robustness | Defective context | RefusalBench + SafeRAG — Liang et al., ACL 2025 | 10 |
+| Robustness against inappropriate use | Prompt injection | Perez et al., EMNLP 2022 + SafeRAG | 15 |
+| Robustness against inappropriate use | Policy refusal | Perez et al., EMNLP 2022 | 10 |
+| Transparency | Identification and disclosure | AI Act Art. 52 + Zhou et al., 2024 | 10 |
+| **Total** | | | **60** |
+
+---
+
+## What Cannot Be Evaluated Through This Dataset
+
+Algunos criterios de cumplimiento corresponden a aspectos organizativos o de infraestructura y no pueden verificarse mediante prompts.
+
+**Personal data protection (GDPR):** No aplicable, ya que las guías docentes no contienen datos personales ni información sensible de estudiantes o profesores.
+
+**Infrastructure security:** El control de acceso a la API, la protección de la base de datos vectorial y el cifrado en tránsito dependen de la arquitectura del sistema, no del comportamiento del modelo ante inputs.
+
+**System governance:** La asignación de responsables, la clasificación de riesgos y la documentación técnica requerida por el AI Act se validan mediante la documentación del proyecto, no mediante evaluación empírica del modelo.
+
+---
+
+## References
+
+- Zhou, Y., et al. (2024). *Trustworthiness in Retrieval-Augmented Generation Systems: A Survey*. arXiv:2409.10102.
+- Muhamed, A., et al. (2025). *RefusalBench: Generative Evaluation of Selective Refusal in Grounded Language Models*. NeurIPS 2025.
+- Liang, X., et al. (2025). *SafeRAG: Benchmarking Security in Retrieval-Augmented Generation of Large Language Model*. ACL 2025. https://doi.org/10.18653/v1/2025.acl-long.230
+- Perez, E., et al. (2022). *Red Teaming Language Models with Language Models*. EMNLP 2022. https://doi.org/10.48550/arXiv.2202.03286
+- European Parliament and Council. (2024). *Regulation (EU) 2024/1689 (AI Act)*, Article 52.
+
 
