@@ -26,7 +26,7 @@ def upload_all_guides():
             if not os.path.isdir(item_path):
                 continue
 
-            # CASE A: It's a intermediate-level folder (Bachelor's / MMaster's as in 2020)
+            # CASE A: it's a intermediate-level folder (Bachelor's / MMaster's as in 2020)
             if item.lower() in ["grado", "máster", "master"]:
                 category_name = item
                 for degree_name in os.listdir(item_path):
@@ -34,7 +34,7 @@ def upload_all_guides():
                     if os.path.isdir(degree_path):
                         process_degree_folder(course_name, category_name, degree_name, degree_path)
 
-            # CASE B: It's directly the Bachelor's / Master's folder (as in 2021+)
+            # CASE B: it's directly the Bachelor's / Master's folder (as in 2021+)
             else:
                 degree_name = item 
                 # Detect the category based on folder name
@@ -53,8 +53,8 @@ def process_degree_folder(course, category, degree, path):
     if total_files == 0:
         return
 
-    print(f"\n📂 Sector: {course} > {category} > {degree}")
-    print(f"📦 Documents: {total_files}")
+    print(f"\n- Sector: {course} > {category} > {degree}")
+    print(f"* Documents: {total_files}")
 
     for index, pdf in enumerate(pdf_files, start=1):
         file_path = os.path.join(path, pdf)
@@ -77,14 +77,14 @@ def process_degree_folder(course, category, degree, path):
             if response.status_code == 200:
                 res_data = response.json()
                 if "already exist" in res_data.get("status_message", "").lower():
-                    print(f"  [{index}/{total_files}] ⏭️  Skipped (already exists): {pdf[:40]}...")
+                    print(f"  [{index}/{total_files}] -- Skipped (already exists): {pdf[:40]}...")
                 else:
-                    print(f"  [{index}/{total_files}] ✅ OK ({elapsed:.1f}s): {pdf[:40]}...")
+                    print(f"  [{index}/{total_files}] -- OK ({elapsed:.1f}s): {pdf[:40]}...")
             else:
-                print(f"  [{index}/{total_files}] ❌ Error {response.status_code}")
+                print(f"  [{index}/{total_files}] -- Error {response.status_code}")
                                 
         except Exception as e:
-            print(f"  [{index}/{total_files}] ⚠️ Error: {str(e)}")
+            print(f"  [{index}/{total_files}] -- Error: {str(e)}")
 
 if __name__ == "__main__":
     print("====================================================")
