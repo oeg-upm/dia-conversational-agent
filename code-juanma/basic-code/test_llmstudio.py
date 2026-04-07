@@ -1,9 +1,10 @@
+import httpx
 from langchain_openai import ChatOpenAI
 
 model = ChatOpenAI(
-    model="llama-3.2-3b-instruct",
-    base_url="http://127.0.0.1:1234/v1",
-    api_key="not_required",
+    model="qwen2.5:32b",
+    base_url=f"http://100.80.173.80:5000/v1",
+    api_key="sk-no-required"
 )
 
 messages = [
@@ -14,6 +15,9 @@ messages = [
     ("human", "Pepe is passionate about his master's in Artificial Intelligence."),
 ]
 
-aiMsg = model.invoke(messages)
-
-print(aiMsg.content)
+try:
+    aiMsg = model.invoke(messages)
+    print("\nRespuesta del modelo:")
+    print(aiMsg.content)
+except Exception as e:
+    print(f"Error: {e}")

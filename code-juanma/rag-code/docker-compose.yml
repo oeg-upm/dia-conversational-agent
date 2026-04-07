@@ -5,7 +5,10 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./data:/chroma/chroma
+      - ./data:/data
+    environment:
+      - IS_PERSISTENT=TRUE
+      - PERSIST_DIRECTORY=/data
     restart: always
 
   backend:

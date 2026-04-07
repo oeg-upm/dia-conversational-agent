@@ -16,12 +16,13 @@ Sistema RAG local. El sistema lee, procesa y fragmenta documentos de forma intel
 ## Contenido
 * **`backend.py`**: lógica de FastAPI y motor de búsqueda RAG-Fusion.
 * **`frontend.py`**: interfaz de usuario interactiva creada con Gradio.
-* **`Dockerfile.backend`**: imagen del backend con soporte para aceleración GPU (para el embedding).
-* **`Dockerfile.macos.backend`**: imagen del backend para macOS.
+* **`process_documents.py`**: procesa los documentos y guarda los chunks en ChromaDB.
+* **`Dockerfile.backend`**: imagen del backend.
 * **`Dockerfile.frontend`**: imagen ligera para el despliegue de la interfaz web.
 * **`docker-compose.yml`**: orquestador de servicios, redes y volúmenes de datos.
-* **`docker-compose.macos.yml`**: lo mismo pero para macOS.
 * **`requirements.txt`**: listado de dependencias y librerías necesarias del sistema.
+
+* **`data.zip`**: datos de ChromaDB procesados con el embedding *qwen3-embedding:8b* (no subido aún).
 
 ---
 
@@ -30,38 +31,28 @@ Sistema RAG local. El sistema lee, procesa y fragmenta documentos de forma intel
 Antes de ejecutar el proyecto, asegúrate de tener instalado:
 1. **Python 3.10+**
 2. **Docker** (para levantar los servicios).
-3. **LM Studio** corriendo un modelo local (ej. `llama-3.2-3b-instruct`) con el servidor local activado en `http://127.0.0.1:1234/v1`.
+3. **LM Studio** (si no se quiere usar el clúster) corriendo un modelo local (ej. `llama-3.2-3b-instruct`) con el servidor local activado en `http://127.0.0.1:1234/v1`.
+4. **Tailscale** e iniciado el clúster, si se quiere utilizar tanto el LLM como el modelo de embedding en remoto.
 
 
 ---
 
 ## Instalación y uso
 
-### 1.1 Levantar el sistema (Windows)
+### 1.1 Levantar el sistema
 Ejecuta el siguiente comando en el directorio ```/rag-code``` para construir las imágenes e iniciar los servicios en segundo plano (tarda unos 10min aprox):
 
 ```bash
 docker-compose up --build -d
 ```
 
-### 1.2 Levantar el sistema (macOS, no lo he probado porque tengo windows, debería ir)
-Para macOS, se eliminan las dependencias de NVIDIA/CUDA y se usa una imagen de Python pura, por lo que hay un archivo `dockerfile` diferente del backend y un `docker-compose.macos.yml`. Para levantarlo, ejecuta el siguiente comando en el directorio `/rag-code` para construir las imágenes e iniciar los servicios en segundo plano (tarda unos 10min aprox):
 
-```bash
-docker-compose -f docker-compose.macos.yml up --build -d
-```
-
-### 1.3 Volver a levantar el sistema
+### 1.2 Volver a levantar el sistema
 Una vez que se han construido las imágenes, se pueden volver a levantar con el mismo comando pero quitando el flag de `--build` para que no lo vuelva a construir desde 0 e inicie lo que ya tiene construido.
 
 - Windows:
 ```bash
 docker-compose up -d
-```
-
-- MacOS:
-```bash
-docker-compose -f docker-compose.macos.yml up -d
 ```
 
 
@@ -93,7 +84,7 @@ docker logs -f rag_frontend
 docker-compose down
 ```
 
-- Borrar la base de datos para empezar de cero:
+- Borrar la base de datos para empezar desde cero:
 ```bash
 docker-compose down -v
 ```

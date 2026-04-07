@@ -9,6 +9,7 @@ langchain-openai
 langchain-huggingface
 langchain-chroma
 langchain-community
+langchain-ollama
 sentence_transformers
 langchain-docling
 docling

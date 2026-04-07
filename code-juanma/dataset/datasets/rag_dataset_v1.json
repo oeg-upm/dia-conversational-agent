@@ -1,0 +1,124 @@
+{
+    "questions": [
+        {
+            "question": "¿Quién es el coordinador del curso Sistemas de Planificación y cuál es su despacho?",
+            "ground_truth": "El coordinador del curso Sistemas de Planificación es Vicente Martinez Orga, y su despacho está ubicado en el 2109.",
+            "question_type": "Factual",
+            "student_profile": "Formal tone"
+        },
+        {
+            "question": "¿En qué semestre se imparte el curso Sistemas de Planificación?",
+            "ground_truth": "El curso Sistemas de Planificación se imparte en el séptimo semestre.",
+            "question_type": "Factual",
+            "student_profile": "Informal tone"
+        },
+        {
+            "question": "¿Qué competencias específicas adquiriré al finalizar este curso?",
+            "ground_truth": "Al finalizar el curso Sistemas de Planificación, obtendrás las siguientes competencias: CG-5 Capacidad de gestión de la información y CG-6 Capacidad de abstracción, análisis y síntesis.",
+            "question_type": "Summarization",
+            "student_profile": "Senior"
+        },
+        {
+            "question": "¿Cuántos créditos tiene el curso Sistemas de Planificación y cuál es su característica?",
+            "ground_truth": "El curso Sistemas de Planificación tiene 3 ECTS y su característica es optativa.",
+            "question_type": "Factual",
+            "student_profile": "Freshman"
+        },
+        {
+            "question": "¿Qué requisitos se recomiendan antes de tomar el curso?",
+            "ground_truth": "Se recomienda haber tomado la asignatura Inteligencia Artificial como prerequisito.",
+            "question_type": "Factual",
+            "student_profile": "Formal tone"
+        },
+        {
+            "question": "¿Puedo asistir a las sesiones de tutorías y cuándo son?",
+            "ground_truth": "Las sesiones de tutorías se realizan los lunes de 11:00 a 13:00 y puedes asistir a ellas.",
+            "question_type": "Multi-hop Reasoning",
+            "student_profile": "Informal tone"
+        },
+        {
+            "question": "¿Cómo es la evaluación continua del curso?",
+            "ground_truth": "La evaluación continua se realiza mediante defensa de las prácticas correspondientes a los temas 1, 2 y 3.",
+            "question_type": "Summarization",
+            "student_profile": "Senior"
+        },
+        {
+            "question": "¿Cuáles son los resultados de aprendizaje esperados en este curso?",
+            "ground_truth": "Los resultados de aprendizaje incluyen la capacidad para diseñar las líneas maestras de un proyecto, experiencia en el desempeño profesional del ingeniero y aplicar técnicas para planificar.",
+            "question_type": "Summarization",
+            "student_profile": "Formal tone"
+        },
+        {
+            "question": "¿Cuál es la bibliografía básica para este curso?",
+            "ground_truth": "La bibliografía básica incluye el libro 'Inteligencia Artificial. Un enfoque Moderno.' como libro básico de consulta.",
+            "question_type": "Factual",
+            "student_profile": "Freshman"
+        },
+        {
+            "question": "¿Cómo me apunto a las sesiones de tutorías?",
+            "ground_truth": "La guía del curso no proporciona información sobre cómo inscribirse en las sesiones de tutorías.",
+            "question_type": "Unanswerable",
+            "student_profile": "Informal tone"
+        },
+        {
+            "question": "¿Cuándo se imparte el curso Sistemas de Planificación?",
+            "ground_truth": "El curso Sistemas de Planificación se imparte desde septiembre hasta enero.",
+            "question_type": "Factual",
+            "student_profile": "Senior"
+        },
+        {
+            "question": "¿Dónde puedo encontrar al profesor Vicente Martinez Orga si necesito ayuda?",
+            "ground_truth": "El despacho del profesor Vicente Martinez Orga es el 2109.",
+            "question_type": "Factual",
+            "student_profile": "Formal tone"
+        },
+        {
+            "question": "¿Cuál es la duración de un examen escrito en este curso?",
+            "ground_truth": "La duración del examen escrito es de 1 hora.",
+            "question_type": "Factual",
+            "student_profile": "Senior"
+        },
+        {
+            "question": "¿Qué tema se enseña primero en el curso?",
+            "ground_truth": "El primer tema que se enseña en el curso Sistemas de Planificación es la 'Planificación'.",
+            "question_type": "Factual",
+            "student_profile": "Freshman"
+        },
+        {
+            "question": "¿Cuánto tiempo dura una lección magistral?",
+            "ground_truth": "Una lección magistral dura 2 horas.",
+            "question_type": "Factual",
+            "student_profile": "Informal tone"
+        },
+        {
+            "question": "¿Puedo tomar este curso si estoy en segundo año de Ingeniería Informática?",
+            "ground_truth": "Este es un curso optativo para cuarto curso, por lo que no puedes tomarlo como estudiante del segundo año a menos que tengas permiso o créditos adicionales.",
+            "question_type": "Multi-hop Reasoning",
+            "student_profile": "Senior"
+        },
+        {
+            "question": "¿Cómo es la estructura de evaluación para este curso?",
+            "ground_truth": "La evaluación del curso incluye defensa de prácticas por temas y un examen final escrito.",
+            "question_type": "Summarization",
+            "student_profile": "Formal tone"
+        },
+        {
+            "question": "¿Por quién se imparte el curso y cuál es su rol?",
+            "ground_truth": "El curso Sistemas de Planificación lo coordina Vicente Martinez Orga y también es impartido por Miguel Garcia Remesal.",
+            "question_type": "Factual",
+            "student_profile": "Freshman"
+        },
+        {
+            "question": "¿Qué temas se tratan en el curso?",
+            "ground_truth": "Los temas del curso incluyen Planificación, Análisis Medios-Fines, Strips, Planificación Práctica, Descomposición Jerárquica, entre otros.",
+            "question_type": "Summarization",
+            "student_profile": "Informal tone"
+        },
+        {
+            "question": "¿Dónde se imparte el curso?",
+            "ground_truth": "El curso Sistemas de Planificación es impartido por la Escuela Técnica Superior de Ingenieros Informáticos.",
+            "question_type": "Factual",
+            "student_profile": "Senior"
+        }
+    ]
+}
