@@ -1,0 +1,164 @@
+{
+    "questions": [
+        {
+            "question": "¿Cuál es el número de créditos de Sistemas de Planificación?",
+            "ground_truth": "Sistemas de Planificación tiene 3 ECTS.",
+            "ground_truth_context": "No de créditos: 3 ECTS",
+            "question_type": "Factual",
+            "student_profile": "Alumno nuevo que busca información sobre la asignatura.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Quién es el coordinador/a de Sistemas de Planificación?",
+            "ground_truth": "Vicente Martinez Orga es el coordinador de Sistemas de Planificación.",
+            "ground_truth_context": "Vicente Martinez Orga (Coordinador/a)",
+            "question_type": "Factual",
+            "student_profile": "Alumno que busca contactar con el profesor.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Cuál es la competencia CG-6 asociada a Sistemas de Planificación?",
+            "ground_truth": "La competencia CG-6 en Sistemas de Planificación es la Capacidad de abstracción, análisis y síntesis.",
+            "ground_truth_context": "CG-6 - Capacidad de abstracción, análisis y síntesis",
+            "question_type": "Factual",
+            "student_profile": "Alumno que necesita conocer las competencias del curso.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Qué bibliografía se menciona para Sistemas de Planificación?",
+            "ground_truth": "La bibliografía de Sistemas de Planificación incluye 'Inteligencia Artificial. Un enfoque Moderno', 'Artificial Intelligenca' y 'Inteligencia Artificial. Una nueva síntesis'.",
+            "ground_truth_context": "'Inteligencia Artificial. Un enfoque Moderno., Tipo = Bibliografía, Observaciones = Libro básico de consulta.', 'Artificial Intelligenca, Tipo = Bibliografía, Observaciones = Libro introductorio en técnicas planificación.', 'Inteligencia Artificial. Una nueva síntesis, Tipo = Bibliografía, Observaciones = Libro de consulta'",
+            "question_type": "Summarization",
+            "student_profile": "Alumno buscando referencias para la asignatura.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Cuál es el programa de Sistemas de Planificación?",
+            "ground_truth": "El programa de Sistemas de Planificación incluye los temas: 1. Planificación, 2. Análisis Medios-Fines, 3. Strips, 4. Planificación Práctica, 5. Descomposición Jerárquica, 6. Planificación y Actuación, 7. Planificación Condicional, 8. Integración de Planificación y Ejecución.",
+            "ground_truth_context": "'1. Planificación\n2. Análisis Medios-Fines\n3. Strips\n4. Planificación Práctica\n5. Descomposición Jerárquica\n6. Planificación y Actuación\n7. Planificación Condicional\n8. Integración de Planificación y Ejecución'",
+            "question_type": "Summarization",
+            "student_profile": "Alumno que quiere revisar el programa.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Qué competencias específicas se desarrollan en Sistemas de Planificación?",
+            "ground_truth": "En Sistemas de Planificación, se desarrollan las competencias RA284 - Capacitación para diseñar las líneas maestras de un proyecto y RA515 - Aplicar técnicas para planificar.",
+            "ground_truth_context": "'RA284 - Capacitación para diseñar las líneas maestras de un proyecto. RA515 - Aplicar técnicas para planificar.'",
+            "question_type": "Summarization",
+            "student_profile": "Alumno que busca información sobre las competencias del curso.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Cómo se evalúa Sistemas de Planificación?",
+            "ground_truth": "La evaluación en Sistemas de Planificación incluye tres prácticas en grupo y un examen final, donde para aprobar cada práctica es necesario obtener al menos un 5 sobre 10.",
+            "ground_truth_context": "'Sistema de evaluación continua: a través de la realización de 3 prácticas en grupo que será defendida en el por los integrantes del mismo. Para superar la asignatura, será necesario obtener, al menos un 5 en cada una las prácticas (cada práctica será calificada sobre 10 puntos), obteniendose la nota final por la suma de las de las tres prácticas.\nEl examen de prueba final, versará sobre los contenidos impartidos en la asignatura y para ser superado en examen deberá obtener una nota de 5 o superior.'",
+            "question_type": "Summarization",
+            "student_profile": "Alumno que busca información sobre cómo se evalúa la asignatura.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿En qué semestre se imparte Sistemas de Planificación?",
+            "ground_truth": "Sistemas de Planificación se imparte en el séptimo semestre.",
+            "ground_truth_context": "Semestre: Séptimo semestre",
+            "question_type": "Factual",
+            "student_profile": "Alumno que busca información sobre cuándo se imparte la asignatura.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Cuál es el periodo de impartición de Sistemas de Planificación?",
+            "ground_truth": "Sistemas de Planificación se imparte del mes de septiembre al enero.",
+            "ground_truth_context": "Período de impartición: Septiembre-Enero",
+            "question_type": "Factual",
+            "student_profile": "Alumno que necesita saber cuándo comienza y termina la asignatura.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Cuál es el horario de tutorías del profesor Vicente Martínez Orga en Sistemas de Planificación?",
+            "ground_truth": "El horario de tutorías del profesor Vicente Martínez Orga para Sistemas de Planificación es Lunes de 11:00 a 13:00.",
+            "ground_truth_context": "Horario de tutorías * = L - 11:00 - 13:00",
+            "question_type": "Factual",
+            "student_profile": "Alumno que necesita una cita con el profesor.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Cuál es la descripción de Sistemas de Planificación?",
+            "ground_truth": "Sistemas de Planificación se enfoca en procesos de planificación para proyectos, incluyendo diferentes técnicas y aspectos que ayudan al desarrollo correcto del proyecto.",
+            "ground_truth_context": "'Todos los procesos para ser desarrollados precisan de un proceso de planificación, la capacidad de planificar correctamente un plan debe ser aprendida no es innata, por eso el conocimiento de diferentes técnicas de planificación ayudan al desarrollo correcto del proyecto bien construido y desarrollado.'",
+            "question_type": "Summarization",
+            "student_profile": "Alumno que busca una descripción general de la asignatura.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Qué competencias generales se desarrollan en Sistemas de Planificación?",
+            "ground_truth": "En Sistemas de Planificación, se desarrollan las competencias CG-5 - Capacidad de gestión de la información y CG-6 - Capacidad de abstracción, análisis y síntesis.",
+            "ground_truth_context": "'CG-5 - Capacidad de gestión de la información. CG-6 - Capacidad de abstracción, análisis y síntesis'",
+            "question_type": "Summarization",
+            "student_profile": "Alumno que busca conocer las competencias generales del curso.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Cuándo es el examen final en Sistemas de Planificación?",
+            "ground_truth": "El examen final en Sistemas de Planificación se realiza durante la 17 semana.",
+            "ground_truth_context": "'17 semana: Examen de Evaluación Prueba Final EX'",
+            "question_type": "Factual",
+            "student_profile": "Alumno que necesita saber cuándo es el examen final.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Cuál es la experiencia profesional asociada a Sistemas de Planificación?",
+            "ground_truth": "En Sistemas de Planificación, se desarrolla la competencia RA283 - Experiencia del desempeño profesional del ingeniero y de sus funciones más habituales en un entorno real de empresa.",
+            "ground_truth_context": "'RA283 - Experiencia del desempeño profesional del ingeniero y de sus funciones más habituales en un entorno real de empresa.'",
+            "question_type": "Summarization",
+            "student_profile": "Alumno que necesita información sobre la experiencia laboral relacionada con la asignatura.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Qué actividades se realizan durante las primeras semanas de Sistemas de Planificación?",
+            "ground_truth": "Durante las primeras semanas, en Sistemas de Planificación se realiza la explicación de contenidos del tema 1 y/o resolución de ejercicios.",
+            "ground_truth_context": "'Explicación de contenidos del tema 1 y/o resolución de ejercicios'",
+            "question_type": "Summarization",
+            "student_profile": "Alumno que busca información sobre las actividades iniciales de la asignatura.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Qué tipo de evaluación continua se realiza en Sistemas de Planificación?",
+            "ground_truth": "La evaluación continua en Sistemas de Planificación incluye tres prácticas en grupo, que deben ser defendidas por los integrantes del mismo.",
+            "ground_truth_context": "'Sistema de evaluación continua: a través de la realización de 3 prácticas en grupo'",
+            "question_type": "Summarization",
+            "student_profile": "Alumno interesado en el método de evaluación continua.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Qué competencia es RA515 en Sistemas de Planificación?",
+            "ground_truth": "RA515 en Sistemas de Planificación es Aplicar técnicas para planificar.",
+            "ground_truth_context": "'RA515 - Aplicar técnicas para planificar.'",
+            "question_type": "Factual",
+            "student_profile": "Alumno que necesita detalles sobre las competencias específicas.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Qué tema se estudia en Sistemas de Planificación durante las semanas 6-9?",
+            "ground_truth": "Durante las semanas 6-9 de Sistemas de Planificación, se explica el contenido del tema 2 y/o se realizan ejercicios relacionados.",
+            "ground_truth_context": "'Explicación de contenidos del tema 2 y/o resolución de ejercicios'",
+            "question_type": "Factual",
+            "student_profile": "Alumno que necesita saber qué temas se estudian en ciertas semanas.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Qué tipo de planificación se aborda en el último tema de Sistemas de Planificación?",
+            "ground_truth": "El último tema de Sistemas de Planificación trata sobre la Integración de Planificación y Ejecución.",
+            "ground_truth_context": "'8. Integración de Planificación y Ejecución'",
+            "question_type": "Factual",
+            "student_profile": "Alumno que busca información sobre el contenido del último tema.",
+            "source_document": "Sistemas de Planificación.pdf"
+        },
+        {
+            "question": "¿Qué tipo de habilidad se desarrolla con la competencia RA284 en Sistemas de Planificación?",
+            "ground_truth": "La competencia RA284 en Sistemas de Planificación desarrolla la capacidad para diseñar las líneas maestras de un proyecto.",
+            "ground_truth_context": "'RA284 - Capacitación para diseñar las líneas maestras de un proyecto.'",
+            "question_type": "Factual",
+            "student_profile": "Alumno que necesita entender qué habilidades se adquieren con esta competencia.",
+            "source_document": "Sistemas de Planificación.pdf"
+        }
+    ]
+}
