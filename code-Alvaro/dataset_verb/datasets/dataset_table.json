@@ -4,7 +4,7 @@
       "question": "¿Cuál es el peso en la nota y la nota mínima del test de preguntas múltiples del Tema 1 en Investigacion Operativa?",
       "ground_truth": "El test de preguntas múltiples del Tema 1, realizado en la semana 7, tiene un peso del 20% en la nota final y una nota mínima de 3 sobre 10.",
       "ground_truth_context": "Sem. 7, Realización de un test de preguntas múltiples del Tema 1, ET: Técnica del tipo Prueba Telemática, No Presencial, 02:00, 20%, 3/10",
-      "question_type": "Table",
+      "question_type": "Factual",
       "student_profile": "Alumno de primer año",
       "source_document": "Investigación Operativa.pdf"
     },
@@ -12,7 +12,7 @@
       "question": "¿Qué actividades de evaluación tienen lugar en la semana 12 de Investigacion Operativa y cuáles son sus pesos?",
       "ground_truth": "En la semana 12 hay dos actividades: el test de preguntas múltiples del Tema 2 con peso del 20% y nota mínima 3/10, y la entrega de la 1ª Práctica en Grupo también con peso del 20% sin nota mínima definida.",
       "ground_truth_context": "Sem. 12: Realización de un test de preguntas múltiples del Tema 2, 20%, 3/10. Realización y entrega de la 1ª Práctica en Grupo, TG: Técnica del tipo Trabajo en Grupo, No Presencial, 00:00, 20%, /10",
-      "question_type": "Table",
+      "question_type": "Summarization",
       "student_profile": "Alumno con dudas sobre evaluación",
       "source_document": "Investigación Operativa.pdf"
     },
@@ -20,7 +20,7 @@
       "question": "¿En qué semanas del cronograma de Investigacion Operativa se imparten lecciones magistrales del Tema 1?",
       "ground_truth": "Las lecciones magistrales del Tema 1 se imparten en las semanas 1, 2, 5 y 6, con duraciones de 04:00, 04:00, 02:00 y 02:00 horas respectivamente.",
       "ground_truth_context": "Sem 1: Explicación de contenidos del Tema 1, Duración: 04:00, LM. Sem 2: Explicación de contenidos del Tema 1, Duración: 04:00, LM. Sem 5: Explicación de contenidos del Tema 1, Duración: 02:00, LM. Sem 6: Explicación de contenidos del Tema 1, Duración: 02:00, LM.",
-      "question_type": "Table",
+      "question_type": "Summarization",
       "student_profile": "Alumno de último año",
       "source_document": "Investigación Operativa.pdf"
     },
@@ -28,7 +28,7 @@
       "question": "¿Qué competencias se evalúan en la 2ª Práctica en Grupo de Investigacion Operativa?",
       "ground_truth": "La 2ª Práctica en Grupo, entregada en la semana 16, evalúa las competencias CG-6 (abstracción, análisis y síntesis), CG-7:10/16/17 (trabajo en equipo), Ce 12/16 (campos de aplicación de la informática) y CG-1/21 (resolución de problemas).",
       "ground_truth_context": "Sem. 16, Realización y entrega de la 2ª Práctica en Grupo, TG, No Presencial, 00:00, 20%, /10, CG-6, CG-7:10/16/17, Ce 12/16, CG-1/21",
-      "question_type": "Table",
+      "question_type": "Factual",
       "student_profile": "Alumno con dudas sobre evaluación",
       "source_document": "Investigación Operativa.pdf"
     },
@@ -36,7 +36,7 @@
       "question": "¿Cuántas horas de trabajo presencial y no presencial debe dedicar un alumno por crédito ECTS en Investigacion Operativa?",
       "ground_truth": "Según el cronograma de Investigacion Operativa, por cada crédito ECTS el alumno debe dedicar entre 26 y 27 horas de trabajo presencial y no presencial.",
       "ground_truth_context": "Para el cálculo de los valores totales, se estima que por cada crédito ECTS el alumno dedicará dependiendo del plan de estudios, entre 26 y 27 horas de trabajo presencial y no presencial.",
-      "question_type": "Table",
+      "question_type": "Factual",
       "student_profile": "Alumno de primer año",
       "source_document": "Investigación Operativa.pdf"
     },
@@ -44,7 +44,7 @@
       "question": "¿Cuál es el peso y la duración del examen final en el sistema de evaluación sólo prueba final de Investigacion Operativa?",
       "ground_truth": "El examen final en el sistema de evaluación sólo prueba final se realiza en la semana 17, tiene una duración de 02:00 horas, un peso del 100% en la nota final y no tiene nota mínima definida.",
       "ground_truth_context": "Sem 17, Examen final, EX: Técnica del tipo Examen Escrito, Presencial, 02:00, 100%, /10, CG-1/21, CG-6, CG-7:10/16/17, Ce 12/16, Ce 19/20",
-      "question_type": "Table",
+      "question_type": "Factual",
       "student_profile": "Alumno con dudas sobre evaluación",
       "source_document": "Investigación Operativa.pdf"
     },
@@ -52,7 +52,7 @@
       "question": "¿Qué actividades presenciales y de tele-enseñanza están programadas en la semana 9 del cronograma de Investigacion Operativa?",
       "ground_truth": "En la semana 9 hay dos actividades de tele-enseñanza: una lección magistral de 02:00 horas sobre contenidos del Tema 2 y una clase de problemas de 02:00 horas para resolución de ejercicios prácticos del Tema 2. No hay actividades presenciales en aula ni en laboratorio.",
       "ground_truth_context": "Sem 9: Explicación de contenidos del Tema 2, Duración: 02:00, LM: Actividad del tipo Lección Magistral. Resolución de ejercicios prácticos del Tema 2, Duración: 02:00, PR: Actividad del tipo Clase de Problemas",
-      "question_type": "Table",
+      "question_type": "Summarization",
       "student_profile": "Alumno de primer año",
       "source_document": "Investigación Operativa.pdf"
     },
@@ -60,7 +60,7 @@
       "question": "¿Cuáles son todas las actividades de evaluación continua de Investigacion Operativa, en qué semanas se realizan y qué peso tiene cada una?",
       "ground_truth": "La evaluación continua de Investigacion Operativa consta de 5 actividades: test del Tema 1 en semana 7 (20%, mínimo 3/10), test del Tema 2 en semana 12 (20%, mínimo 3/10), 1ª Práctica en Grupo en semana 12 (20%, sin mínimo), test de Temas 3 y 4 en semana 16 (20%, mínimo 3/10) y 2ª Práctica en Grupo en semana 16 (20%, sin mínimo). El peso total suma 100%.",
       "ground_truth_context": "Sem 7: test Tema 1, 20%, 3/10. Sem 12: test Tema 2, 20%, 3/10. Sem 12: 1ª Práctica Grupo, 20%, /10. Sem 16: test Temas 3 y 4, 20%, 3/10. Sem 16: 2ª Práctica Grupo, 20%, /10",
-      "question_type": "Table",
+      "question_type": "Summarization",
       "student_profile": "Alumno con dudas sobre evaluación",
       "source_document": "Investigación Operativa.pdf"
     },
@@ -68,7 +68,7 @@
       "question": "¿Qué competencias se evalúan en el test de preguntas múltiples de los Temas 3 y 4 de Investigacion Operativa?",
       "ground_truth": "El test de preguntas múltiples de los Temas 3 y 4, realizado en la semana 16, evalúa las competencias CG-1/21 (resolución de problemas aplicando matemáticas), Ce 12/16 (campos de aplicación de la informática) y Ce 19/20 (comprensión de la complejidad de problemas informáticos).",
       "ground_truth_context": "Sem. 16, Realización de un test de preguntas múltiples de los Temas 3 y 4, ET: Técnica del tipo Prueba Telemática, No Presencial, 02:00, 20%, 3/10, CG-1/21, Ce 12/16, Ce 19/20",
-      "question_type": "Table",
+      "question_type": "Factual",
       "student_profile": "Alumno de último año",
       "source_document": "Investigación Operativa.pdf"
     },
@@ -76,7 +76,7 @@
       "question": "¿En qué semana del cronograma de Investigacion Operativa comienza el Tema 3 y qué tipo de actividad se realiza?",
       "ground_truth": "El Tema 3 comienza en la semana 12 con una clase de problemas de 02:00 horas para resolución de ejercicios prácticos. En las semanas 13 y 14 continúan las clases de problemas del Tema 3 con duraciones de 04:00 y 02:00 horas respectivamente.",
       "ground_truth_context": "Sem 12: Resolución de ejercicios prácticos del Tema 3, Duración: 02:00, PR: Actividad del tipo Clase de Problemas. Sem 13: Resolución de ejercicios prácticos del Tema 3, Duración: 04:00, PR. Sem 14: Resolución de ejercicios prácticos del Tema 3, Duración: 02:00, PR.",
-      "question_type": "Table",
+      "question_type": "Multi-hop Reasoning",
       "student_profile": "Alumno de primer año",
       "source_document": "Investigación Operativa.pdf"
     }
