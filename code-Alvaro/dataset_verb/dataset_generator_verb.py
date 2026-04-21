@@ -6,12 +6,16 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_docling import DoclingLoader
 from langchain_docling.loader import ExportType
+from pathlib import Path
 
 # ==========================================
 # 1. DATA STRUCTURES DEFINITION (PYDANTIC)
 # ==========================================
 
 class CourseGuideSchema(BaseModel):
+    course_name: str = Field(
+        description="Official name of the course/subject exactly as it appears in the guide (e.g., 'Sistemas de Planificación')."
+    )
     course_description: str = Field(
         description="Brief summary or general description of what the course is about and its main goal."
     )
@@ -43,8 +47,10 @@ class CourseGuideSchema(BaseModel):
 class QAPair(BaseModel):
     question: str = Field(description="The generated question simulating a student's query (in Spanish).")
     ground_truth: str = Field(description="The ideal, factual answer based strictly on the course guide (in Spanish).")
+    ground_truth_context: str = Field(description="The exact extract from the course guide that supports the ground_truth answer (in Spanish).")
     question_type: str = Field(description="Category: 'Factual', 'Summarization', 'Multi-hop Reasoning', or 'Unanswerable'.")
     student_profile: str = Field(description="Simulated profile: 'Freshman', 'Senior', 'Formal tone', 'Informal tone', etc.")
+    source_document: str = Field(default="", description="Filename of the source PDF.")
 
 class QADataset(BaseModel):
     questions: List[QAPair]
@@ -55,23 +61,24 @@ class QADataset(BaseModel):
 
 llm_extractor = ChatOpenAI(
     model="qwen2.5:32b",
-    base_url="http://100.115.179.39:5000/v1",
+    base_url="http://100.115.94.1:5000/v1",
     api_key="not_required",
     temperature=0.1
 )
 
 llm_verbalizer = ChatOpenAI(
     model="qwen2.5:32b",
-    base_url="http://100.115.179.39:5000/v1",
+    base_url="http://100.115.94.1:5000/v1",
     api_key="not_required",
     temperature=0.2
 )
 
 llm_generator = ChatOpenAI(
     model="qwen2.5:32b",
-    base_url="http://100.115.179.39:5000/v1",
+    base_url="http://100.115.94.1:5000/v1",
     api_key="not_required",
-    temperature=0.7
+    temperature=0.7,
+    max_tokens=8192
 )
 
 # ==========================================
@@ -297,48 +304,86 @@ El JSON debe tener exactamente estas claves:
     return CourseGuideSchema(**parsed)
 
 
-def generate_questions(schema: CourseGuideSchema, num_questions: int = 20) -> QADataset:
+def generate_questions(schema: CourseGuideSchema, course_name: str, num_questions: int = 20) -> QADataset:
     """Generates diverse Q&A pairs based on the extracted schema."""
     print(f"-> Generating a diverse dataset of {num_questions} questions...")
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", """Eres un simulador avanzado de estudiantes universitarios.
-Basándote en los datos del curso proporcionados, genera {num_questions} pares de pregunta y respuesta (Q&A).
 
-REQUISITO DE IDIOMA: Los campos 'question' y 'ground_truth' DEBEN generarse en español.
+    Genera {num_questions} pares de pregunta y respuesta basados en los datos de la asignatura "{course_name}".
 
-TAXONOMÍA (distribuye las preguntas entre estos tipos):
-1. Factual: Preguntas directas sobre hechos concretos (fechas, nombres, despachos).
-2. Summarization: Preguntas que piden explicar una sección completa (ej: cómo funciona la evaluación).
-3. Multi-hop Reasoning: Preguntas que requieren cruzar varios datos (ej: "Si trabajo por las mañanas, ¿puedo asistir a las tutorías?").
-4. Unanswerable: Preguntas plausibles cuya respuesta NO está en los datos. El ground_truth debe indicar explícitamente que la guía docente no proporciona esa información. MÁXIMO 3 de este tipo.
+    REQUISITO DE IDIOMA: Todo en español.
 
-DIVERSIDAD (perfiles de estudiante):
-Aplica diferentes estilos: 'Freshman' (confuso/perdido), 'Senior' (directo/técnico), 'Tono informal' (como un WhatsApp), 'Tono formal' (como un email al profesor).
+    REGLAS PARA LAS PREGUNTAS:
+    - Cada pregunta DEBE mencionar explícitamente el nombre de la asignatura "{course_name}".
+        Ejemplo correcto: "¿Cuál es la bibliografía básica de {course_name}?"
+        Ejemplo incorrecto: "¿Cuál es la bibliografía básica del curso?"
 
-IMPORTANTE: Responde ÚNICAMENTE con un objeto JSON válido con esta estructura, sin texto adicional:
-{{
-  "questions": [
-    {{
-      "question": "<pregunta en español>",
-      "ground_truth": "<respuesta ideal en español>",
-      "question_type": "<Factual|Summarization|Multi-hop Reasoning|Unanswerable>",
-      "student_profile": "<Freshman|Senior|Tono informal|Tono formal>"
-    }}
-  ]
-}}"""),
-        ("human", "DATOS DEL CURSO:\n{schema_json}\n\nResponde solo con el JSON:")
+    REGLAS PARA ground_truth (MUY IMPORTANTE):
+    - Debe ser una respuesta COMPLETA y AUTOCONTENIDA: alguien que solo lea el ground_truth debe entender la respuesta sin necesitar contexto adicional.
+    - Para preguntas Summarization y Multi-hop: incluye TODOS los elementos relevantes sin omitir ninguno.
+    - Debe ser CONCISA pero INFORMATIVA con los datos exactos (nombres, porcentajes, fechas, créditos).
+    - NUNCA uses frases vagas como "se puede encontrar en...", "el curso incluye...", "hay información sobre...".
+    - SIEMPRE incluye los datos concretos del schema.
+    
+
+        MAL ejemplo: "La bibliografía básica incluye varios libros relevantes para la asignatura."
+        BIEN ejemplo: "La bibliografía básica de {course_name} incluye 'Investigación Operativa: Modelos Determinísticos y Estocásticos' de Ríos Insua et al. (2004) y 'Métodos y Modelos de Investigación de Operaciones' de Kaufmann (1972)."
+
+        MAL ejemplo: "La evaluación continua tiene un peso significativo en la nota final."
+        BIEN ejemplo: "En {course_name}, la evaluación continua representa el 60% de la nota final, dividida en pruebas parciales (40%) y prácticas de laboratorio (20%). La nota mínima para aprobar es un 4.0."
+
+    REGLAS PARA ground_truth_context:
+    - SOLO palabras que aparecen literalmente en el schema proporcionado.
+    - NO reformular, NO añadir información.
+    - Debe poder encontrarse con CTRL+F en el texto original.
+
+
+    TAXONOMÍA:
+    1. Factual
+    2. Summarization
+    3. Multi-hop Reasoning
+    4. Unanswerable (máximo 3)
+
+    Para preguntas Unanswerable:
+    - ground_truth: explicación natural
+    - ground_truth_context: "No disponible en el documento"
+
+    FORMATO JSON:
+    {{{{
+    "questions": [
+        {{{{
+        "question": "...",
+        "ground_truth": "...",
+        "ground_truth_context": "...",
+        "question_type": "...",
+        "student_profile": "..."
+        }}}}
+    ]
+    }}}}"""),
+
+        ("human", "ASIGNATURA: {course_name}\n\nDATOS DEL CURSO:\n{schema_json}\n\nResponde solo con JSON:")
     ])
 
     schema_json = schema.model_dump_json(indent=2)
     chain = prompt | llm_generator
-    result = chain.invoke({"num_questions": num_questions, "schema_json": schema_json})
+    result = chain.invoke({
+        "num_questions": num_questions,
+        "schema_json": schema_json,
+        "course_name": course_name
+    })
     raw = result.content if hasattr(result, "content") else str(result)
 
     parsed = _parse_json_response(raw)
     return QADataset(**parsed)
 
 
+
+def clean_course_name(raw: str) -> str:
+    # Elimina patrones tipo "105000008 - " o "105000008: "
+    cleaned = re.sub(r"^\d+\s*[-:]\s*", "", raw.strip())
+    return cleaned
 # ==========================================
 # 6. MAIN EXECUTION
 # ==========================================
@@ -382,7 +427,14 @@ if __name__ == "__main__":
         print("\n Schema looks good, all fields populated.")
 
     # E. Generate Q&A dataset
-    final_dataset = generate_questions(extracted_schema, num_questions=NUM_QUESTIONS)
+    #course_name = extracted_schema.course_name  # limpio, sin parsear
+    course_name = clean_course_name(extracted_schema.course_name)
+    final_dataset = generate_questions(extracted_schema, course_name=course_name, num_questions=NUM_QUESTIONS)
+    
+    pdf_filename = Path(pdf_path).name  # extrae solo el nombre del archivo PDF
+
+    for pair in final_dataset.questions:
+        pair.source_document = pdf_filename
 
     # DEBUG: Print first 3 questions to check quality before saving
     print("\n--- SAMPLE QUESTIONS (first 3) ---")
@@ -392,7 +444,7 @@ if __name__ == "__main__":
         print(f"     A: {q.ground_truth[:200]}...")
 
     # F. Save results
-    output_file = "dataset_verbalized.json"
+    output_file = "dataset_verbalized_1.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(final_dataset.model_dump(), f, ensure_ascii=False, indent=4)
 
