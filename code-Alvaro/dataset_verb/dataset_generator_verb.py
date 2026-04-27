@@ -61,21 +61,21 @@ class QADataset(BaseModel):
 
 llm_extractor = ChatOpenAI(
     model="qwen2.5:32b",
-    base_url="http://100.115.94.1:5000/v1",
+    base_url="http://100.84.51.82:5000/v1",
     api_key="not_required",
     temperature=0.1
 )
 
 llm_verbalizer = ChatOpenAI(
     model="qwen2.5:32b",
-    base_url="http://100.115.94.1:5000/v1",
+    base_url="http://100.84.51.82:5000/v1",
     api_key="not_required",
     temperature=0.2
 )
 
 llm_generator = ChatOpenAI(
     model="qwen2.5:32b",
-    base_url="http://100.115.94.1:5000/v1",
+    base_url="http://100.84.51.82:5000/v1",
     api_key="not_required",
     temperature=0.7,
     max_tokens=8192
@@ -389,7 +389,7 @@ def clean_course_name(raw: str) -> str:
 # ==========================================
 
 if __name__ == "__main__":
-    pdf_path = "/home/alvaro/Escritorio/Guías aprendizaje/Curso 2020:2021/Grado/Grado en Ingeneiría Informática/Sistemas de Planificación.pdf"
+    pdf_path = "/home/alvaro/Escritorio/Guías aprendizaje/Curso 2020:2021/Grado/Grado en Ingeneiría Informática/"
     NUM_QUESTIONS = 20
 
     # A. Load PDF → structured Markdown via DoclingLoader
@@ -444,7 +444,7 @@ if __name__ == "__main__":
         print(f"     A: {q.ground_truth[:200]}...")
 
     # F. Save results
-    output_file = "dataset_verbalized_1.json"
+    output_file = "dataset_verbalized.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(final_dataset.model_dump(), f, ensure_ascii=False, indent=4)
 

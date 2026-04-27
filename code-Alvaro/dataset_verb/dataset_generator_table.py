@@ -100,6 +100,56 @@ def _parse_json_response(text: str) -> dict:
     raise ValueError(f"Could not extract valid JSON from LLM response:\n{text[:500]}")
 
 
+def extract_markdown_tables(markdown_text: str) -> List[dict]:
+    """
+    Detects all Markdown tables in the text and returns them with their
+    position and surrounding context (heading/caption lines just before
+    the table, used to give the verbalizer semantic context).
+    """
+    lines = markdown_text.split("\n")
+    tables = []
+    i = 0
+    while i < len(lines):
+        if "|" in lines[i] and i + 1 < len(lines) and re.match(r"[\|\s\-:]+", lines[i + 1]):
+            table_start = i
+            while i < len(lines) and "|" in lines[i]:
+                i += 1
+            table_end = i
+            context_start = max(0, table_start - 2)
+            context = "\n".join(lines[context_start:table_start])
+            tables.append({
+                "table": "\n".join(lines[table_start:table_end]),
+                "context": context,
+                "start": table_start,
+                "end": table_end
+            })
+        else:
+            i += 1
+    return tables
+
+
+def extract_tables_as_text(markdown_text: str) -> str:
+    """Extrae solo las tablas del markdown como texto para el generador."""
+    loader = DoclingLoader(
+        file_path=pdf_path,
+        export_type=ExportType.MARKDOWN
+    )
+    docs = loader.load()
+    markdown_text = "\n".join([doc.page_content for doc in docs])
+    
+    tables = extract_markdown_tables(markdown_text)
+    if not tables:
+        return ""
+    
+    tables_text = ""
+    for i, t in enumerate(tables):
+        tables_text += f"\n--- TABLA {i+1} ---\n"
+        tables_text += f"Contexto: {t['context']}\n"
+        tables_text += f"{t['table']}\n"
+    
+    return tables_text
+
+
 def extract_schema(guide_text: str) -> CourseGuideSchema:
     """Extracts structured facts from the Markdown text."""
     print("-> Extracting schema from the course guide...")
@@ -204,6 +254,64 @@ def generate_questions(schema: CourseGuideSchema, course_name: str, num_question
     parsed = _parse_json_response(raw)
     return QADataset(**parsed)
 
+
+def generate_table_questions(tables_text: str, course_name: str, num_questions: int = 15) -> QADataset:
+    print(f"-> Generating {num_questions} table-specific questions...")
+
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", """Eres un simulador avanzado de estudiantes universitarios.
+
+Genera {num_questions} pares de pregunta y respuesta basados EXCLUSIVAMENTE en las tablas de la asignatura "{course_name}".
+
+REQUISITO DE IDIOMA: Todo en español.
+
+REGLAS PARA LAS PREGUNTAS:
+- Cada pregunta DEBE mencionar explícitamente "{course_name}".
+- Las preguntas deben requerir leer una tabla para ser respondidas.
+- Ejemplos de buenas preguntas sobre tablas:
+  "¿En qué semana se realiza el test del Tema 1 en {course_name}?"
+  "¿Qué peso tiene la primera práctica en grupo en {course_name}?"
+  "¿Cuál es la nota mínima para aprobar el test de {course_name}?"
+
+REGLAS PARA ground_truth:
+- Debe ser COMPLETO y AUTOCONTENIDO con todos los datos de la tabla.
+- Incluye SIEMPRE los valores numéricos exactos: semanas, porcentajes, notas mínimas.
+- NUNCA omitas datos con "entre otros" o "etc."
+
+REGLAS PARA ground_truth_context:
+- Copia literalmente las celdas relevantes de la tabla original.
+- Mantén la correspondencia fila-columna exacta.
+
+TAXONOMÍA (solo estas):
+1. Factual — dato concreto de una celda
+2. Summarization — resumen de toda una tabla
+3. Multi-hop Reasoning — combina datos de varias filas o tablas
+
+FORMATO JSON:
+{{{{
+"questions": [
+    {{{{
+    "question": "...",
+    "ground_truth": "...",
+    "ground_truth_context": "...",
+    "question_type": "...",
+    "student_profile": "..."
+    }}}}
+]
+}}}}"""),
+        ("human", "ASIGNATURA: {course_name}\n\nTABLAS DEL DOCUMENTO:\n{tables_text}\n\nResponde solo con JSON:")
+    ])
+
+    chain = prompt | llm_generator
+    result = chain.invoke({
+        "num_questions": num_questions,
+        "course_name": course_name,
+        "tables_text": tables_text
+    })
+    raw = result.content if hasattr(result, "content") else str(result)
+    parsed = _parse_json_response(raw)
+    return QADataset(**parsed)
+
 def clean_course_name(raw: str) -> str:
     # Elimina patrones tipo "105000008 - " o "105000008: "
     cleaned = re.sub(r"^\d+\s*[-:]\s*", "", raw.strip())
@@ -217,41 +325,37 @@ if __name__ == "__main__":
     pdf_path = "/home/alvaro/Escritorio/Guías aprendizaje/Curso 2020:2021/Grado/Grado en Ingeneiría Informática/"
     NUM_QUESTIONS = 20
 
-    # A. Load PDF and export to Markdown via DoclingLoader (no verbalization)
-    print(f"-> Loading PDF: {pdf_path}")
-    try:
-        loader = DoclingLoader(
-            file_path=pdf_path,
-            export_type=ExportType.DOC_CHUNKS,  # Exporta como chunks de texto (puede ajustar según el formato del PDF)
-        )
-        docs = loader.load()
-        full_text = "\n".join([doc.page_content for doc in docs])
-    except Exception as e:
-        print(f"Error loading PDF: {e}")
-        full_text = ""
+    # A. Cargar en DOC_CHUNKS para el schema general
+    loader_chunks = DoclingLoader(file_path=pdf_path, export_type=ExportType.DOC_CHUNKS)
+    docs = loader_chunks.load()
+    full_text = "\n".join([doc.page_content for doc in docs])
 
+    # B. Cargar en MARKDOWN para extraer tablas
+    loader_md = DoclingLoader(file_path=pdf_path, export_type=ExportType.MARKDOWN)
+    docs_md = loader_md.load()
+    markdown_text = "\n".join([doc.page_content for doc in docs_md])
 
-        
-    print(f"\n--- MARKDOWN TEXT (first 1000 chars) ---")
-    print(full_text[:1000])
+    # C. Extraer tablas
+    tables_text = extract_tables_as_text(markdown_text)
+    print(f"\n--- TABLAS ENCONTRADAS ---\n{tables_text[:1000]}")
 
-    # B. Extract schema
-    extracted_schema = extract_schema(full_text)
-    print("\n--- EXTRACTED SCHEMA ---")
-    print(extracted_schema.model_dump_json(indent=2))
+    if not tables_text:
+        print("⚠️ No se encontraron tablas en el documento.")
+    else:
+        # D. Extraer schema para el course_name
+        extracted_schema = extract_schema(full_text)
+        course_name = clean_course_name(extracted_schema.course_name)
 
-    # C. Generate Q&A dataset
-    course_name = clean_course_name(extracted_schema.course_name)
-    final_dataset = generate_questions(extracted_schema, course_name=course_name, num_questions=NUM_QUESTIONS)
-    
-    pdf_filename = Path(pdf_path).name  # extrae solo el nombre del archivo PDF
+        # E. Generar preguntas exclusivamente sobre tablas
+        final_dataset = generate_table_questions(tables_text, course_name=course_name, num_questions=NUM_QUESTIONS)
 
-    for pair in final_dataset.questions:
-        pair.source_document = pdf_filename
+        pdf_filename = Path(pdf_path).name
+        for pair in final_dataset.questions:
+            pair.source_document = pdf_filename
 
-    # D. Save results
-    output_file = "dataset_baseline_7.json"
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(final_dataset.model_dump(), f, ensure_ascii=False, indent=4)
+        # F. Guardar
+        output_file = "dataset_tables.json"
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(final_dataset.model_dump(), f, ensure_ascii=False, indent=4)
 
-    print(f"\n Done! Generated {len(final_dataset.questions)} questions → '{output_file}'")
+        print(f"\nDone! Generated {len(final_dataset.questions)} table questions → '{output_file}'")
