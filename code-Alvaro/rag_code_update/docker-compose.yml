@@ -1,0 +1,41 @@
+services:
+  chromadb:
+    image: chromadb/chroma
+    container_name: rag_dia_chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+    environment:
+      - IS_PERSISTENT=TRUE
+      - PERSIST_DIRECTORY=/data
+    restart: always
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: rag_dia_backend
+    ports:
+      - "9000:9000"
+    environment:
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - chromadb
+    restart: always
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: rag_dia_frontend
+    ports:
+      - "7860:7860"
+    depends_on:
+      - backend
+    environment:
+      - API_URL=http://backend:9000
+    restart: always
