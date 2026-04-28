@@ -75,7 +75,7 @@ def run_evaluation(dataset_path: str, label: str):
     with open(dataset_path, encoding="utf-8") as f:
         questions = json.load(f)["questions"]
 
-    questions = questions[:20]  # Para pruebas rápidas, luego quitar este límite
+    #questions = questions[:20]  # Para pruebas rápidas, luego quitar este límite
     
     print(f"\n[{label}] Running {len(questions)} queries...")
     results = []
@@ -90,7 +90,7 @@ def run_evaluation(dataset_path: str, label: str):
         source = q.get("source_document", "")
         retriever = vectorstore.as_retriever(
             search_kwargs={
-                "k": 8,
+                "k": 5,
                 "filter": {"source": source} if source else {}
             }
         )
@@ -147,7 +147,7 @@ def run_evaluation(dataset_path: str, label: str):
 
 # Experimento único: evaluar con preguntas generadas con verbalizado
 # contra RAG indexado con documento verbalizado
-scores_verbalized = run_evaluation("dataset_table_InvOp.json", "Verbalized dataset")
+scores_verbalized = run_evaluation("dataset_tables.json", "Verbalized dataset")
 
 print("\nRaw scores verbalized:", scores_verbalized)
 

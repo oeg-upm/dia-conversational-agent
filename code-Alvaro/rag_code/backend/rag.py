@@ -28,14 +28,14 @@ class BasicRAG:
 
         self.llm = ChatOpenAI(
             model="qwen2.5:32b",
-            base_url="http://100.95.43.27:5000/v1",
+            base_url="http://100.97.20.71:5000/v1",
             api_key="not_required",
             temperature=0.1
         )
 
         self.embeddings = OllamaEmbeddings(
         model="qwen3-embedding:8b",
-        base_url="http://100.95.43.27:5000"
+        base_url="http://100.97.20.71:5000"
         )
         
 
@@ -51,8 +51,8 @@ class BasicRAG:
         )
 
         self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=400,
-            chunk_overlap=50
+            chunk_size=200,
+            chunk_overlap=200
         )
 
     def add_documents_from_files(self, file_paths: List[str]):

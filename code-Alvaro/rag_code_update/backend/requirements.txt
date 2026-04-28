@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+python-multipart
+easyocr
+chromadb
+langchain
+langchain-openai
+langchain-ollama
+langchain-chroma
+langchain-community
+langchain-docling
+langchain-huggingface
+docling
+docling-core
+pydantic
+requests
