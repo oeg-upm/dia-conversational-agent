@@ -11,6 +11,15 @@ from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from langchain_docling import DoclingLoader
+from langchain_docling.loader import ExportType
+from langchain_ollama import OllamaEmbeddings
+from langchain_community.vectorstores.utils import filter_complex_metadata
+from docling.document_converter import DocumentConverter, PdfFormatOption
+from docling.datamodel.pipeline_options import PdfPipelineOptions, EasyOcrOptions
+from docling.datamodel.base_models import InputFormat
+from docling_core.transforms.chunker.hybrid_chunker import HybridChunker
+from langchain_community.vectorstores.utils import filter_complex_metadata
 
 
 class BasicRAG:
@@ -18,14 +27,15 @@ class BasicRAG:
     def __init__(self):
 
         self.llm = ChatOpenAI(
-            model="llama-3.2-3b-instruct",
-            base_url="http://127.0.0.1:1234/v1",
+            model="qwen2.5:32b",
+            base_url="http://100.95.43.27:5000/v1",
             api_key="not_required",
             temperature=0.1
         )
 
-        self.embeddings = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+        self.embeddings = OllamaEmbeddings(
+        model="qwen3-embedding:8b",
+        base_url="http://100.95.43.27:5000"
         )
         
 
@@ -41,39 +51,68 @@ class BasicRAG:
         )
 
         self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,
-            chunk_overlap=200
+            chunk_size=400,
+            chunk_overlap=50
         )
 
     def add_documents_from_files(self, file_paths: List[str]):
-
         new_docs = []
 
         for file_path in file_paths:
             filename = os.path.basename(file_path)
 
-            if filename.endswith(".pdf"):
-                loader = PyPDFLoader(file_path)
-            elif filename.endswith(".txt"):
-                loader = TextLoader(file_path, encoding="utf-8")
-            else:
+            if not filename.endswith(".pdf"):
                 continue
 
-            raw_docs = loader.load()
-            splits = self.text_splitter.split_documents(raw_docs)
+            try:
+                pipeline_options = PdfPipelineOptions()
+                pipeline_options.do_ocr = True
+                pipeline_options.ocr_options = EasyOcrOptions()
 
-            for i, doc in enumerate(splits):
-                doc.metadata["source"] = filename
-                doc.metadata["chunk_index"] = i
+                doc_converter = DocumentConverter(
+                    format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)}
+                )
 
-            new_docs.extend(splits)
+                custom_chunker = HybridChunker(
+                    tokenizer="Qwen/Qwen2-0.5B",
+                    max_tokens=400,
+                    overlap_tokens=50,
+                    merge_peers=True
+                )
+
+                loader = DoclingLoader(
+                    file_path=file_path,
+                    export_type=ExportType.DOC_CHUNKS,
+                    chunker=custom_chunker,
+                    converter=doc_converter
+                )
+
+                splits = loader.load()
+
+                for i, doc in enumerate(splits):
+                    doc.metadata = {
+                        "source": filename,
+                        "chunk_index": i
+                    }
+
+                new_docs.extend(splits)
+
+            except Exception as e:
+                print(f"Error processing {filename}: {e}")
 
         if new_docs:
-            self.vectorstore.add_documents(new_docs)
-            return f"Added {len(new_docs)} chunks."
+            cleaned_docs = filter_complex_metadata(new_docs)
+            doc_ids = [
+                f"{doc.metadata['source']}_ch_{doc.metadata['chunk_index']}"
+                for doc in cleaned_docs
+            ]
+            self.vectorstore.add_documents(documents=cleaned_docs, ids=doc_ids)
+            return f"Added {len(cleaned_docs)} chunks."
 
         return "No valid documents added."
-
+    
+    
+    
     def query(self, question: str, selected_files: List[str]):
 
         #lo blindeamos por seguridad
@@ -92,15 +131,19 @@ class BasicRAG:
             return "No relevant context found."
 
         template = """
-        Use ONLY the provided context to answer.
-        If the answer is not in the context, say you don't know.
+        Eres un asistente académico universitario. Responde usando el contexto proporcionado.
+        Si la información está presente aunque sea parcialmente, extráela y respóndela.
+        Solo di "No lo sé" si la información es completamente inexistente en el contexto.
 
-        Context:
-        {context}
+        REGLAS:
+        - Responde en español
+        - Responde de forma directa y concisa
+        - Incluye siempre los datos específicos: nombres, porcentajes, fechas, créditos
+        - No uses listas ni bullets
 
-        Question:
-        {question}
-        """
+        Contexto: {context}
+        Pregunta: {question}
+        Respuesta:"""
 
         prompt = ChatPromptTemplate.from_template(template)
         chain = prompt | self.llm | StrOutputParser()

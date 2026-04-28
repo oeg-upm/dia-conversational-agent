@@ -1,0 +1,164 @@
+{
+    "questions": [
+        {
+            "question": "¿Cuál es la descripción de Probabilidades y Estadistica II?",
+            "ground_truth": "La asignatura se centra en la inferencia estadística, incluyendo técnicas de estimación puntual e intervalos, ajuste de modelos a datos, regresión lineal simple y contrastes de hipótesis.",
+            "ground_truth_context": "La asignatura se centra en la inferencia estadística, incluyendo técnicas de estimación puntual e intervalos, ajuste de modelos a datos, regresión lineal simple y contrastes de hipótesis.",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Cuál es la información general de Probabilidades y Estadistica II?",
+            "ground_truth": "Nombre: Probabilidades y Estadistica II, Créditos (ECTS): 3, Semestre: Segundo semestre, Curso académico: 2020/21, Tipo de asignatura: Obligatoria, Año académico: Segundo curso, Lenguaje: Castellano",
+            "ground_truth_context": "Nombre: Probabilidades y Estadistica II, Créditos (ECTS): 3, Semestre: Segundo semestre, Curso académico: 2020/21, Tipo de asignatura: Obligatoria, Año académico: Segundo curso, Lenguaje: Castellano",
+            "question_type": "Summarization",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Quiénes son los profesores que imparten Probabilidades y Estadistica II?",
+            "ground_truth": "Alfonso Mateos Caballero (Coordinador/a), alfonso.mateos@upm.es; Antonio Jimenez Martin, despacho 2110, antonio.jimenez@upm.es; Juan Antonio Fdez Del Pozo De Salamanca, despacho 2101, juan.fdezpozo.salamanca@upm.es; Mariano Rico Almodovar, mariano.rico@upm.es",
+            "ground_truth_context": "Alfonso Mateos Caballero (Coordinador/a), alfonso.mateos@upm.es; Antonio Jimenez Martin, despacho 2110, antonio.jimenez@upm.es; Juan Antonio Fdez Del Pozo De Salamanca, despacho 2101, juan.fdezpozo.salamanca@upm.es; Mariano Rico Almodovar, mariano.rico@upm.es",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Qué competencias y resultados de aprendizaje se obtienen en Probabilidades y Estadistica II?",
+            "ground_truth": "Competencias: Ce 43 - Capacidad de realizar búsquedas bibliográficas y utilizar bases de datos, Ce 5 - Diseño e interpretación de experimentos. Resultados del aprendizaje: RA230 - Manejo de técnicas básicas de inferencia estadística; RA229 - Ajuste de modelos a un conjunto de datos.",
+            "ground_truth_context": "Competencias: Ce 43 - Capacidad de realizar búsquedas bibliográficas y utilizar bases de datos, Ce 5 - Diseño e interpretación de experimentos. Resultados del aprendizaje: RA230 - Manejo de técnicas básicas de inferencia estadística; RA229 - Ajuste de modelos a un conjunto de datos.",
+            "question_type": "Summarization",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Cuál es el programa de Probabilidades y Estadistica II?",
+            "ground_truth": "1. Estimación (Introducción, Puntual, Por intervalos, Bayesiana). 2. Contrastes de hipótesis (Paramétricos, No paramétricos). 3. Regresión lineal simple.",
+            "ground_truth_context": "1. Estimación (Introducción, Puntual, Por intervalos, Bayesiana). 2. Contrastes de hipótesis (Paramétricos, No paramétricos). 3. Regresión lineal simple.",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Cuál es el horario de Probabilidades y Estadistica II?",
+            "ground_truth": "Semana 1: Lección Magistral y Clase de Problemas sobre Tema 1; Semanas posteriores siguen un patrón similar con explicaciones teóricas y resolución de ejercicios para cada tema, incluyendo laboratorio en algunas semanas.",
+            "ground_truth_context": "Semana 1: Lección Magistral y Clase de Problemas sobre Tema 1; Semanas posteriores siguen un patrón similar con explicaciones teóricas y resolución de ejercicios para cada tema, incluyendo laboratorio en algunas semanas.",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Cuál es la forma de evaluación de Probabilidades y Estadistica II?",
+            "ground_truth": "Evaluación continua: Examen Unidad 1 (50%, nota mínima 3), Examen Unidades 2-3 (50%, nota mínima 3) y entrega del informe de prácticas (APTA requerido). Evaluación sólo prueba final: Examen Escrito (100%).",
+            "ground_truth_context": "Evaluación continua: Examen Unidad 1 (50%, nota mínima 3), Examen Unidades 2-3 (50%, nota mínima 3) y entrega del informe de prácticas (APTA requerido). Evaluación sólo prueba final: Examen Escrito (100%).",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Cuál es la bibliografía y recursos recomendados para Probabilidades y Estadistica II?",
+            "ground_truth": "Libros recomendados incluyen 'Fundamentos de Estadística' por Peña, D., 'A Modern Introduction to Probability and Statistics' por Dekking et al., 'An Introduction to Statistical Learning with Applications in R' por James et al., y otros.",
+            "ground_truth_context": "Libros recomendados incluyen 'Fundamentos de Estadística' por Peña, D., 'A Modern Introduction to Probability and Statistics' por Dekking et al., 'An Introduction to Statistical Learning with Applications in R' por James et al., y otros.",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Qué se enseña en la primera unidad de Probabilidades y Estadistica II?",
+            "ground_truth": "En la primera unidad de Probabilidades y Estadistica II, se enseña sobre Estimación que incluye introducción, estimación puntual, por intervalos, y bayesiana.",
+            "ground_truth_context": "1. Estimación (Introducción, Puntual, Por intervalos, Bayesiana).",
+            "question_type": "Multi-hop Reasoning",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Qué se enseña en la unidad 2 de Probabilidades y Estadistica II?",
+            "ground_truth": "En la segunda unidad de Probabilidades y Estadistica II, se enseñan los contrastes de hipótesis paramétricos y no paramétricos.",
+            "ground_truth_context": "2. Contrastes de hipótesis (Paramétricos, No paramétricos).",
+            "question_type": "Multi-hop Reasoning",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Qué se explica en la unidad 3 de Probabilidades y Estadistica II?",
+            "ground_truth": "En la tercera unidad de Probabilidades y Estadistica II, se enseña sobre regresión lineal simple.",
+            "ground_truth_context": "3. Regresión lineal simple.",
+            "question_type": "Multi-hop Reasoning",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Cuáles son los requisitos previos para Probabilidades y Estadistica II?",
+            "ground_truth": "No se definen conocimientos previos específicos para esta asignatura.",
+            "ground_truth_context": "No se definen conocimientos previos específicos para esta asignatura.",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Cómo es la estructura de evaluación continua en Probabilidades y Estadistica II?",
+            "ground_truth": "En Probabilidades y Estadistica II, la evaluación continua se compone por Examen Unidad 1 (50%, nota mínima 3), Examen Unidades 2-3 (50%, nota mínima 3) y entrega del informe de prácticas (APTA requerido).",
+            "ground_truth_context": "Evaluación continua: Examen Unidad 1 (50%, nota mínima 3), Examen Unidades 2-3 (50%, nota mínima 3) y entrega del informe de prácticas (APTA requerido). Evaluación sólo prueba final: Examen Escrito (100%).",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿La asignatura Probabilidades y Estadistica II se imparte en inglés?",
+            "ground_truth": "No disponible en el documento.",
+            "ground_truth_context": "No disponible en el documento.",
+            "question_type": "Unanswerable",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿En qué semestre se imparte Probabilidades y Estadistica II?",
+            "ground_truth": "Probabilidades y Estadistica II se imparte en el segundo semestre del curso académico 2020/21.",
+            "ground_truth_context": "Semestre: Segundo semestre, Curso académico: 2020/21",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Cuáles son los créditos ECTS de Probabilidades y Estadistica II?",
+            "ground_truth": "Probabilidades y Estadistica II tiene 3 créditos ECTS.",
+            "ground_truth_context": "Créditos (ECTS): 3",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Qué tipo de asignatura es Probabilidades y Estadistica II?",
+            "ground_truth": "Probabilidades y Estadistica II es una asignatura obligatoria.",
+            "ground_truth_context": "Tipo de asignatura: Obligatoria",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Qué resultados del aprendizaje se obtienen en Probabilidades y Estadistica II?",
+            "ground_truth": "En Probabilidades y Estadistica II, los estudiantes deben obtener RA230 - Manejo de técnicas básicas de inferencia estadística; RA229 - Ajuste de modelos a un conjunto de datos.",
+            "ground_truth_context": "Resultados del aprendizaje: RA230 - Manejo de técnicas básicas de inferencia estadística; RA229 - Ajuste de modelos a un conjunto de datos.",
+            "question_type": "Summarization",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Cuál es la evaluación por prueba final en Probabilidades y Estadistica II?",
+            "ground_truth": "En Probabilidades y Estadistica II, si se opta por la evaluación por prueba final, el examen escrito tiene un peso del 100%.",
+            "ground_truth_context": "Evaluación sólo prueba final: Examen Escrito (100%).",
+            "question_type": "Factual",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        },
+        {
+            "question": "¿Qué tipo de laboratorio se realiza en Probabilidades y Estadistica II?",
+            "ground_truth": "No disponible en el documento.",
+            "ground_truth_context": "No disponible en el documento.",
+            "question_type": "Unanswerable",
+            "student_profile": "Ingeniería",
+            "source_document": "Probabilidades y Estadística II.pdf"
+        }
+    ]
+}
