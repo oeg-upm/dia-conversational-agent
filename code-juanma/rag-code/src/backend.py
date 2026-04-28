@@ -1,10 +1,14 @@
 import asyncio
 import os
 import shutil
-from typing import List, Dict, Optional, Any
+import sqlite3
+import json
+import uuid
+from typing import List, Optional, Any
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from pydantic import BaseModel
 import chromadb
+from minio import Minio
 
 
 
@@ -30,7 +34,7 @@ app = FastAPI(title="RAG DIA")
 # --- 1. Initialization ---
 print("Initializing FastAPI backend...")
 
-ollama_url = "http://100.114.130.128:5000" 
+ollama_url = "http://100.83.251.20:5000" 
 
 # LLM Local / Cluster
 llm = ChatOpenAI(
@@ -41,7 +45,6 @@ llm = ChatOpenAI(
 )
 
 # Embeddings (cluster)
-
 embeddings = OllamaEmbeddings(
     model="qwen3-embedding:8b",
     base_url=ollama_url
@@ -55,10 +58,74 @@ vectorstore = Chroma(
     embedding_function=embeddings
 )
 
+# MinIO Client
+MINIO_URL = "minio:9000"
+MINIO_BUCKET = "rag-documents"
+
+try:
+    minio_client = Minio(
+        MINIO_URL,
+        access_key="minioadmin",
+        secret_key="minioadmin",
+        secure=False
+    )
+    if not minio_client.bucket_exists(MINIO_BUCKET):
+        minio_client.make_bucket(MINIO_BUCKET)
+    print("MinIO connected.")
+except Exception as e:
+    print(f"Error connecting to MinIO: {e}")
+
+
+# SQLite DB
+DB_NAME = "volumes/sessions.sqlite"
+
+def init_db():
+    """Initializes the SQLite database."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS sessions
+                 (session_id TEXT PRIMARY KEY, 
+                  history TEXT, 
+                  selected_context TEXT, 
+                  last_docs TEXT)''')
+    conn.commit()
+    conn.close()
+
+# Initialize DB
+init_db()
+
+def get_session(session_id: str) -> dict:
+    """Get session from SQLite."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    c.execute("SELECT history, selected_context, last_docs FROM sessions WHERE session_id=?", (session_id,))
+    row = c.fetchone()
+    conn.close()
+    
+    if row:
+        return {
+            "history": json.loads(row[0]),
+            "selected_context": json.loads(row[1]),
+            "last_docs": json.loads(row[2])
+        }
+    return {"history": [], "selected_context": [], "last_docs": []}
+
+def save_session(session_id: str, session_data: dict):
+    """Save or update session in SQLite."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    c.execute('''REPLACE INTO sessions (session_id, history, selected_context, last_docs)
+                 VALUES (?, ?, ?, ?)''',
+              (session_id, 
+               json.dumps(session_data["history"]),
+               json.dumps(session_data["selected_context"]), 
+               json.dumps(session_data["last_docs"])))
+    conn.commit()
+    conn.close()
+
+
 # --- Variables ---
 processed_files = set()
-LAST_RETRIEVED_DOCS = []
-SESSION_HISTORY = []
 
 # --- Pydantic model ---
 class ContextItem(BaseModel):
@@ -70,6 +137,7 @@ class ChatRequest(BaseModel):
     message: str
     selected_context: List[ContextItem]
     chat_history: List[Any] = []
+    session_id: Optional[str] = None
 
 
 def reciprocal_rank_fusion(results: list[list], k=60):
@@ -160,7 +228,11 @@ async def process_files(
     for file_obj in files:
         filename = file_obj.filename
         # Unique ID to prevent collisions between different years of the same subject
-        unique_file_id = f"{course}_{degree}_{filename}"
+        effective_course = course if course != "Unknown" else "others"
+        
+        effective_degree = degree if degree != "Unknown" else filename
+        
+        unique_file_id = f"{effective_course}_{effective_degree}_{filename}"
         
         if unique_file_id in processed_files:
             continue 
@@ -170,8 +242,16 @@ async def process_files(
             shutil.copyfileobj(file_obj.file, buffer)
 
         try:
-            print(f"Processing: {filename} | Course: {course} | Degree: {degree}")
+            print(f"Processing: {filename} | Course: {effective_course} | Degree: {effective_degree}")
             
+            object_name = f"{effective_course}/{effective_degree}/{filename}"
+            minio_client.fput_object(
+                bucket_name=MINIO_BUCKET,
+                object_name=object_name,
+                file_path=temp_path,
+            )
+            print(f"PDF uploaded to MinIO: {object_name}")
+
             pipeline_options = PdfPipelineOptions()
             pipeline_options.do_ocr = True 
             pipeline_options.ocr_options = EasyOcrOptions() 
@@ -200,13 +280,14 @@ async def process_files(
             for i, doc in enumerate(splits):
                 # Metadata for filtering in ChromaDB
                 doc.metadata["source"] = filename
-                doc.metadata["course"] = course
+                doc.metadata["course"] = effective_course
                 doc.metadata["category"] = category
-                doc.metadata["degree"] = degree
+                doc.metadata["degree"] = effective_degree
                 doc.metadata["chunk_index"] = i
+                doc.metadata["minio_path"] = object_name
                 
                 # Context injection for better interpretability of retrieved chunks
-                doc.page_content = f"[{course} - {degree} - {filename}]\n{doc.page_content}"
+                doc.page_content = f"[{effective_course} - {effective_degree} - {filename}]\n{doc.page_content}"
             
             new_docs.extend(splits)
             new_filenames.append(filename)
@@ -231,44 +312,87 @@ async def process_files(
 
     return {"processed_files": list(processed_files), "status_message": status_message}
 
+@app.post("/delete_file")
+async def delete_file_from_db(
+    filename: str = Form(...),
+    course: str = Form(...),
+    degree: str = Form(...)
+):
+    """Delete a file from MinIO and ChromaDB"""
+    try:
+        object_name = f"{course}/{degree}/{filename}"
+        
+        try:
+            minio_client.stat_object(MINIO_BUCKET, object_name)
+            minio_client.remove_object(MINIO_BUCKET, object_name)
+            print(f"File deleted from MinIO: {object_name}")
+        except Exception as e:
+            print(f"The file was not in MinIO or there was an error: {e}")
+        delete_filter = {
+            "$and": [
+                {"source": filename},
+                {"course": course},
+                {"degree": degree}
+            ]
+        }
+        results = vectorstore._collection.get(where=delete_filter)
+        
+        if results and results["ids"]:
+            chunk_ids_to_delete = results["ids"]
+            vectorstore._collection.delete(ids=chunk_ids_to_delete)
+            msg = f"Success: {len(chunk_ids_to_delete)} chunks deleted from ChromaDB and the file from MinIO."
+        else:
+            msg = "The file was deleted from MinIO, but no chunks were found in ChromaDB."
+            
+        print(msg)
+        return {"status": "success", "message": msg}
+
+    except Exception as e:
+        error_msg = f"Error while deleting the file: {str(e)}"
+        print(error_msg)
+        raise HTTPException(status_code=500, detail=error_msg)
+
 
 @app.post("/chat")
 async def chat_response(request: ChatRequest, context: bool = False):
-    global LAST_RETRIEVED_DOCS
     try:
         
         if not request.message: 
             raise HTTPException(status_code=400, detail="Empty message")
+
+        session_id = request.session_id if request.session_id else str(uuid.uuid4())
+        user_session = get_session(session_id)
         
-        selected_context = request.selected_context
-        if not request.selected_context: 
-            return {"response": "No context selected."}
+        selected_context = [{"course": ctx.course, "degree": ctx.degree, "source": ctx.source} for ctx in request.selected_context]
+        user_session["selected_context"] = selected_context
+
+        if not selected_context: 
+            return {"response": "No context selected.", "session_id": session_id}
         
         if len(selected_context) == 1:
             # If only one file is selected, we can directly filter by that source
             ctx = selected_context[0]
             search_filter = {
                 "$and": [
-                    {"course": ctx.course},
-                    {"degree": ctx.degree},
-                    {"source": ctx.source}
+                    {"course": ctx["course"]},
+                    {"degree": ctx["degree"]},
+                    {"source": ctx["source"]}
                 ]
             }
         else:
-            # If multiple files are selected, we create a filter that matches any of the selected contexts
             filter_list = []
             for ctx in selected_context:
                 filter_list.append({
                     "$and": [
-                        {"course": ctx.course},
-                        {"degree": ctx.degree},
-                        {"source": ctx.source}
+                        {"course": ctx["course"]},
+                        {"degree": ctx["degree"]},
+                        {"source": ctx["source"]}
                     ]
                 })
             search_filter = {"$or": filter_list}
         
         formatted_history = ""
-        for turn in SESSION_HISTORY:
+        for turn in user_session["history"]:
             formatted_history += f"User: {turn['user']}\nAssistant: {turn['bot']}\n"
         
         if not formatted_history or context:
@@ -326,7 +450,7 @@ async def chat_response(request: ChatRequest, context: bool = False):
         fused_docs = reciprocal_rank_fusion(all_retrieved_results)
         
         final_top_docs = [doc for doc, score in fused_docs[:6]]
-        LAST_RETRIEVED_DOCS = final_top_docs
+        user_session["last_docs"] = [{"page_content": d.page_content, "metadata": d.metadata} for d in final_top_docs]
 
         context_text = ""
         for d in final_top_docs:
@@ -372,18 +496,20 @@ async def chat_response(request: ChatRequest, context: bool = False):
             "chat_history": formatted_history
         })
 
-        SESSION_HISTORY.append({
+        user_session["history"].append({
             "user": request.message,
             "bot": response
         })
 
-        if len(SESSION_HISTORY) > 10:
-            SESSION_HISTORY.pop(0)
+        if len(user_session["history"]) > 10:
+            user_session["history"].pop(0)
+
+        save_session(session_id, user_session)
 
         if context:
-            return {"response": response, "context": [doc.page_content for doc in final_top_docs]}
+            return {"response": response, "context": [doc.page_content for doc in final_top_docs], "session_id": session_id}
         else:
-            return {"response": response}
+            return {"response": response, "session_id": session_id}
     
     except Exception as e:
         print(f"Error: {e}", flush=True)
@@ -391,18 +517,24 @@ async def chat_response(request: ChatRequest, context: bool = False):
 
 
 @app.get("/inspector")
-async def visualize_extended_context():
-    global LAST_RETRIEVED_DOCS
-    if not LAST_RETRIEVED_DOCS:
+async def visualize_extended_context(session_id: str):
+
+    user_session = get_session(session_id)
+    last_docs = user_session.get("last_docs", [])
+
+    if not last_docs:
         return {"html": "<div style='padding:20px; text-align:center;'>No context available. Please ask a question first.</div>"}
 
     html_output = f"<h3 style='margin-bottom:20px; color: #333;'>Context used for the last response</h3>"
 
-    for i, doc in enumerate(LAST_RETRIEVED_DOCS):
-        source = doc.metadata.get("source", "Unknown")
-        course = doc.metadata.get("course", "Unknown")
-        degree = doc.metadata.get("degree", "Unknown")
-        idx = doc.metadata.get("chunk_index", 0)
+    for i, doc in enumerate(last_docs):
+        metadata = doc.get("metadata", {})
+        page_content = doc.get("page_content", "")
+        
+        source = metadata.get("source", "Unknown")
+        course = metadata.get("course", "Unknown")
+        degree = metadata.get("degree", "Unknown")
+        idx = metadata.get("chunk_index", 0)
         
         # Retrieve previous and next chunks for better context visualization
         prev_id = f"{course}_{degree}_{source}_ch_{idx - 1}"
@@ -428,7 +560,7 @@ async def visualize_extended_context():
                 <strong style="color: #d84315;">Previous context:</strong><br>{text_prev}
             </div>
             <div style="background-color: #f1f8e9; padding: 15px; font-size: 1em; border-left: 5px solid #4caf50; color: #000000;">
-                <strong style="color: #2e7d32;">Retrieved chunk:</strong><br>{doc.page_content}
+                <strong style="color: #2e7d32;">Retrieved chunk:</strong><br>{page_content}
             </div>
             <div style="background-color: #e3f2fd; padding: 10px; font-size: 0.85em; color: #444444; border-top: 1px dotted #ccc;">
                 <strong style="color: #1565c0;">Next context:</strong><br>{text_next}

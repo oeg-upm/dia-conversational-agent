@@ -214,3 +214,6 @@ __marimo__/
 .data
 data/
 data.zip
+__pycache__/
+temp_uploads/
+volumes/

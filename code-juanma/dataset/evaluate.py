@@ -32,7 +32,7 @@ custom_async_client = httpx.AsyncClient(timeout=1200.0)
 
 # Base models
 base_llm = ChatOpenAI(
-    model="qwen2.5:32b", 
+    model="qwen3.5:35b", 
     base_url=f"{ollama_url}/v1",
     api_key="not_required",
     temperature=0,
