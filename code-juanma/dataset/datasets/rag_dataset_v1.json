@@ -1,124 +1,124 @@
 {
     "questions": [
         {
-            "question": "¿Quién es el coordinador del curso Sistemas de Planificación y cuál es su despacho?",
-            "ground_truth": "El coordinador del curso Sistemas de Planificación es Vicente Martinez Orga, y su despacho está ubicado en el 2109.",
+            "question": "Estimado coordinador, ¿podría confirmarme cuál es el código oficial de esta asignatura?",
+            "ground_truth": "El código oficial es 105000058.",
             "question_type": "Factual",
-            "student_profile": "Formal tone"
+            "student_profile": "Formal"
         },
         {
-            "question": "¿En qué semestre se imparte el curso Sistemas de Planificación?",
-            "ground_truth": "El curso Sistemas de Planificación se imparte en el séptimo semestre.",
+            "question": "¿Quién es el coordinador del curso y cuál es su dirección de correo electrónico asociada?",
+            "ground_truth": "El coordinador es Vicente Martinez Orga y su correo es vicente.martinez@upm.es.",
             "question_type": "Factual",
-            "student_profile": "Informal tone"
-        },
-        {
-            "question": "¿Qué competencias específicas adquiriré al finalizar este curso?",
-            "ground_truth": "Al finalizar el curso Sistemas de Planificación, obtendrás las siguientes competencias: CG-5 Capacidad de gestión de la información y CG-6 Capacidad de abstracción, análisis y síntesis.",
-            "question_type": "Summarization",
             "student_profile": "Senior"
         },
         {
-            "question": "¿Cuántos créditos tiene el curso Sistemas de Planificación y cuál es su característica?",
-            "ground_truth": "El curso Sistemas de Planificación tiene 3 ECTS y su característica es optativa.",
+            "question": "Buenas, ¿cuántos créditos ECTS tengo que aprobar para pasar?",
+            "ground_truth": "La asignatura tiene 3 ECTS.",
+            "question_type": "Factual",
+            "student_profile": "Informal"
+        },
+        {
+            "question": "Hola profe, ¿en qué idioma se van a dar las clases?",
+            "ground_truth": "El idioma de impartición es Castellano.",
             "question_type": "Factual",
             "student_profile": "Freshman"
         },
         {
-            "question": "¿Qué requisitos se recomiendan antes de tomar el curso?",
-            "ground_truth": "Se recomienda haber tomado la asignatura Inteligencia Artificial como prerequisito.",
+            "question": "¿A qué curso académico pertenece este temario y en qué nivel de grado se imparte?",
+            "ground_truth": "Pertenece al curso académico 2020-21 y es para el 4º curso.",
             "question_type": "Factual",
-            "student_profile": "Formal tone"
+            "student_profile": "Formal"
         },
         {
-            "question": "¿Puedo asistir a las sesiones de tutorías y cuándo son?",
-            "ground_truth": "Las sesiones de tutorías se realizan los lunes de 11:00 a 13:00 y puedes asistir a ellas.",
+            "question": "¿En qué centro de la universidad se imparte esta titulación específicamente?",
+            "ground_truth": "Se imparte en la Escuela Técnica Superior de Ingenieros Informáticos.",
+            "question_type": "Factual",
+            "student_profile": "Senior"
+        },
+        {
+            "question": "¿Cuál es el libro básico que recomiendan comprar?",
+            "ground_truth": "El libro básico es 'Inteligencia Artificial. Un enfoque Moderno'.",
+            "question_type": "Factual",
+            "student_profile": "Informal"
+        },
+        {
+            "question": "Esta materia ¿es obligatoria o puedo elegir si la sigo?",
+            "ground_truth": "Es una asignatura Optativa.",
+            "question_type": "Factual",
+            "student_profile": "Freshman"
+        },
+        {
+            "question": "Estimado profesor, ¿podría explicarme detalladamente cómo funciona el sistema de evaluación continua?",
+            "ground_truth": "Consiste en 3 prácticas en grupo defendiendo los temas 1, 2 y 3 con ponderaciones del 30%, 30% y 40%. Requiere nota mínima de 5/10 por práctica.",
+            "question_type": "Summarization",
+            "student_profile": "Formal"
+        },
+        {
+            "question": "¿Cuál es la carga de trabajo estimada para el cálculo de los créditos ECTS?",
+            "ground_truth": "La carga de trabajo es de 26-27 horas por crédito ECTS.",
+            "question_type": "Summarization",
+            "student_profile": "Senior"
+        },
+        {
+            "question": "Oye, ¿qué temas vamos a ver en clase básicamente?",
+            "ground_truth": "Los temas son: 1. Planificación, 2. Planificación Práctica, y 3. Planificación y Actuación.",
+            "question_type": "Summarization",
+            "student_profile": "Informal"
+        },
+        {
+            "question": "Hola profe, no entiendo mucho, ¿cómo tengo que sacar nota para aprobar?",
+            "ground_truth": "Se requiere una nota mínima de 5/10 en la evaluación final o en cada práctica individual.",
+            "question_type": "Summarization",
+            "student_profile": "Freshman"
+        },
+        {
+            "question": "Estimado coordinador, soy estudiante de 3º de carrera. ¿Existe algún impedimento para matricularme en este curso?",
+            "ground_truth": "Sí, el curso está diseñado para el 4º curso, por lo que no está disponible para estudiantes de 3º.",
             "question_type": "Multi-hop Reasoning",
-            "student_profile": "Informal tone"
+            "student_profile": "Formal"
         },
         {
-            "question": "¿Cómo es la evaluación continua del curso?",
-            "ground_truth": "La evaluación continua se realiza mediante defensa de las prácticas correspondientes a los temas 1, 2 y 3.",
-            "question_type": "Summarization",
+            "question": "¿Tengo posibilidad de asistir a las tutorías los lunes por la tarde?",
+            "ground_truth": "No, las tutorías son exclusivamente de Lunes 11:00 a 13:00 (horario de mañana).",
+            "question_type": "Multi-hop Reasoning",
             "student_profile": "Senior"
         },
         {
-            "question": "¿Cuáles son los resultados de aprendizaje esperados en este curso?",
-            "ground_truth": "Los resultados de aprendizaje incluyen la capacidad para diseñar las líneas maestras de un proyecto, experiencia en el desempeño profesional del ingeniero y aplicar técnicas para planificar.",
-            "question_type": "Summarization",
-            "student_profile": "Formal tone"
+            "question": "Buenas, ¿tengo que saber Inteligencia Artificial antes de apuntarme o puedo venir sin saber nada?",
+            "ground_truth": "Es recomendable tener conocimientos de Inteligencia Artificial, pero no hay conocimientos previos obligatorios definidos.",
+            "question_type": "Multi-hop Reasoning",
+            "student_profile": "Informal"
         },
         {
-            "question": "¿Cuál es la bibliografía básica para este curso?",
-            "ground_truth": "La bibliografía básica incluye el libro 'Inteligencia Artificial. Un enfoque Moderno.' como libro básico de consulta.",
-            "question_type": "Factual",
+            "question": "Hola, si tengo que hacer la convocatoria extraordinaria, ¿cuánto tiempo tengo para hacer el examen?",
+            "ground_truth": "La convocatoria extraordinaria consiste en un examen escrito de 1 hora.",
+            "question_type": "Multi-hop Reasoning",
             "student_profile": "Freshman"
         },
         {
-            "question": "¿Cómo me apunto a las sesiones de tutorías?",
-            "ground_truth": "La guía del curso no proporciona información sobre cómo inscribirse en las sesiones de tutorías.",
+            "question": "Estimado profesor, ¿podría facilitarme el número de teléfono de su despacho para llamar antes de la tutoría?",
+            "ground_truth": "La guía del curso no proporciona esta información.",
             "question_type": "Unanswerable",
-            "student_profile": "Informal tone"
+            "student_profile": "Formal"
         },
         {
-            "question": "¿Cuándo se imparte el curso Sistemas de Planificación?",
-            "ground_truth": "El curso Sistemas de Planificación se imparte desde septiembre hasta enero.",
-            "question_type": "Factual",
+            "question": "¿Está especificado en la guía la fecha exacta en la que se realizará el examen final de enero?",
+            "ground_truth": "La guía del curso no proporciona esta información.",
+            "question_type": "Unanswerable",
             "student_profile": "Senior"
         },
         {
-            "question": "¿Dónde puedo encontrar al profesor Vicente Martinez Orga si necesito ayuda?",
-            "ground_truth": "El despacho del profesor Vicente Martinez Orga es el 2109.",
-            "question_type": "Factual",
-            "student_profile": "Formal tone"
+            "question": "¿Puedo llevar mi portátil al examen o solo puedo usar papel y boli?",
+            "ground_truth": "La guía del curso no proporciona esta información.",
+            "question_type": "Unanswerable",
+            "student_profile": "Informal"
         },
         {
-            "question": "¿Cuál es la duración de un examen escrito en este curso?",
-            "ground_truth": "La duración del examen escrito es de 1 hora.",
-            "question_type": "Factual",
-            "student_profile": "Senior"
-        },
-        {
-            "question": "¿Qué tema se enseña primero en el curso?",
-            "ground_truth": "El primer tema que se enseña en el curso Sistemas de Planificación es la 'Planificación'.",
-            "question_type": "Factual",
+            "question": "Hola profe, ¿sabe usted dónde tengo que ir a buscar los libros de consulta en la biblioteca de la ETSI?",
+            "ground_truth": "La guía del curso no proporciona esta información.",
+            "question_type": "Unanswerable",
             "student_profile": "Freshman"
-        },
-        {
-            "question": "¿Cuánto tiempo dura una lección magistral?",
-            "ground_truth": "Una lección magistral dura 2 horas.",
-            "question_type": "Factual",
-            "student_profile": "Informal tone"
-        },
-        {
-            "question": "¿Puedo tomar este curso si estoy en segundo año de Ingeniería Informática?",
-            "ground_truth": "Este es un curso optativo para cuarto curso, por lo que no puedes tomarlo como estudiante del segundo año a menos que tengas permiso o créditos adicionales.",
-            "question_type": "Multi-hop Reasoning",
-            "student_profile": "Senior"
-        },
-        {
-            "question": "¿Cómo es la estructura de evaluación para este curso?",
-            "ground_truth": "La evaluación del curso incluye defensa de prácticas por temas y un examen final escrito.",
-            "question_type": "Summarization",
-            "student_profile": "Formal tone"
-        },
-        {
-            "question": "¿Por quién se imparte el curso y cuál es su rol?",
-            "ground_truth": "El curso Sistemas de Planificación lo coordina Vicente Martinez Orga y también es impartido por Miguel Garcia Remesal.",
-            "question_type": "Factual",
-            "student_profile": "Freshman"
-        },
-        {
-            "question": "¿Qué temas se tratan en el curso?",
-            "ground_truth": "Los temas del curso incluyen Planificación, Análisis Medios-Fines, Strips, Planificación Práctica, Descomposición Jerárquica, entre otros.",
-            "question_type": "Summarization",
-            "student_profile": "Informal tone"
-        },
-        {
-            "question": "¿Dónde se imparte el curso?",
-            "ground_truth": "El curso Sistemas de Planificación es impartido por la Escuela Técnica Superior de Ingenieros Informáticos.",
-            "question_type": "Factual",
-            "student_profile": "Senior"
         }
     ]
 }
