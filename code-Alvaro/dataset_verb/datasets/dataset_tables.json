@@ -1,0 +1,1100 @@
+{
+  "questions": [
+    {
+      "question": "¿En qué semana se realiza el test del Tema 1 en Investigacion Operativa?",
+      "ground_truth": "7",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |",
+      "question_type": "Factual",
+      "student_profile": "Analítico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la primera práctica en grupo en Investigacion Operativa?",
+      "ground_truth": "20%",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     12 | Realización y entrega de la 1ª Práctica en Grupo               | TG: Técnica del tipo Trabajo en Grupo    | No Presencial | 00:00      | 20%               | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 |",
+      "question_type": "Factual",
+      "student_profile": "Investigador",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el test de Investigacion Operativa?",
+      "ground_truth": "3 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |",
+      "question_type": "Factual",
+      "student_profile": "Práctico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué tipo de evaluación se realiza en la semana 17 de Investigacion Operativa?",
+      "ground_truth": "Examen final EX: Técnica del tipo Examen Escrito Evaluación sólo prueba final Presencial Duración: 02:00",
+      "ground_truth_context": "|   Sem | Descripción   | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                       |\n|    17 | Examen final  | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 Ce 19/20 |",
+      "question_type": "Factual",
+      "student_profile": "Reflexivo",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿En qué semanas se realizan los tests de preguntas múltiples en Investigacion Operativa?",
+      "ground_truth": "7, 12, y 16",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |\n|     12 | Realización de un test de preguntas múltiples del Tema 2       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |\n|     16 | Realización de un test de preguntas múltiples de los Temas y 4 | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 Ce 12/16 Ce 19/20           |",
+      "question_type": "Summarization",
+      "student_profile": "Investigador",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué recursos web se proporcionan para aprender sobre el Método del Simplex en Investigacion Operativa?",
+      "ground_truth": "http://www.phpsimplex.com",
+      "ground_truth_context": "| Método del Simplex   | Recursos web   | http://www.phpsimplex.com   |",
+      "question_type": "Factual",
+      "student_profile": "Analítico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuántas semanas se imparte la asignatura de Investigacion Operativa?",
+      "ground_truth": "16",
+      "ground_truth_context": "|  Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |\n|     12 | Realización de un test de preguntas múltiples del Tema 2       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |\n|     16 | Realización de un test de preguntas múltiples de los Temas y 4 | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 Ce 12/16 Ce 19/20           |\n|    17 | Examen final  | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 Ce 19/20 |",
+      "question_type": "Summarization",
+      "student_profile": "Investigador",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué libros de bibliografía se recomiendan para Investigacion Operativa?",
+      "ground_truth": "5",
+      "ground_truth_context": "| Nombre                                                                                                                                                                          | Tipo           | Observaciones                                                         |\n|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|-----------------------------------------------------------------------|\n| A. Mateos, S. Ríos Insua, A. Jiménez y Ángel J. Fernández, Investigación Operativa: Ejercicios y Aplicaciones, Fundación General de la Universidad Politécnica de Madrid, 2006. | Bibliografía   |                                                                       |\n| S. Ríos Insua, A. Mateos, C. Bielza y A. Jiménez (2004), Investigación Operativa: Modelos Determinísticos Estocásticos, Centro de Estudios Ramón Areces, Madrid. BORRADOR       | y Bibliografía |                                                                       |\n| S. Ríos Insua, D. Ríos Insua, A. Mateos, J. Martín y A. Jiménez (2006), Problemas de Investigación Operativa: Programación Lineal y Extensiones, RA-MA.                         | Bibliografía   |                                                                       |\n| Kaufmann, A. (1972), Métodos y Modelos de Investigación de Operaciones, Vol. I, II y III, CECSA, México.                                                                        | Bibliografía   |                                                                       |\n| H.A. Taha (2004), Investigación de Operaciones, Prentice Hall, México.                                                                                                          | Bibliografía   |                                                                       |\n| WinQSB (1998) Decision Support Software for MS/OM, Yih-Long Chang, Wiley, New York.                                                                                             | Bibliografía   |                                                                       |",
+      "question_type": "Summarization",
+      "student_profile": "Investigador",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué porcentaje de la nota total representa el examen final en Investigacion Operativa?",
+      "ground_truth": "100%",
+      "ground_truth_context": "|   Sem | Descripción   | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                       |\n|    17 | Examen final  | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 Ce 19/20 |",
+      "question_type": "Factual",
+      "student_profile": "Analítico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué profesor coordina la asignatura de Investigacion Operativa?",
+      "ground_truth": "Alfonso Mateos Caballero (Coordinador/a)",
+      "ground_truth_context": "| Nombre                                   |   Despacho | Correo electrónico     | Horario de tutorías *   |\n|------------------------------------------|------------|------------------------|-------------------------|\n| Antonio Jimenez Martin                   |       2110 | antonio.jimenez@upm.es | Sin horario.            |\n| Alfonso Mateos Caballero (Coordinador/a) |       2110 | alfonso.mateos@upm.es  | Sin horario.            |",
+      "question_type": "Factual",
+      "student_profile": "Analítico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 7 de Investigacion Operativa?",
+      "ground_truth": "Realización y entrega del test del Tema 1",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |",
+      "question_type": "Factual",
+      "student_profile": "Práctico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué modalidad se utiliza para el primer test de preguntas múltiples en Investigacion Operativa?",
+      "ground_truth": "ET: Técnica del tipo Prueba Telemática Evaluación continua No presencial Duración: 02:00",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |",
+      "question_type": "Factual",
+      "student_profile": "Analítico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué tipo de evaluación se realiza en la semana 17 de Investigacion Operativa?",
+      "ground_truth": "Examen final EX: Técnica del tipo Examen Escrito Evaluación sólo prueba final Presencial Duración: 02:00",
+      "ground_truth_context": "|   Sem | Descripción   | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                       |\n|    17 | Examen final  | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 Ce 19/20 |",
+      "question_type": "Factual",
+      "student_profile": "Reflexivo",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿En qué semanas se realizan las prácticas en grupo de Investigacion Operativa?",
+      "ground_truth": "12 y 16",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     12 | Realización y entrega de la 1ª Práctica en Grupo               | TG: Técnica del tipo Trabajo en Grupo    | No Presencial | 00:00      | 20%               | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 |\n|     16 | Realización y entrega de la 2ª Práctica en Grupo BORRADOR      | TG: Técnica del tipo Trabajo en Grupo    | No Presencial | 00:00      | 20%               | / 10          | CG-6 CG-7:10/16/17 Ce 12/16 CG-1/21 |",
+      "question_type": "Summarization",
+      "student_profile": "Investigador",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades de evaluación se realizan en la semana 16 de Investigacion Operativa?",
+      "ground_truth": "Realización de un test de preguntas múltiples de los Temas y 4, Realización y entrega de la 2ª Práctica en Grupo",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     16 | Realización de un test de preguntas múltiples de los Temas y 4 | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 Ce 12/16 Ce 19/20           |\n|     16 | Realización y entrega de la 2ª Práctica en Grupo BORRADOR      | TG: Técnica del tipo Trabajo en Grupo    | No Presencial | 00:00      | 20%               | / 10          | CG-6 CG-7:10/16/17 Ce 12/16 CG-1/21 |",
+      "question_type": "Summarization",
+      "student_profile": "Investigador",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué peso en la nota tiene el examen final de Investigacion Operativa?",
+      "ground_truth": "100%",
+      "ground_truth_context": "|   Sem | Descripción   | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                       |\n|    17 | Examen final  | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 Ce 19/20 |",
+      "question_type": "Factual",
+      "student_profile": "Reflexivo",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades de evaluación hay en la semana 12 de Investigacion Operativa?",
+      "ground_truth": "Realización de un test del Tema 2, Realización y entrega de la 1ª Práctica en Grupo",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     12 | Realización de un test de preguntas múltiples del Tema 2       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |\n|     12 | Realización y entrega de la 1ª Práctica en Grupo               | TG: Técnica del tipo Trabajo en Grupo    | No Presencial | 00:00      | 20%               | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 |",
+      "question_type": "Summarization",
+      "student_profile": "Investigador",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades se realizan en la semana 4 de Investigacion Operativa?",
+      "ground_truth": "Resolución de ejercicios prácticos del Tema 1",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula   | Actividad presencial en laboratorio Tele-enseñanza                                                                                                                                                                                            | Actividades de evaluación                                                                                                                                   |\n|     4 |                                | Resolución de ejercicios prácticos del Tema 1 Duración: 04:00 PR: Actividad del tipo Clase de Problemas                                                                                                                                       | Problemas                                                                                                                                                   |",
+      "question_type": "Factual",
+      "student_profile": "Analítico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 8 de Investigacion Operativa?",
+      "ground_truth": "Explicación de contenidos del Tema 2",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula   | Actividad presencial en laboratorio Tele-enseñanza                                                                                                                                                                                            | Actividades de evaluación                                                                                                                                   |\n|     8 |                                | Explicación de contenidos del Tema 2 Duración: 04:00 LM: Actividad del tipo Lección Magistral                                                                                                                                                 |                                                                                                                                                             |",
+      "question_type": "Factual",
+      "student_profile": "Analítico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el examen final de Investigacion Operativa?",
+      "ground_truth": "/ 10",
+      "ground_truth_context": "|   Sem | Descripción   | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                       |\n|    17 | Examen final  | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 Ce 19/20 |",
+      "question_type": "Factual",
+      "student_profile": "Reflexivo",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades se realizan en la semana 13 de Investigacion Operativa?",
+      "ground_truth": "Resolución de ejercicios prácticos del Tema 3",
+      "ground_truth_context": "|   Sem | Explicación de contenidos del Tema 2 Duración: 02:00 LM: Actividad del tipo Lección Magistral Resolución de ejercicios prácticos del Tema 2 Duración: 02:00                                           | Problemas                                                                                                                                                                                                                                                                                       |\n|   13 | Resolución de ejercicios prácticos del Tema 3 Duración: 04:00 PR: Actividad del tipo Clase de Problemas                                                                                               |                                                                                                                                                                                                                                                                                                 |",
+      "question_type": "Factual",
+      "student_profile": "Analítico",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 6 de Investigacion Operativa?",
+      "ground_truth": "Explicación de contenidos del Tema 1 y Resolución de ejercicios prácticos del Tema 1",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula   | Actividad presencial en laboratorio Tele-enseñanza                                                                                                                                                                                            | Actividades de evaluación                                                                                                                                   |\n|     6 |                                | PR: Actividad del tipo Clase de Explicación de contenidos del Tema 1 Duración: 02:00 LM: Actividad del tipo Lección Magistral Resolución de ejercicios prácticos del Tema 1 Duración: 02:00 LM: Actividad del tipo Lección Magistral BORRADOR |                                                                                                                                                             |",
+      "question_type": "Summarization",
+      "student_profile": "Investigador",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza la Defensa de la Práctica del Tema 1 en Sistemas de Planificación?",
+      "ground_truth": "La Defensa de la Práctica del Tema 1 en Sistemas de Planificación se realiza en la Semana 6.",
+      "ground_truth_context": "|   Sem. | Descripción                       | Modalidad                                  | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      6 | Defensa de la Práctica del Tema 1 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la Defensa de la Práctica del Tema 3 en Sistemas de Planificación?",
+      "ground_truth": "La Defensa de la Práctica del Tema 3 en Sistemas de Planificación tiene un peso de 40%.",
+      "ground_truth_context": "|     Sem. | Descripción                       | Modalidad                                  | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      16 | Defensa de la Práctica del Tema 3 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 40%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el Examen de Evaluación Prueba Final en Sistemas de Planificación?",
+      "ground_truth": "La nota mínima para aprobar el Examen de Evaluación Prueba Final en Sistemas de Planificación es 5 / 10.",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen de Evaluación Prueba Final | EX: Técnica del tipo Examen Escrito | Presencial | 01:00      | 100%              | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es el total del peso en la nota de las tres defensas de prácticas en Sistemas de Planificación?",
+      "ground_truth": "El total del peso en la nota de las tres defensas de prácticas en Sistemas de Planificación es 100% (30% + 30% + 40%).",
+      "ground_truth_context": "|   Sem. | Descripción                       | Modalidad                                  | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      6 | Defensa de la Práctica del Tema 1 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |\n|     11 | Defensa de la Práctica del Tema 2 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |\n|     16 | Defensa de la Práctica del Tema 3 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 40%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el Examen de Evaluación Prueba Final en Sistemas de Planificación?",
+      "ground_truth": "El Examen de Evaluación Prueba Final en Sistemas de Planificación se realiza en la Semana 17.",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen de Evaluación Prueba Final | EX: Técnica del tipo Examen Escrito | Presencial | 01:00      | 100%              | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración del Examen de Evaluación Prueba Final en Sistemas de Planificación?",
+      "ground_truth": "La duración del Examen de Evaluación Prueba Final en Sistemas de Planificación es 01:00.",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen de Evaluación Prueba Final | EX: Técnica del tipo Examen Escrito | Presencial | 01:00      | 100%              | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la descripción del evento evaluativo en la Semana 5 del Cronograma en Sistemas de Planificación?",
+      "ground_truth": "En la Semana 5 del Cronograma de Sistemas de Planificación, el evento evaluativo es Defensa de la Práctica del Tema 1.",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                                                                                                                        | Actividad presencial en laboratorio   | Tele-enseñanza                                                                                                                                                                               | Actividades de evaluación                                                       |\n|     5 | Explicación de contenidos del tema 1 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral                                          |                                       | Explicación de contenidos del tema 1 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral                                                                   | Defensa de la Práctica del Tema 1                                               |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la modalidad para las Defensas de las prácticas en Sistemas de Planificación?",
+      "ground_truth": "Las defensas de las prácticas en Sistemas de Planificación se realizan a través del modo presencial.",
+      "ground_truth_context": "|   Sem. | Descripción                       | Modalidad                                  | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      6 | Defensa de la Práctica del Tema 1 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |\n|     11 | Defensa de la Práctica del Tema 2 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |\n|     16 | Defensa de la Práctica del Tema 3 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 40%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuáles son los recursos didácticos recomendados para Sistemas de Planificación?",
+      "ground_truth": "Los recursos didácticos recomendados para Sistemas de Planificación incluyen: Inteligencia Artificial. Un enfoque Moderno, Artificial Intelligenca y Inteligencia Artificial. Una nueva síntesis.",
+      "ground_truth_context": "| Nombre                                       | Tipo         | Observaciones                                 |\n|----------------------------------------------|--------------|-----------------------------------------------|\n| Inteligencia Artificial. Un enfoque Moderno. | Bibliografía | Libro básico de consulta                      |\n| Artificial Intelligenca                      | Bibliografía | Libro introductorio en técnicas planificación |\n| Inteligencia Artificial. Una nueva síntesis  | Bibliografía | Libro de consulta                             |",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso en la nota del Examen de Evaluación Prueba Final en Sistemas de Planificación?",
+      "ground_truth": "El peso en la nota del Examen de Evaluación Prueba Final en Sistemas de Planificación es 100%.",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen de Evaluación Prueba Final | EX: Técnica del tipo Examen Escrito | Presencial | 01:00      | 100%              | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración de las defensas de las prácticas en Sistemas de Planificación?",
+      "ground_truth": "La duración de cada una de las defensas de las prácticas en Sistemas de Planificación es 01:00.",
+      "ground_truth_context": "|   Sem. | Descripción                       | Modalidad                                  | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      6 | Defensa de la Práctica del Tema 1 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |\n|     11 | Defensa de la Práctica del Tema 2 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |\n|     16 | Defensa de la Práctica del Tema 3 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 40%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza la Defensa de la Práctica del Tema 2 en Sistemas de Planificación?",
+      "ground_truth": "La Defensa de la Práctica del Tema 2 en Sistemas de Planificación se realiza en la Semana 11.",
+      "ground_truth_context": "|   Sem. | Descripción                       | Modalidad                                  | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|     11 | Defensa de la Práctica del Tema 2 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza la actividad presencial en el laboratorio para el tema 3 en Sistemas de Planificación?",
+      "ground_truth": "La actividad presencial en el laboratorio del Tema 3 en Sistemas de Planificación se realiza desde la Semana 11 hasta la Semana 16.",
+      "ground_truth_context": "|   11 | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral   | Explicación de contenidos del tema resolución de ejercicios Duración: 02:00 LM: Actividad                                  | 3 y/o del tipo Lección Magistral Defensa de la Práctica del Tema 2 PG: Técnica del tipo Presentación en Evaluación continua Presencial   |\n|      12 | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral   | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                                                                                                                          |\n|      13 | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral   | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                                                                                                                          |\n|      14 | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral   | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                                                                                                                          |\n|      15 | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral   | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                                                                                                                          |\n|      16 | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral   | Explicación de contenidos del tema 3 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral | Defensa de la Práctica del Tema 3 PG: Técnica del tipo Presentación en Evaluación continua Presencial Duración: 01:00                    |",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué competencias evaluadas se incluyen para la Defensa de la Práctica del Tema 3 en Sistemas de Planificación?",
+      "ground_truth": "Para la Defensa de la Práctica del Tema 3 en Sistemas de Planificación, las competencias evaluadas son CG-5 CG-6 CG-7:10/16/17.",
+      "ground_truth_context": "|     Sem. | Descripción                       | Modalidad                                  | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      16 | Defensa de la Práctica del Tema 3 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 40%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar cada una de las Defensas de Práctica en Sistemas de Planificación?",
+      "ground_truth": "La nota mínima para aprobar cada una de las Defensas de Práctica en Sistemas de Planificación es 5 / 10.",
+      "ground_truth_context": "|   Sem. | Descripción                       | Modalidad                                  | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      6 | Defensa de la Práctica del Tema 1 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |\n|     11 | Defensa de la Práctica del Tema 2 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |\n|     16 | Defensa de la Práctica del Tema 3 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 40%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el Examen de Evaluación Prueba Final en Sistemas de Planificación?",
+      "ground_truth": "La nota mínima para aprobar el Examen de Evaluación Prueba Final en Sistemas de Planificación es 5 / 10.",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen de Evaluación Prueba Final | EX: Técnica del tipo Examen Escrito | Presencial | 01:00      | 100%              | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividad se realiza en la Semana 2 del Cronograma para Sistemas de Planificación?",
+      "ground_truth": "En la Semana 2 del Cronograma de Sistemas de Planificación, se realizan actividades presenciales en aula de Explicación de contenidos del tema 1 y/o resolución de ejercicios Duración: 02:00.",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                                                                                                                        | Actividad presencial en laboratorio   | Tele-enseñanza                                                                                                                                                                               | Actividades de evaluación                                                       |\n|     2 | Explicación de contenidos del tema 1 y/o resolución de ejercicios Duración: 02:00                                                                                   |                                       | Explicación de contenidos del tema 1 y/o resolución de ejercicios Duración: 02:00                                                                                                            |                                                                                 |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso total en la nota para las Defensas de Práctica del Tema 1 y Tema 2 en Sistemas de Planificación?",
+      "ground_truth": "El peso total en la nota para las Defensas de Práctica del Tema 1 y Tema 2 en Sistemas de Planificación es 60% (30% + 30%).",
+      "ground_truth_context": "|   Sem. | Descripción                       | Modalidad                                  | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      6 | Defensa de la Práctica del Tema 1 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |\n|     11 | Defensa de la Práctica del Tema 2 | PG: Técnica del tipo Presentación en Grupo | Presencial | 01:00      | 30%               | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza la actividad presencial en el laboratorio para el tema 2 en Sistemas de Planificación?",
+      "ground_truth": "No hay actividades presenciales en laboratorio especificadas para el Tema 2 en Sistemas de Planificación según la tabla del Cronograma.",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                                                                                                                        | Actividad presencial en laboratorio   | Tele-enseñanza                                                                                                                                                                               | Actividades de evaluación                                                       |\n|     6 | Explicación de contenidos del tema 2 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral                                          |                                       | Explicación de contenidos del tema 2 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral PG: BORRADOR                                                      | Técnica del tipo Presentación en Evaluación continua Presencial Duración: 01:00 |\n|     7 | Explicación de contenidos del tema 2 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral                                          |                                       | Explicación de contenidos del tema 2 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral                                                                   |                                                                                 |\n|     8 | Explicación de contenidos del tema 2 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral                                          |                                       | Explicación de contenidos del tema 2 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral                                                                   |                                                                                 |\n|     9 | Explicación de contenidos del tema 2 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral Explicación de contenidos del tema 2 y/o |                                       | Explicación de contenidos del tema 2 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral Explicación de contenidos del tema 2 y/o resolución de ejercicios |                                                                                 |\n|    10 | resolución de ejercicios Duración: 02:00                                                                                                                            |                                       | Duración: 02:00                                                                                                                                                                              |                                                                                 |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la técnica para el Examen de Evaluación Prueba Final en Sistemas de Planificación?",
+      "ground_truth": "La técnica para el Examen de Evaluación Prueba Final en Sistemas de Planificación es EX: Técnica del tipo Examen Escrito.",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen de Evaluación Prueba Final | EX: Técnica del tipo Examen Escrito | Presencial | 01:00      | 100%              | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración del Examen de Evaluación Prueba Final en Sistemas de Planificación?",
+      "ground_truth": "La duración del Examen de Evaluación Prueba Final en Sistemas de Planificación es 01:00.",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen de Evaluación Prueba Final | EX: Técnica del tipo Examen Escrito | Presencial | 01:00      | 100%              | 5 / 10        | CG-5 CG-6 CG-7:10/16/17  |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de Ingeniería Informática",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el test del Tema 1 en Investigacion Operativa?",
+      "ground_truth": "7 Semana",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la primera práctica en grupo en Investigacion Operativa?",
+      "ground_truth": "20%",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     12 | Realización y entrega de la 1ª Práctica en Grupo               | TG: Técnica del tipo Trabajo en Grupo    | No Presencial | 00:00      | 20%               | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el test del Tema 1 en Investigacion Operativa?",
+      "ground_truth": "3 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso en la nota del examen final de Investigacion Operativa?",
+      "ground_truth": "100%",
+      "ground_truth_context": "|   Sem | Descripción   | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                       |\n|    17 | Examen final  | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 Ce 19/20 |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 4 de Investigacion Operativa?",
+      "ground_truth": "Resolución de ejercicios prácticos del Tema 1 Duración: 04:00 PR: Actividad del tipo Clase de Problemas",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula   | Actividad presencial en laboratorio Tele-enseñanza                                                                                                                                                                                            | Actividades de evaluación                                                                                                                                   |\n|     4 |                                | Resolución de ejercicios prácticos del Tema 1 Duración: 04:00 PR: Actividad del tipo Clase de                                                                                                                                                 | Problemas                                                                                                                                                   |",
+      "question_type": "Summarization",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué recursos didácticos se proporcionan en Investigacion Operativa?",
+      "ground_truth": "Bibliografía, Recursos web",
+      "ground_truth_context": "| Nombre                                                                                                                                                                          | Tipo           | Observaciones                                                         |\n|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|-----------------------------------------------------------------------|\n| A. Mateos, S. Ríos Insua, A. Jiménez y Ángel J. Fernández, Investigación Operativa: Ejercicios y Aplicaciones, Fundación General de la Universidad Politécnica de Madrid, 2006. | Bibliografía   |                                                                       |\n| S. Ríos Insua, A. Mateos, C. Bielza y A. Jiménez (2004), Investigación Operativa: Modelos Determinísticos Estocásticos, Centro de Estudios Ramón Areces, Madrid. BORRADOR       | y Bibliografía |                                                                       |\n| S. Ríos Insua, D. Ríos Insua, A. Mateos, J. Martín y A. Jiménez (2006), Problemas de Investigación Operativa: Programación Lineal y Extensiones, RA-MA.                         | Bibliografía   |                                                                       |\n| Kaufmann, A. (1972), Métodos y Modelos de Investigación de Operaciones, Vol. I, II y III, CECSA, México.                                                                        | Bibliografía   |                                                                       |\n| H.A. Taha (2004), Investigación de Operaciones, Prentice Hall, México.                                                                                                          | Bibliografía   |                                                                       |\n| WinQSB (1998) Decision Support Software for MS/OM, Yih-Long Chang, Wiley, New York.                                                                                             | Bibliografía   |                                                                       |\n| Sitio Moodle de la asignatura                                                                                                                                                   | Recursos web   | https://moodle.upm.es/titulaciones/oficiales/c ourse/view.php?id=5837",
+      "question_type": "Summarization",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es el porcentaje de la nota que representa la segunda práctica en grupo de Investigacion Operativa?",
+      "ground_truth": "20%",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     16 | Realización y entrega de la 2ª Práctica en Grupo BORRADOR      | TG: Técnica del tipo Trabajo en Grupo    | No Presencial | 00:00      | 20%               | / 10          | CG-6 CG-7:10/16/17 Ce 12/16 CG-1/21",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué tipo de evaluación se realiza en la semana 12 de Investigacion Operativa?",
+      "ground_truth": "Realización de un test de preguntas múltiples del Tema 2, Realización y entrega de la 1ª Práctica en Grupo",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     12 | Realización de un test de preguntas múltiples del Tema 2       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |\n|     12 | Realización y entrega de la 1ª Práctica en Grupo               | TG: Técnica del tipo Trabajo en Grupo    | No Presencial | 00:00      | 20%               | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 15 de Investigacion Operativa?",
+      "ground_truth": "Explicación de contenidos del Tema 4 Duración: 02:00 LM: Actividad del tipo Lección Magistral Resolución de ejercicios prácticos del Tema 4 Duración: 02:00",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula   | Actividad presencial en laboratorio Tele-enseñanza                                                                                                                                                                                            | Actividades de evaluación                                                                                                                                   |\n|    15 | Explicación de contenidos del Tema 4 Duración: 02:00 LM: Actividad del tipo Lección Magistral Resolución de ejercicios prácticos del Tema 4 Duración: 02:00                                           | Problemas                                                                                                                                                                                                                   |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué profesor es el coordinador en Investigacion Operativa?",
+      "ground_truth": "Alfonso Mateos Caballero",
+      "ground_truth_context": "| Nombre                                   |   Despacho | Correo electrónico     | Horario de tutorías *   |\n| Alfonso Mateos Caballero (Coordinador/a) |       2110 | alfonso.mateos@upm.es  | Sin horario.            |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el test de los Temas 3 y 4 en Investigacion Operativa?",
+      "ground_truth": "3 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     16 | Realización de un test de preguntas múltiples de los Temas y 4 | 3 ET: Técnica del tipo Prueba Telemática | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 Ce 12/16 Ce 19/20           |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿En qué semana se hace la entrega de la segunda práctica en grupo de Investigacion Operativa?",
+      "ground_truth": "Semana 16",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     16 | Realización y entrega de la 2ª Práctica en Grupo BORRADOR      | TG: Técnica del tipo Trabajo en Grupo    | No Presencial | 00:00      | 20%               | / 10          | CG-6 CG-7:10/16/17 Ce 12/16 CG-1/21",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué tipo de evaluación representa el examen final en Investigacion Operativa?",
+      "ground_truth": "Evaluación sólo prueba final",
+      "ground_truth_context": "|   Sem | Descripción   | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                       |\n|    17 | Examen final  | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 Ce 19/20 |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el test del Tema 2 en Investigacion Operativa?",
+      "ground_truth": "Semana 12",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     12 | Realización de un test de preguntas múltiples del Tema 2       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué peso en la nota tiene el test del Tema 1 en Investigacion Operativa?",
+      "ground_truth": "20%",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades de evaluación se realizan en la semana 13 de Investigacion Operativa?",
+      "ground_truth": "",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula   | Actividad presencial en laboratorio Tele-enseñamiento                                                                                                                                                                                            | Actividades de evaluación                                                                                                                                   |\n|    13 | Resolución de ejercicios prácticos del Tema 3 Duración: 04:00 PR: Actividad del tipo Clase de Problemas                                                                                               |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el test de los Temas 3 y 4 en Investigacion Operativa?",
+      "ground_truth": "Semana 16",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|     16 | Realización de un test de preguntas múltiples de los Temas y 4 | 3 ET: Técnica del tipo Prueba Telemática | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 Ce 12/16 Ce 19/20           |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 5 de Investigacion Operativa?",
+      "ground_truth": "Explicación de contenidos del Tema 1 Duración: 02:00 LM: Actividad del tipo Lección Magistral Resolución de ejercicios prácticos del Tema 1 Duración: 02:00",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula   | Actividad presencial en laboratorio Tele-enseñamiento                                                                                                                                                                                            | Actividades de evaluación                                                                                                                                   |\n|     5 |                                | Explicación de contenidos del Tema 1 Duración: 02:00 LM: Actividad del tipo Lección Magistral Resolución de ejercicios prácticos del Tema 1 Duración: 02:00",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 9 de Investigacion Operativa?",
+      "ground_truth": "Explicación de contenidos del Tema 2 Duración: 02:00 LM: Actividad del tipo Lección Magistral Resolución de ejercicios prácticos del Tema 2 Duración: 02:00 PR: Actividad del tipo Clase de Problemas",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula   | Actividad presencial en laboratorio Tele-enseñamiento                                                                                                                                                                                            | Actividades de evaluación                                                                                                                                   |\n|     9 |                                | Explicación de contenidos del Tema 2 Duración: 02:00 LM: Actividad del tipo Lección Magistral Resolución de ejercicios prácticos del Tema 2 Duración: 02:00 PR: Actividad del tipo Clase de Problemas",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso en la nota total que tiene cada test individual en Investigacion Operativa?",
+      "ground_truth": "20%",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |\n|     12 | Realización de un test de preguntas múltiples del Tema 2       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |\n|     16 | Realización de un test de preguntas múltiples de los Temas y 4 | 3 ET: Técnica del tipo Prueba Telemática | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 Ce 12/16 Ce 19/20           |",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades se realizan en la semana 14 de Investigacion Operativa?",
+      "ground_truth": "Resolución de ejercicios prácticos del Tema 3 Duración: 02:00 PR: Actividad del tipo Clase de Problemas Explicación de contenidos del Tema 4 Duración: 02:00 LM: Actividad del tipo Lección Magistral",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula   | Actividad presencial en laboratorio Tele-enseñamiento                                                                                                                                                                                            | Actividades de evaluación                                                                                                                                   |\n|    14 | Resolución de ejercicios prácticos del Tema 3 Duración: 02:00 PR: Actividad del tipo Clase de Problemas Explicación de contenidos del Tema 4 Duración: 02:00 LM: Actividad del tipo Lección Magistral",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración del examen final en Investigacion Operativa?",
+      "ground_truth": "02:00",
+      "ground_truth_context": "|   Sem | Descripción   | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                       |\n|    17 | Examen final  | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | / 10          | CG-1/21 CG-6 CG-7:10/16/17 Ce 12/16 Ce 19/20 |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué tipo de evaluación se realiza en la semana 7 de Investigacion Operativa?",
+      "ground_truth": "Realización de un test de preguntas múltiples del Tema 1",
+      "ground_truth_context": "|   Sem. | Descripción                                                    | Modalidad                                | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas              |\n|      7 | Realización de un test de preguntas múltiples del Tema 1       | ET: Técnica del tipo Prueba Telemática   | No Presencial | 02:00      | 20%               | 3 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20      |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el examen individual del tema 2 en logica?",
+      "ground_truth": "Semana 8",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      8 | Examen individual del tema 2                    | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 35%               | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la agenda de evaluaciones",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene el examen individual del tema 2 en logica?",
+      "ground_truth": "35%",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      8 | Examen individual del tema 2                    | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 35%               | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la importancia de cada evaluación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el examen individual del tema 2 en logica?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      8 | Examen individual del tema 2                    | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 35%               | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer los mínimos de aprobación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene el examen individual del tema 3 en logica?",
+      "ground_truth": "35%",
+      "ground_truth_context": "|   Sem | Descripción                             | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la importancia de cada evaluación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el examen individual del tema 2 en logica?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      8 | Examen individual del tema 2                    | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 35%               | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer los mínimos de aprobación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la evaluación continua en logica?",
+      "ground_truth": "2% por semana de participación, 35% para cada examen individual del tema",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      1 | Participación en clase y trabajo grupo          | en OT: Otras técnicas evaluativas   | Presencial | 00:30      | 2%                | 0 / 10        |                                               |\n| ...    | ...                                             | ...                             | ...         | ...         | ...               | ...           | ...                                           |\n|     17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Summarization",
+      "student_profile": "estudiante que necesita un panorama general de la evaluación continua",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene el examen individual de toda la asignatura en logica?",
+      "ground_truth": "100%",
+      "ground_truth_context": "|   Sem | Descripción                             | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen individual de toda la asignatura | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la importancia de cada evaluación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el examen individual del tema 3 en logica?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem | Descripción                             | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer los mínimos de aprobación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el examen individual del tema 3 en logica?",
+      "ground_truth": "Semana 17",
+      "ground_truth_context": "|   Sem | Descripción                             | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la agenda de evaluaciones",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene el examen individual de toda la asignatura en logica?",
+      "ground_truth": "100%",
+      "ground_truth_context": "|   Sem | Descripción                             | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen individual de toda la asignatura | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la importancia de cada evaluación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso total de las participaciones en clase y trabajo de grupo en logica?",
+      "ground_truth": "16%",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      1 | Participación en clase y trabajo grupo          | en OT: Otras técnicas evaluativas   | Presencial | 00:30      | 2%                | 0 / 10        |                                               |\n| ...    | ...                                             | ...                             | ...         | ...         | ...               | ...           | ...                                           |\n|     17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante que necesita conocer la importancia total de las participaciones en clase",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el examen individual del tema 1 en logica?",
+      "ground_truth": "No existe un examen individual del Tema 1 en la tabla proporcionada.",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      8 | Examen individual del tema 2                    | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 35%               | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la agenda de evaluaciones",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el examen individual de toda la asignatura en logica?",
+      "ground_truth": "Semana 17",
+      "ground_truth_context": "|   Sem | Descripción                             | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen individual de toda la asignatura | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la agenda de evaluaciones",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene el examen individual de toda la asignatura en logica?",
+      "ground_truth": "100%",
+      "ground_truth_context": "|   Sem | Descripción                             | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen individual de toda la asignatura | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la importancia de cada evaluación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene el examen individual del tema 2 en logica?",
+      "ground_truth": "35%",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      8 | Examen individual del tema 2                    | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 35%               | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la importancia de cada evaluación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso total de las participaciones en clase y trabajo de grupo en logica?",
+      "ground_truth": "16%",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      1 | Participación en clase y trabajo grupo          | en OT: Otras técnicas evaluativas   | Presencial | 00:30      | 2%                | 0 / 10        |                                               |\n| ...    | ...                                             | ...                             | ...         | ...         | ...               | ...           | ...                                           |\n|     17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante que necesita conocer la importancia total de las participaciones en clase",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el examen individual del tema 2 en logica?",
+      "ground_truth": "Semana 8",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      8 | Examen individual del tema 2                    | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 35%               | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la agenda de evaluaciones",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene el examen individual del tema 3 en logica?",
+      "ground_truth": "35%",
+      "ground_truth_context": "|   Sem | Descripción                             | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la importancia de cada evaluación",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso total de las participaciones en clase y trabajo de grupo en logica?",
+      "ground_truth": "16%",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      1 | Participación en clase y trabajo grupo          | en OT: Otras técnicas evaluativas   | Presencial | 00:30      | 2%                | 0 / 10        |                                               |\n| ...    | ...                                             | ...                             | ...         | ...         | ...               | ...           | ...                                           |\n|     17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante que necesita conocer la importancia total de las participaciones en clase",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el examen individual del tema 3 en logica?",
+      "ground_truth": "Semana 17",
+      "ground_truth_context": "|   Sem | Descripción                             | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Factual",
+      "student_profile": "estudiante que necesita conocer la agenda de evaluaciones",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso total de las participaciones en clase y trabajo de grupo en logica?",
+      "ground_truth": "16%",
+      "ground_truth_context": "|   Sem. | Descripción                                     | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|      1 | Participación en clase y trabajo grupo          | en OT: Otras técnicas evaluativas   | Presencial | 00:30      | 2%                | 0 / 10        |                                               |\n| ...    | ...                                             | ...                             | ...         | ...         | ...               | ...           | ...                                           |\n|     17 | Examen individual del tema 3             | EX: Técnica del tipo Examen Escrito | Presencial   | 02:00      | 35%              | 0 / 10        | CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante que necesita conocer la importancia total de las participaciones en clase",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué actividad se realiza en la semana 5 de Mineria de Datos?",
+      "ground_truth": "Test 1",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                                          | Actividad presencial en laboratorio   | Tele-enseñanza                                                                        | Actividades de evaluación                                                                                                                                      |\n|     5 | Clases teóricas del tema 2.4 Duración: 02:00 LM: Actividad del tipo Lección Magistral | BORRADOR                              | Clases teóricas del tema 2.4 Duración: 02:00 LM: Actividad del tipo Lección Magistral | Test 1 ET: Técnica del tipo Prueba Telemática Evaluación continua No presencial Duración: 00:10                                                                |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que está buscando información específica sobre actividades de evaluación en Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué profesor coordinador tiene la asignatura Mineria de Datos?",
+      "ground_truth": "Pedro Maria Larrañaga Mugica",
+      "ground_truth_context": "| Pedro Maria Larrañaga Mugica (Coordinador/a) |       2208 | pedro.larranaga@upm.es | M - 15:00 - 19:00 V - 15:00 - 17:00 |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que necesita contactar con el profesor coordinador de Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el test del Tema 2 en Mineria de Datos?",
+      "ground_truth": "9",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                                          | Actividad presencial en laboratorio   | Tele-enseñanza                                                                        | Actividades de evaluación                                                                                                                                      |\n|     9 | Clases teóricas del tema 2.8 Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                       | Clases teóricas del tema 2.8 Duración: 02:00 LM: Actividad del tipo Lección Magistral | Test 2 ET: Técnica del tipo Prueba Telemática Evaluación continua No presencial Duración: 00:10                                                                |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que está buscando la fecha de un test específico en Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la primera práctica en grupo en Mineria de Datos?",
+      "ground_truth": "33.34%",
+      "ground_truth_context": "| Sem. | Descripción                                                             | Modalidad                                       | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                                                |\n|    11 | Entrega y exposición oral del trabajo 1 sobre clasificación supervisada | ET: Técnica del tipo Prueba Telemática BORRADOR | No Presencial | 02:00      | 33.34%            | 4 / 10        | CG-1/21 CG-2/CE45 CG-5 CG-19 CG-13/CE55 Ce 12/16 Ce 14/15 Ce 17 Ce 44 |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que está buscando información sobre la evaluación de Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el test de Mineria de Datos?",
+      "ground_truth": "4/10",
+      "ground_truth_context": "| Sem. | Descripción                                                             | Modalidad                                       | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                                                |\n|    5  | Test 1                                                                  | ET: Técnica del tipo Prueba Telemática          | No Presencial | 00:10      | 16.66%            | 4 / 10        | CG-1/21 CG-2/CE45 CG-6 Ce 14/15                                       |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que está buscando la nota mínima para aprobar los tests en Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuántas horas tiene la evaluación del trabajo 2 sobre clasificación no supervisada en Mineria de Datos?",
+      "ground_truth": "02:00",
+      "ground_truth_context": "| Sem   | Descripción   | Modalidad   | Tipo   | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    15 | Entrega y exposición oral del trabajo 2 sobre clasificación supervisada | no ET: Técnica del tipo Prueba Telemática       | No Presencial | 02:00      | 16.66%            | 4 / 10        | CG-2/CE45 CG-5 CG-19 CG-13/CE55 Ce 12/16 Ce 14/15 Ce 17 Ce 44 CG-1/21 |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que está buscando información sobre la duración de las evaluaciones en Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividad es el Test 3 en Mineria de Datos?",
+      "ground_truth": "No Presencial",
+      "ground_truth_context": "| Sem. | Descripción                                                             | Modalidad                                       | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                                                |\n|    13 | Test 3                                                                  | ET: Técnica del tipo Prueba Telemática          | No Presencial | 00:10      | 16.66%            | 4 / 10        | CG-1/21 CG-2/CE45 CG-6 Ce 14/15                                       |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que necesita confirmar detalles sobre la evaluación del Test 3 en Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es el nombre del libro recomendado por C. Bielza y P. Larrañaga para Mineria de Datos?",
+      "ground_truth": "Data-Driven Computational Neuroscience.",
+      "ground_truth_context": "| Libro 8               | Bibliografía | C. Bielza, P. Larrañaga (2019) Data-Driven Computational Neuroscience. Machine Learning and Statistical Models. Cambridge University Press BORRADOR |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que está buscando recursos de bibliografía para Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué tipo de recurso es el software WEKA en Mineria de Datos?",
+      "ground_truth": "Recursos web",
+      "ground_truth_context": "| software              | Recursos web | Software WEKA: http:// www.cs.waikato.ac.nz/ml/weka                                                                                                 |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que está buscando herramientas de software para Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza la entrega y exposición oral del trabajo 1 sobre clasificación supervisada en Mineria de Datos?",
+      "ground_truth": "11",
+      "ground_truth_context": "| Sem. | Descripción                                                             | Modalidad                                       | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                                                |\n|    11 | Entrega y exposición oral del trabajo 1 sobre clasificación supervisada | ET: Técnica del tipo Prueba Telemática BORRADOR | No Presencial | 02:00      | 33.34%            | 4 / 10        | CG-1/21 CG-2/CE45 CG-5 CG-19 CG-13/CE55 Ce 12/16 Ce 14/15 Ce 17 Ce 44 |",
+      "question_type": "Factual",
+      "student_profile": "Estudiante que necesita la fecha de entrega del trabajo 1 en Mineria de Datos",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuántos créditos ECTS tiene la asignatura Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "3 ECTS",
+      "ground_truth_context": "| No de créditos                      | 3 ECTS                                                         |\n| Carácter                            | Obligatoria                                                    |\n| Curso                               | Tercero curso                                                  |\n| Semestre                            | Sexto semestre                                                 |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es el nombre del profesor responsable de la coordinación en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "Manuel De Hermenegildo Salinas",
+      "ground_truth_context": "| Manuel De Hermenegildo Salinas (Coordinador/a) |       2212 | manuel.hermenegildo@upm. es         | Sin horario.            |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza la primera actividad presencial en aula de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "1",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                       | Actividad presencial en laboratorio                                                       | Tele-enseñanza                                                                 | Actividades de evaluación                                                                                                      |\n|     1 | 1.1 y 1.2 Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                                                                           | 1.1 y 1.2 Duración: 02:00 LM: Actividad del tipo Lección Magistral             | Ejercicios de clase TI: Técnica del tipo Trabajo Individual Evaluación continua No presencial Duración: 03:00                  |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la primera práctica en grupo de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "%",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      1 | Ejercicios de clase                   | TI: Técnica del tipo Trabajo Individual | No Presencial | 03:00      | %                 | 5 / 10        |                          |\n|      2 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | %                 | 5 / 10        |                          |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el test de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "5 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      1 | Ejercicios de clase                   | TI: Técnica del tipo Trabajo Individual | No Presencial | 03:00      | %                 | 5 / 10        |                          |\n|      2 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | %                 | 5 / 10        |                          |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 3 de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "2.3 Duración: 02:00 LM: Actividad del tipo Lección Magistral; BORRADOR",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                       | Actividad presencial en laboratorio                                                       | Tele-enseñanza                                                                 | Actividades de evaluación                                                                                                      |\n|     3 | 2.3 Duración: 02:00 LM: Actividad del tipo Lección Magistral       | BORRADOR                                                                                  | 2.3 Duración: 02:00 LM: Actividad del tipo Lección                             | Magistral Elaboración de las prácticas TG: Técnica del tipo Trabajo en Grupo Evaluación continua No presencial Duración: 02:00 |",
+      "question_type": "Summarization",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración total de las actividades de evaluación en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "18 horas",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      1 | Ejercicios de clase                   | TI: Técnica del tipo Trabajo Individual | No Presencial | 03:00      | %                 | 5 / 10        |                          |\n|      2 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | %                 | 5 / 10        |                          |\n... (resto de las actividades)\n",
+      "question_type": "Summarization",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué porcentaje del total tiene la evaluación continua en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "75%",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      1 | Ejercicios de clase                   | TI: Técnica del tipo Trabajo Individual | No Presencial | 03:00      | %                 | 5 / 10        |                          |\n|      2 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | %                 | 5 / 10        |                          |\n... (resto de las actividades)\n|      7 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | 25%               | Ce 34 Ce 2 Ce 8 Ce 24    |\n|     16 | Examen Eval. Continua                 | EP: Técnica del tipo Examen de Prácticas | No Presencial | 01:00      | 50%               | 5 / 10        |                          |",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizarán en la semana 9 de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "3.5 Duración: 02:00 LM: Actividad del tipo Lección Magistral; Elaboración de las prácticas TG: Técnica del tipo Trabajo en Grupo Evaluación continua No presencial Duración: 03:00",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                       | Actividad presencial en laboratorio                                                       | Tele-enseñanza                                                                 | Actividades de evaluación                                                                                                      |\n|     9 | 3.5 Duración: 02:00 LM: Actividad del tipo Lección Magistral       |                                                                                           | 3.5 Duración: 02:00 LM: Actividad del tipo Lección Magistral                   | Elaboración de las prácticas TG: Técnica del tipo Trabajo en Grupo Evaluación continua No presencial Duración: 03:00           |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar las actividades de evaluación en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "5 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      1 | Ejercicios de clase                   | TI: Técnica del tipo Trabajo Individual | No Presencial | 03:00      | %                 | 5 / 10        |                          |\n|      2 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | %                 | 5 / 10        |                          |",
+      "question_type": "Summarization",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la competencia evaluada en la semana 7 de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "Ce 34 Ce 2 Ce 8 Ce 24",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      7 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | 25%               | 5 / 10        | Ce 34 Ce 2 Ce 8 Ce 24    |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración de las actividades presenciales en laboratorio y tele-enseñanza en total para Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "12 horas",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                       | Actividad presencial en laboratorio                                                       | Tele-enseñanza                                                                 | Actividades de evaluación                                                                                                      |\n|     1 | 1.1 y 1.2 Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                                                                           | 1.1 y 1.2 Duración: 02:00 LM: Actividad del tipo Lección Magistral             |\n|     2 | 2.1 y 2.2 Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                                                                           | 2.1 y 2.2 Duración: 02:00 LM: Actividad del tipo Lección                       |\n... (resto de las actividades)\n",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración total de las prácticas en grupo para Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "15 horas",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      2 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | %                 | 5 / 10        |                          |\n|      3 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | %                 | 5 / 10        |                          |\n... (resto de las actividades)\n",
+      "question_type": "Summarization",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué porcentaje tiene la evaluación final en Programacion Declarativa: Logica y Restricciones si se aprueba solo con prueba?",
+      "ground_truth": "100%",
+      "ground_truth_context": "|   Sem | Descripción            | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen Eval. Ordinaria | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | 5 / 10        | Ce 34 Ce 2 Ce 8 Ce 24    |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué semana se realiza la prueba final de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "17",
+      "ground_truth_context": "|   Sem | Descripción            | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen Eval. Ordinaria | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | 5 / 10        | Ce 34 Ce 2 Ce 8 Ce 24    |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración de las actividades presenciales en aula para Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "16 horas",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                       | Actividad presencial en laboratorio                                                       | Tele-enseñanza                                                                 | Actividades de evaluación                                                                                                      |\n|     1 | 1.1 y 1.2 Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                                                                           | 1.1 y 1.2 Duración: 02:00 LM: Actividad del tipo Lección Magistral             |\n|     2 | 2.1 y 2.2 Duración: 02:00 LM: Actividad del tipo Lección Magistral |                                                                                           | 2.1 y 2.2 Duración: 02:00 LM: Actividad del tipo Lección                       |\n... (resto de las actividades)\n",
+      "question_type": "Summarization",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración total de las evaluaciones individuales y grupales en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "21 horas",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      1 | Ejercicios de clase                   | TI: Técnica del tipo Trabajo Individual | No Presencial | 03:00      | %                 | 5 / 10        |                          |\n|      2 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | %                 | 5 / 10        |                          |\n... (resto de las actividades)\n",
+      "question_type": "Summarization",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué porcentaje tiene la evaluación continua y cuál la final en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "75% (evaluación continua), 100% (prueba final)",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      7 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | 25%               | 5 / 10        | Ce 34 Ce 2 Ce 8 Ce 24    |\n|     16 | Examen Eval. Continua                 | EP: Técnica del tipo Examen de Prácticas | No Presencial | 01:00      | 50%               | 5 / 10        |                          |\n... (resto de las actividades)\n|   Sem | Descripción            | Modalidad                           | Tipo       | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|    17 | Examen Eval. Ordinaria | EX: Técnica del tipo Examen Escrito | Presencial | 02:00      | 100%              | 5 / 10        | Ce 34 Ce 2 Ce 8 Ce 24    |",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 5 de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "Clase práctica Duración: 03:00 PL: Actividad del tipo Prácticas de Laboratorio; Elaboración de las prácticas TG: Técnica del tipo Trabajo en Grupo Evaluación continua No presencial Duración: 02:00",
+      "ground_truth_context": "|   Sem | Actividad presencial en aula                                       | Actividad presencial en laboratorio                                                       | Tele-enseñanza                                                                 | Actividades de evaluación                                                                                                      |\n|     5 |                                                                    | Clase practica Duración: 03:00 PL: Actividad del tipo Prácticas de Laboratorio            | Clase practica Duración: 03:00 PL: Actividad del tipo Prácticas de Laboratorio | Elaboración de las prácticas TG: Técnica del tipo Trabajo en Grupo Evaluación continua No presencial Duración: 02:00           |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar las prácticas individuales y grupales en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "5 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      1 | Ejercicios de clase                   | TI: Técnica del tipo Trabajo Individual | No Presencial | 03:00      | %                 | 5 / 10        |                          |\n|      2 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | %                 | 5 / 10        |                          |\n... (resto de las actividades)\n",
+      "question_type": "Summarization",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué competencias se evalúan en la semana 7 de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "Ce 34 Ce 2 Ce 8 Ce 24",
+      "ground_truth_context": "|   Sem. | Descripción                           | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas   |\n|      7 | Elaboración de las prácticas          | TG: Técnica del tipo Trabajo en Grupo   | No Presencial | 02:00      | 25%               | 5 / 10        | Ce 34 Ce 2 Ce 8 Ce 24    |",
+      "question_type": "Factual",
+      "student_profile": "Ingeniería Informática",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el Examen de la primera parte de la asignatura en Reconocimiento de Formas?",
+      "ground_truth": "Semana 9",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|      9 | Examen de la primera parte de la asignatura.   | EX: Técnica del tipo Examen Escrito          | No Presencial | 01:00      | 20%               | 0 / 10        | CG-1/21 CG-2/CE45 Ce 12/16             |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el Examen de la primera parte de Reconocimiento de Formas?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|      9 | Examen de la primera parte de la asignatura.   | EX: Técnica del tipo Examen Escrito          | No Presencial | 01:00      | 20%               | 0 / 10        | CG-1/21 CG-2/CE45 Ce 12/16             |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la Presentación y defensa pública de la Práctica en Reconocimiento de Formas?",
+      "ground_truth": "30%",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|     15 | Presentacion y defensa pública de la Práctica. | PI: Técnica del tipo Presentación Individual | No Presencial | 02:00      | 30%               | 0 / 10        | CG-1/21 CG-5 CG-19 Ce 12/16            |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el Examen segunda parte de Reconocimiento de Formas?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|     16 | Examen segunda parte de la asignatura          | EX: Técnica del tipo Examen Escrito          | No Presencial | 02:00      | 20%               | 0 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20         |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el Examen escrito en Reconocimiento de Formas?",
+      "ground_truth": "Semana 17",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen escrito                    | EX: Técnica del tipo Examen Escrito     | No Presencial | 01:00      | 40%               | 0 / 10        | CG-1/21 CG-2/CE45 CG-5 CG-6 Ce 12/16 Ce 19/20         |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la Entrega práctica de la asignatura en Reconocimiento de Formas?",
+      "ground_truth": "60%",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Entrega práctica de la asignatura | TI: Técnica del tipo Trabajo Individual | No Presencial | 01:00      | 60%               | 0 / 10        | CG-1/21 CG-2/CE45 CG-19 CG-13/CE55            |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el Examen escrito en Reconocimiento de Formas?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen escrito                    | EX: Técnica del tipo Examen Escrito     | No Presencial | 01:00      | 40%               | 0 / 10        | CG-1/21 CG-2/CE45 CG-5 CG-6 Ce 12/16 Ce 19/20         |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el Examen segunda parte de Reconocimiento de Formas?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|     16 | Examen segunda parte de la asignatura          | EX: Técnica del tipo Examen Escrito          | No Presencial | 02:00      | 20%               | 0 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20         |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la Práctica primera parte de la asignatura en Reconocimiento de Formas?",
+      "ground_truth": "30%",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|      9 | Práctica primera parte de la asignatura.       | TG: Técnica del tipo Trabajo en Grupo        | No Presencial | 01:00      | 30%               | 0 / 10        | CG-1/21 CG-6 CG-19 CG-13/CE55 Ce 12/16 |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar la Presentación y defensa pública de la Práctica en Reconocimiento de Formas?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|     15 | Presentacion y defensa pública de la Práctica. | PI: Técnica del tipo Presentación Individual | No Presencial | 02:00      | 30%               | 0 / 10        | CG-1/21 CG-5 CG-19 Ce 12/16            |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza el Examen segunda parte de la asignatura en Reconocimiento de Formas?",
+      "ground_truth": "Semana 16",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|     16 | Examen segunda parte de la asignatura          | EX: Técnica del tipo Examen Escrito          | No Presencial | 02:00      | 20%               | 0 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20         |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene el Examen segunda parte de la asignatura en Reconocimiento de Formas?",
+      "ground_truth": "20%",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|     16 | Examen segunda parte de la asignatura          | EX: Técnica del tipo Examen Escrito          | No Presencial | 02:00      | 20%               | 0 / 10        | CG-1/21 CG-6 Ce 12/16 Ce 19/20         |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar la Práctica primera parte de la asignatura en Reconocimiento de Formas?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|      9 | Práctica primera parte de la asignatura.       | TG: Técnica del tipo Trabajo en Grupo        | No Presencial | 01:00      | 30%               | 0 / 10        | CG-1/21 CG-6 CG-19 CG-13/CE55 Ce 12/16 |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene el Examen de la primera parte de la asignatura en Reconocimiento de Formas?",
+      "ground_truth": "20%",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|      9 | Examen de la primera parte de la asignatura.   | EX: Técnica del tipo Examen Escrito          | No Presencial | 01:00      | 20%               | 0 / 10        | CG-1/21 CG-2/CE45 Ce 12/16             |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el Examen de la primera parte de Reconocimiento de Formas?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|      9 | Examen de la primera parte de la asignatura.   | EX: Técnica del tipo Examen Escrito          | No Presencial | 01:00      | 20%               | 0 / 10        | CG-1/21 CG-2/CE45 Ce 12/16             |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la Entrega práctica de la asignatura en Reconocimiento de Formas?",
+      "ground_truth": "60%",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Entrega práctica de la asignatura | TI: Técnica del tipo Trabajo Individual | No Presencial | 01:00      | 60%               | 0 / 10        | CG-1/21 CG-2/CE45 CG-19 CG-13/CE55            |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el Examen escrito en Reconocimiento de Formas?",
+      "ground_truth": "0 / 10",
+      "ground_truth_context": "|   Sem | Descripción                       | Modalidad                               | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                        |\n|    17 | Examen escrito                    | EX: Técnica del tipo Examen Escrito     | No Presencial | 01:00      | 40%               | 0 / 10        | CG-1/21 CG-2/CE45 CG-5 CG-6 Ce 12/16 Ce 19/20         |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué peso tiene la Práctica primera parte de la asignatura en Reconocimiento de Formas?",
+      "ground_truth": "30%",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|      9 | Práctica primera parte de la asignatura.       | TG: Técnica del tipo Trabajo en Grupo        | No Presencial | 01:00      | 30%               | 0 / 10        | CG-1/21 CG-6 CG-19 CG-13/CE55 Ce 12/16 |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿En qué semana se realiza la Presentación y defensa pública de la Práctica en Reconocimiento de Formas?",
+      "ground_truth": "Semana 15",
+      "ground_truth_context": "|   Sem. | Descripción                                    | Modalidad                                    | Tipo          | Duración   | Peso en la nota   | Nota mínima   | Competencias evaluadas                 |\n|     15 | Presentacion y defensa pública de la Práctica. | PI: Técnica del tipo Presentación Individual | No Presencial | 02:00      | 30%               | 0 / 10        | CG-1/21 CG-5 CG-19 Ce 12/16            |",
+      "question_type": "Factual",
+      "student_profile": "",
+      "source_document": "Reconocimiento de Formas.pdf"
+    }
+  ]
+}

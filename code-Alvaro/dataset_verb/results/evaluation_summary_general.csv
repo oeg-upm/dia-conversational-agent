@@ -1,0 +1,6 @@
+Métrica               Baseline    Verbalized      Δ
+─────────────────────────────────────────────────────
+context_recall        0.9278      0.8681      ↓ -0.0597
+context_precision     0.4983      0.4857      ↓ -0.0126
+faithfulness          0.9344      0.9671      ↑ +0.0327
+answer_relevancy      0.6752      0.6912      ↑ +0.0160
