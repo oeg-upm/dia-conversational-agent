@@ -11,7 +11,7 @@ from langchain_core.prompts import ChatPromptTemplate
 warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
 
 # ==========================================
-# 1. CONFIGURATION
+# CONFIGURATION
 # ==========================================
 
 CHROMA_HOST = "localhost" 
@@ -20,14 +20,16 @@ COLLECTION_NAME = "rag_collection"
 BACKEND_URL = "http://localhost:8001"
 
 LLM_CONFIG = {
-    "model": "cyankiwi/Qwen3.5-27B-AWQ-4bit",
-    "base_url": "http://100.102.206.64:8005/v1",
+    "model": "Qwen/Qwen2.5-32B-Instruct-GPTQ-Int4",
+    "base_url": "http://100.77.133.90:8005/v1",
     "api_key": "not_required",
     "temperature": 0.7
 }
 
+HIERARCHY_CACHE = None
+
 # ==========================================
-# 2. DATA SCHEMA
+# DATA SCHEMA
 # ==========================================
 
 class QAPair(BaseModel):
@@ -67,8 +69,29 @@ class QAPair(BaseModel):
     )
 
 # ==========================================
-# 3. UTILS & RAG API CALL
+# UTILS & RAG API CALL
 # ==========================================
+
+def get_all_sources_for_degree(course: str, degree: str) -> list:
+    """Fetch all documents belonging to a specific course and degree from the backend."""
+    global HIERARCHY_CACHE
+    if HIERARCHY_CACHE is None:
+        try:
+            response = requests.get(f"{BACKEND_URL}/files")
+            response.raise_for_status()
+            HIERARCHY_CACHE = response.json().get("hierarchy", {})
+        except Exception as e:
+            print(f"Warning: Could not fetch hierarchy from backend ({e})")
+            HIERARCHY_CACHE = {}
+
+    sources = []
+
+    if course in HIERARCHY_CACHE and degree in HIERARCHY_CACHE[course]:
+        for display_name in HIERARCHY_CACHE[course][degree]:
+            raw_filename = display_name.split("] ", 1)[-1]
+            sources.append(raw_filename)
+            
+    return sources
 
 def get_rag_response(question: str, chunk_metadata: dict) -> dict:
     """Sends the question to the real RAG backend using the new hierarchical context."""
@@ -76,18 +99,26 @@ def get_rag_response(question: str, chunk_metadata: dict) -> dict:
         # Extract metadata for ContextItem
         course = chunk_metadata.get("course", "Unknown")
         degree = chunk_metadata.get("degree", "Unknown")
-        source = chunk_metadata.get("source", "Unknown")
+        original_source = chunk_metadata.get("source", "Unknown")
+
+        all_sources = get_all_sources_for_degree(course, degree)
+
+        if not all_sources:
+            all_sources = [original_source]
+
+        selected_context = []
+
+        for src in all_sources:
+            selected_context.append({
+                "course": course,
+                "degree": degree,
+                "source": src
+            })
 
         # Build the payload
         payload = {
             "message": question,
-            "selected_context": [
-                {
-                    "course": course,
-                    "degree": degree,
-                    "source": source
-                }
-            ],
+            "selected_context": selected_context,
             "chat_history": [] # Empty history for evaluation
         }
 
@@ -154,7 +185,8 @@ def generate_evaluation_dataset(n: int = 20):
         - language must always be a 2-letter ISO code.
         - contexts and reference_contexts must always be arrays.
         - question and ground_truth must be written in Spanish.
-        - questions that students, teachers, etc. would ask in real life
+        - questions that students, teachers, etc. would ask in real life.
+        - IMPORTANT: questions must include the subject they are asking about, included in the initial metadata of the chunk, in order to the RAG system to know what to look for.
 
         STRICT FORMAT RULES:
         1. language: Use ONLY two-letter ISO codes (e.g., 'es', 'en').
@@ -226,9 +258,9 @@ def generate_evaluation_dataset(n: int = 20):
 
 if __name__ == "__main__":
     # Generate X samples
-    data = generate_evaluation_dataset(3)
+    data = generate_evaluation_dataset(100)
     if data:
-        output_file = "rag_dataset_v3_gemma_nvidia_V2.json"
+        output_file = "rag_dataset_v3_octen_qwen2.5_V2.json"
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
         print(f"Done! Dataset saved to {output_file}")

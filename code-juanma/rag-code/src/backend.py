@@ -35,8 +35,10 @@ app = FastAPI(title="RAG DIA")
 # --- 1. Initialization ---
 print("Initializing FastAPI backend...")
 
-#ollama_url = "http://100.120.214.59:11434" 
-vllm_url = "http://100.73.42.55" 
+IP = "100.87.95.86"
+
+ollama_url = f"http://{IP}:11434" 
+vllm_url = f"http://{IP}" 
 
 # LLM Local / Cluster
 """llm = ChatOpenAI(
@@ -48,24 +50,24 @@ vllm_url = "http://100.73.42.55"
 
 #vllm
 llm = ChatOpenAI(
-    model="cyankiwi/Qwen3.5-27B-AWQ-4bit", 
+    model="cyankiwi/Qwen3.6-27B-AWQ-INT4", 
     base_url=vllm_url + ":8005/v1",
     api_key="not_required",
-    temperature=0.05
+    temperature=0.1
 )
 
 # Embeddings (cluster)
-"""embeddings = OllamaEmbeddings(
+embeddings = OllamaEmbeddings(
     model="bge-m3:latest",
     base_url=ollama_url
-)"""
+)
 
 # vllm
-embeddings = OpenAIEmbeddings(
-    model="BAAI/bge-m3",
+"""embeddings = OpenAIEmbeddings(
+    model="Qwen/Qwen3-Embedding-8B",
     base_url=vllm_url + ":8000/v1",
     api_key="not_required"
-)
+)"""
 
 # ChromaDB client
 chroma_client = chromadb.HttpClient(host="chromadb", port=8000)
@@ -262,7 +264,7 @@ async def get_available_files():
     
 
 @app.post("/upload")
-async def process_files(
+def process_files(
     files: List[UploadFile] = File(...),
     course: Optional[str] = Form("Unknown"), # Default value to avoid breaking frontend
     category: Optional[str] = Form("Unknown"), # Degree/Master
@@ -454,58 +456,60 @@ async def chat_response(request: ChatRequest, context: bool = False):
         if not formatted_history or context:
             formatted_history = "Beginning of the conversation."
 
-
-        print(f"\n--- Starting RAG-Fusion for: '{request.message}' ---")
+        
+        #print(f"\n--- Starting RAG-Fusion for: '{request.message}' ---")
 
         # --- 1. Multi-Query Generation ---
-        mq_template = """
-            You are an expert Academic Search Assistant. Your goal is to rewrite and expand the user's 
-            current question into 5 distinct, standalone search queries for a vector database.
+        #mq_template = """
+        #    You are an expert Academic Search Assistant. Your goal is to rewrite and expand the user's 
+        #    current question into 5 distinct, standalone search queries for a vector database.
 
-            CRITICAL RULES:
-            1. CONTEXTUAL RESOLUTION: If the user's question contains pronouns (it, they, he, she) or 
-            implicit references (e.g., "and for the other one?", "what about the credits?"), 
-            you MUST use the Chat History to resolve these references into full subject names or topics.
-            2. STANDALONE QUERIES: Each generated query must be complete and understandable 
-            WITHOUT the chat history. 
-            3. PERSPECTIVES: Generate queries covering different aspects: formal name, 
-            specific requirements, evaluation criteria, and related terminology.
-            4. LANGUAGE: Always output the queries in the same language as the user's question.
+        #    CRITICAL RULES:
+        #    1. CONTEXTUAL RESOLUTION: If the user's question contains pronouns (it, they, he, she) or 
+        #    implicit references (e.g., "and for the other one?", "what about the credits?"), 
+        #    you MUST use the Chat History to resolve these references into full subject names or topics.
+        #    2. STANDALONE QUERIES: Each generated query must be complete and understandable 
+        #    WITHOUT the chat history. 
+        #    3. PERSPECTIVES: Generate queries covering different aspects: formal name, 
+        #    specific requirements, evaluation criteria, and related terminology.
+        #    4. LANGUAGE: Always output the queries in the same language as the user's question.
 
-            Chat history:
-            {chat_history}
+        #    Chat history:
+        #    {chat_history}
 
-            User question:
-            {question}
+        #    User question:
+        #    {question}
 
-            Output only the 5 standalone alternative queries, one per line, no numbering.
-        """
+        #    Output only the 5 standalone alternative queries, one per line, no numbering.
+        #"""
 
-        prompt_mq = PromptTemplate.from_template(mq_template)
-        mq_chain = prompt_mq | llm | StrOutputParser()
+        #prompt_mq = PromptTemplate.from_template(mq_template)
+        #mq_chain = prompt_mq | llm | StrOutputParser()
         
-        generated_queries_str = mq_chain.invoke({
-            "question": request.message, 
-            "chat_history": formatted_history
-        })
+        #generated_queries_str = mq_chain.invoke({
+        #    "question": request.message, 
+        #    "chat_history": formatted_history
+        #})
 
 
-        queries = [request.message] + [q.strip() for q in generated_queries_str.split('\n') if q.strip()]
-        print(f"Generated queries:\n{queries}")
+        #queries = [request.message] + [q.strip() for q in generated_queries_str.split('\n') if q.strip()]
+        #print(f"Generated queries:\n{queries}")
 
         # --- 2. Parallel recovery ---
         retriever = vectorstore.as_retriever(
             search_kwargs={"k": 6, "filter": search_filter}
         )
         
-        all_retrieved_results = []
-        tasks = [retriever.ainvoke(q) for q in queries]
-        all_retrieved_results = await asyncio.gather(*tasks)
+        #all_retrieved_results = []
+        #tasks = [retriever.ainvoke(q) for q in queries]
+        
+        #all_retrieved_results = await asyncio.gather(*tasks)
 
         # --- 3. Reciprocal Rank Fusion (RRF) ---
-        fused_docs = reciprocal_rank_fusion(all_retrieved_results)
+        #fused_docs = reciprocal_rank_fusion(all_retrieved_results)
         
-        final_top_docs = [doc for doc, score in fused_docs[:6]]
+        #final_top_docs = [doc for doc, score in fused_docs[:6]]
+        final_top_docs = retriever.invoke(request.message)
         user_session["last_docs"] = [{"page_content": d.page_content, "metadata": d.metadata} for d in final_top_docs]
 
         context_text = ""
@@ -526,7 +530,7 @@ async def chat_response(request: ChatRequest, context: bool = False):
             "1. NO EXTERNAL KNOWLEDGE: use only the provided fragments. If the context doesn't contain the answer, "
             "simply state that you don't know.\n"
             "2. CLARITY: be concise but clear. If the question is ambiguous, state that you don't understand and ask for clarification instead of guessing.\n"
-            "3. STRUCTURE: use bullet points or numbered lists for complex information only if it is needed (like evaluation criteria or syllabus).\n"
+            "3. STRUCTURE: you can use bullet points or numbered lists for complex information only if it is needed (like evaluation criteria or syllabus).\n"
             "4. NO HALLUCINATIONS: do not invent dates, names of professors, or percentages if they are not explicitly in the context.\n"
             "5. LANGUAGE: respond in the same language as the user's question.\n"
             "6. ANSWER: do not say 'based on the context...', '...in the documents provided...' or similar phrases. Just answer the question directly.\n\n"
@@ -542,6 +546,7 @@ async def chat_response(request: ChatRequest, context: bool = False):
             
             "ANSWER (precise, structured):"
         )
+
         
         prompt_qa = ChatPromptTemplate.from_template(template_qa)
         qa_chain = prompt_qa | llm | StrOutputParser()

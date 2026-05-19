@@ -1,0 +1,7 @@
+model,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness,safe_behavior
+bge,0.90562,0.6322,0.70889,0.73657,0.74967,0.62229,1.0
+harrier,0.88245,0.63801,0.67291,0.76435,0.75567,0.6444,1.0
+octen,0.8916,0.61666,0.70812,0.7588,0.76231,0.63167,0.91666
+qwen8b,0.94082,0.55394,0.63249,0.63472,0.76016,0.59393,1.0
+,,,,,,,
+WINNER,qwen8b,harrier,bge,harrier,octen,harrier,bge

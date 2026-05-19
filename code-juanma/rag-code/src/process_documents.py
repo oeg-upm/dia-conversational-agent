@@ -19,7 +19,7 @@ def upload_all_guides():
         """if course_name == "Curso 2020_2021" or course_name == "Curso 2019_2020" or course_name == "Curso 2021_2022":
             continue"""
         
-        """if course_name = "Curso 2021_2022":
+        """if course_name != "Curso 2025_2026":
             continue"""
         
         print(f"\n--- PROCESSING COURSE: {course_name} ---")
@@ -63,7 +63,7 @@ def process_degree_folder(course, category, degree, path):
     print(f"\n- Sector: {course} > {category} > {degree}")
     print(f"* Documents: {total_files}")
 
-    """if degree == "Master Universitario en Inteligencia Artificial":
+    """if degree == "Máster Universitario en Inteligencia Artificial":
         pass
     else:
         return"""

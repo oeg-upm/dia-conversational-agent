@@ -9,9 +9,9 @@ from tqdm import tqdm
 
 BACKEND_URL = "http://localhost:8001"
 
-INPUT_FILE = "rag_dataset_v3_gemma_nvidia_100.json" 
+INPUT_FILE = "rag_dataset_v3_bge_qwen2.5_V2.json" 
 
-OUTPUT_FILE = "rag_dataset_eval_bge_100.json" 
+OUTPUT_FILE = "rag_dataset_v3_bge_no_multiquery_qwen3.6.json" 
 
 # ==========================================
 # RAG API CALL FUNCTION
