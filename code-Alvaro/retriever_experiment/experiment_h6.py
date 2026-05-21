@@ -142,7 +142,7 @@ def run_experiment():
         run_evaluation(
             dataset_path=dataset_path,
             output_csv=f"results/evaluation_k{k}_multi_summ.csv",
-            sample_percentage=0.5,  # evaluate on 50% of the dataset for speed; adjust as needed
+            sample_percentage=1,  # evaluate on 100% of the dataset for speed; adjust as needed
         )
  
     print("\n" + "=" * 60)

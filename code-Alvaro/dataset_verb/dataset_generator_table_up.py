@@ -62,15 +62,15 @@ class QADataset(BaseModel):
 # ==========================================
 
 llm_extractor = ChatOpenAI(
-    model="qwen2.5:32b",
-    base_url="http://100.84.51.82:5000/v1",
+    model="Qwen/Qwen2.5-32B-Instruct-GPTQ-Int4",
+    base_url="http://100.120.90.85:8005/v1",
     api_key="not_required",
     temperature=0.1
 )
 
 llm_generator = ChatOpenAI(
-    model="qwen2.5:32b",
-    base_url="http://100.84.51.82:5000/v1",
+    model="Qwen/Qwen2.5-32B-Instruct-GPTQ-Int4",
+    base_url="http://100.120.90.85:8005/v1",
     api_key="not_required",
     temperature=0.7
 )
@@ -180,80 +180,7 @@ El JSON debe tener exactamente estas claves:
     return CourseGuideSchema(**parsed)
 
 
-# def generate_questions(schema: CourseGuideSchema, course_name: str, num_questions: int = 20) -> QADataset:
-#     """Generates diverse Q&A pairs based on the extracted schema."""
-#     print(f"-> Generating a diverse dataset of {num_questions} questions...")
 
-#     prompt = ChatPromptTemplate.from_messages([
-#         ("system", """Eres un simulador avanzado de estudiantes universitarios.
-
-#     Genera {num_questions} pares de pregunta y respuesta basados en los datos de la asignatura "{course_name}".
-
-#     REQUISITO DE IDIOMA: Todo en español.
-
-#     REGLAS PARA LAS PREGUNTAS:
-#     - Cada pregunta DEBE mencionar explícitamente el nombre de la asignatura "{course_name}".
-#         Ejemplo correcto: "¿Cuál es la bibliografía básica de {course_name}?"
-#         Ejemplo incorrecto: "¿Cuál es la bibliografía básica del curso?"
-
-#     REGLAS PARA ground_truth (MUY IMPORTANTE):
-#     - Debe ser una respuesta COMPLETA y AUTOCONTENIDA: alguien que solo lea el ground_truth debe entender la respuesta sin necesitar contexto adicional.
-#     - Para preguntas Factual simples (créditos, profesor, fecha): 1-2 frases con el dato exacto.
-#     - Para preguntas Summarization y Multi-hop: incluye TODOS los elementos relevantes sin omitir ninguno.
-#     - Debe ser CONCISA pero INFORMATIVA con los datos exactos (nombres, porcentajes, fechas, créditos).
-#     - NUNCA uses frases vagas como "se puede encontrar en...", "el curso incluye...", "hay información sobre...".
-#     - SIEMPRE incluye los datos concretos del schema.
-    
-
-#         MAL ejemplo: "La bibliografía básica incluye varios libros relevantes para la asignatura."
-#         BIEN ejemplo: "La bibliografía básica de {course_name} incluye 'Investigación Operativa: Modelos Determinísticos y Estocásticos' de Ríos Insua et al. (2004) y 'Métodos y Modelos de Investigación de Operaciones' de Kaufmann (1972)."
-
-#         MAL ejemplo: "La evaluación continua tiene un peso significativo en la nota final."
-#         BIEN ejemplo: "En {course_name}, la evaluación continua representa el 60% de la nota final, dividida en pruebas parciales (40%) y prácticas de laboratorio (20%). La nota mínima para aprobar es un 4.0."
-
-#     REGLAS PARA ground_truth_context:
-#     - SOLO palabras que aparecen literalmente en el schema proporcionado.
-#     - NO reformular, NO añadir información.
-#     - Debe poder encontrarse con CTRL+F en el texto original.
-
-
-#     TAXONOMÍA:
-#     1. Factual
-#     2. Summarization
-#     3. Multi-hop Reasoning
-#     4. Unanswerable (máximo 3)
-
-#     Para preguntas Unanswerable:
-#     - ground_truth: explicación natural
-#     - ground_truth_context: "No disponible en el documento"
-
-#     FORMATO JSON:
-#     {{{{
-#     "questions": [
-#         {{{{
-#         "question": "...",
-#         "ground_truth": "...",
-#         "ground_truth_context": "...",
-#         "question_type": "...",
-#         "student_profile": "..."
-#         }}}}
-#     ]
-#     }}}}"""),
-
-#         ("human", "ASIGNATURA: {course_name}\n\nDATOS DEL CURSO:\n{schema_json}\n\nResponde solo con JSON:")
-#     ])
-
-#     schema_json = schema.model_dump_json(indent=2)
-#     chain = prompt | llm_generator
-#     result = chain.invoke({
-#         "num_questions": num_questions,
-#         "schema_json": schema_json,
-#         "course_name": course_name
-#     })
-#     raw = result.content if hasattr(result, "content") else str(result)
-
-#     parsed = _parse_json_response(raw)
-#     return QADataset(**parsed)
 
 
 def generate_table_questions(tables_text: str, course_name: str, num_questions: int = 15) -> QADataset:
@@ -286,19 +213,29 @@ REGLAS PARA LAS PREGUNTAS:
   "¿Qué peso tiene la primera práctica en grupo en {course_name}?"
   "¿Cuál es la nota mínima para aprobar el test de {course_name}?"
 
-REGLAS PARA ground_truth:
+TAXONOMÍA de tipo de pregunta:
+1. Factual — dato concreto de una celda
+2. Summarization — resumen de toda una tabla
+3. Multi-hop Reasoning — combina datos de varias filas o tablas
+
+REGLAS PARA ground_truth (MUY IMPORTANTE):
 - Debe ser COMPLETO y AUTOCONTENIDO con todos los datos de la tabla.
 - Incluye SIEMPRE los valores numéricos exactos: semanas, porcentajes, notas mínimas.
 - NUNCA omitas datos con "entre otros" o "etc."
+- NUNCA uses una sola palabra, número o porcentaje aislado como respuesta.
+- Debe ser siempre una frase completa en español con un mínimo de 15 palabras.
+- Escribe siempre en prosa continua, integrando el dato en su contexto.
+    MAL ejemplo: "20%"
+    BIEN ejemplo: "La primera práctica en grupo de Investigación Operativa tiene un peso del 20% sobre la nota final de la asignatura."
+
+    MAL ejemplo: "Semana 3"
+    BIEN ejemplo: "El test del Tema 1 de Investigación Operativa se realiza en la semana 3 del calendario académico."
 
 REGLAS PARA ground_truth_context:
 - Copia literalmente las celdas relevantes de la tabla original.
 - Mantén la correspondencia fila-columna exacta.
 
-TAXONOMÍA (solo estas):
-1. Factual — dato concreto de una celda
-2. Summarization — resumen de toda una tabla
-3. Multi-hop Reasoning — combina datos de varias filas o tablas
+
 
 FORMATO JSON:
 {{{{

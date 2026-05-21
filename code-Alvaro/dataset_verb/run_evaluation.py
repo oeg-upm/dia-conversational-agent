@@ -3,8 +3,8 @@ import pandas as pd
 from evaluate_dataset import run_evaluation  
 import random
 
-NUM_RUNS = 1  # Número de ejecuciones para evaluar la estabilidad de las métricas
-DATASET_PATH = "dataset_general.json"
+NUM_RUNS = 5  # Número de ejecuciones para evaluar la estabilidad de las métricas
+DATASET_PATH = "dataset_tables.json"
 QUESTION_TYPE = "" # Opcional: filtrar por tipo de pregunta Multi-hop Reasoning, Summarization, Factual, etc.
 metrics = ["context_recall", "context_precision", "faithfulness", "answer_relevancy"]
 
@@ -16,7 +16,7 @@ for run_id in range(1, NUM_RUNS + 1):
     print("="*60)
 
     # 👇 opcional: cambiar seed en cada ejecución
-    random.seed(run_id)
+    #random.seed(run_id)
 
     scores = run_evaluation(DATASET_PATH, f"Verbalizado run {run_id}", question_type="")
 
@@ -52,17 +52,15 @@ summary_rows = []
 for m in metrics:
     values = [run[m] for run in all_runs]
     mean = np.mean(values)
-    std = np.std(values)
 
     summary_rows.append({
         "metric": m,
-        "Verbalizado": mean,
-        "std": std
+        "Verbalizado": mean
     })
 
-    print(f"{m:<25} mean={mean:.3f}   std={std:.3f}")
+    print(f"{m:<25} mean={mean:.3f}")
 
 summary_df = pd.DataFrame(summary_rows)
-summary_df.to_csv("evaluation_summary_Verbalizado.csv", index=False, encoding="utf-8")
+summary_df.to_csv("evaluation_summary_Verbalizado_table.csv", index=False, encoding="utf-8")
 
-print("\n✅ Global summary saved to evaluation_summary_Verbalizado.csv")
+print("\n✅ Global summary saved to evaluation_summary_Verbalizado_table.csv")

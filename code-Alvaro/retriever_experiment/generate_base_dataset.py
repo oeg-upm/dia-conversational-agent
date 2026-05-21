@@ -36,7 +36,7 @@ LLM_CONFIG = {
 }
 
 OUTPUT_FILE = "datasets/base_dataset.json"
-N_SAMPLES = 100  # number of QA pairs to generate
+N_SAMPLES = 50  # number of QA pairs to generate
 
 # ==========================================
 # DATA SCHEMA
@@ -55,10 +55,8 @@ class QAPair(BaseModel):
     reference_contexts: List[str] = Field(description="Chunks used to generate ground truth.")
     source_document: str = Field(description="Filename of the source PDF.")
     chunk_id: str = Field(description="Unique identifier for the chunk.")
-    #question_type: str = Field(description="factual, procedural, comparative, out_of_scope or ambiguous")
     question_type: Literal["factual", "summarization", "multi_hop", "ambiguous"]
-    #topic: Literal["plan_de_estudios", "matricula", "tfm", "profesorado", "otros"] = Field(description="Thematic area")
-    #difficulty: Literal["easy", "medium", "hard"] = Field(description="Difficulty level")
+
 
 # ==========================================
 # HELPERS
@@ -97,67 +95,7 @@ def generate_base_dataset(n: int = N_SAMPLES) -> list:
 
     llm = ChatOpenAI(**LLM_CONFIG)
 
-    # prompt = ChatPromptTemplate.from_messages([
-    #     ("system", """You are an academic evaluator for RAG systems. Your task is to generate high-quality QA pairs in Spanish.
 
-    #     STRICT FORMAT RULES:
-    #     1. language: Always use 'es'.
-    #     2. generation_method: Always use 'llm_generated'.
-    #     3. answer: ALWAYS leave this field as an empty string "". Do NOT fill it.
-    #     4. contexts: ALWAYS leave this as an empty list []. Do NOT fill it.
-    #     5. topic: Categorize into: plan_de_estudios, matricula, tfm, profesorado, or otros.
-    #     6. difficulty:
-    #        - 'easy': Answer is explicitly stated in a single sentence.
-    #        - 'medium': Requires consulting multiple parts of the text or minor paraphrasing.
-    #        - 'hard': Answer is implicit, requires synthesis of multiple sources.
-
-    #     Taxonomy of question_type:
-    #     - factual: Single-hop fact.
-    #     - procedural: Step-by-step process.
-    #     - comparative: Synthesis of information.
-    #     - out_of_scope: Plausible but missing from text.
-    #     - ambiguous: Vague query.
-
-    #     CRITICAL RULES FOR ground_truth:
-    #     - Write as a complete natural sentence in Spanish, minimum 15 words.
-    #     - NEVER copy raw codes or table text from the context (e.g. '14, 3 = ...' or 'ASI Natura 103000361').
-    #     - NEVER use 'yes', 'no', or single words as the answer.
-    #     - For out_of_scope questions: ground_truth must be exactly the string 'out_of_scope'.
-    #     - Good example: 'La asignatura se evalúa mediante dos prácticas grupales con peso del 30% cada una y un examen final del 40%.'
-    #     - Bad example: '14, 3 = Presentation of second assignment' or 'yes' or 'ASI Natura 103000361'
-    #     """),
-    #     ("human", "Context: {chunk_text}\nMetadata: {metadata}\nType requested: '{q_type}'")
-    # ])
-    
-    # prompt = ChatPromptTemplate.from_messages([
-    #     ("system", """You are an academic evaluator for RAG systems. Your task is to generate high-quality QA pairs in Spanish.
-
-    #     STRICT FORMAT RULES:
-    #     1. language: Always use 'es'.
-    #     2. generation_method: Always use 'llm_generated'.
-    #     3. answer: ALWAYS leave this field as an empty string "". Do NOT fill it.
-    #     4. contexts: ALWAYS leave this as an empty list []. Do NOT fill it.
-
-    #     Taxonomy of question_type:
-    #     - factual: Single-hop fact explicitly stated in the text.
-    #     - summarization: Requires synthesizing or grouping multiple elements of information.
-    #     - multi_hop: Requires combining information from different parts of the document to infer the answer.
-    #     - Unanswerable: Question cannot be answered with the provided context.
-    #     - ambiguous: Vague query.
-
-    #     CRITICAL RULES FOR ground_truth:
-    #     - Write as a complete, self-contained answer in Spanish that fully addresses the question.
-    #     - The answer must be informative enough that someone without access to the source document can understand it.
-    #     - Must contain all key facts needed to evaluate a RAG answer (dates, percentages, names, conditions).
-    #     - NEVER copy raw codes or table text from the context (e.g. '14, 3 = ...' or 'ASI Natura 103000361').
-    #     - NEVER use 'yes', 'no', or single words as the answer.
-    #     - Always write in plain continuous prose. NEVER use bullet points, numbered lists or markdown.
-    #     - For Unanswerable questions: ground_truth must be exactly the string 'Unanswerable'.
-    #     - Good example: 'La asignatura se evalúa mediante dos prácticas grupales con peso del 30% cada una y un examen final del 40%.'
-    #     - Bad example: '14, 3 = Presentation of second assignment' or 'yes' or 'ASI Natura 103000361'
-    #     """),
-    #     ("human", "Context: {chunk_text}\nMetadata: {metadata}\nType requested: '{q_type}'")
-    # ])
     
     prompt = ChatPromptTemplate.from_messages([
         ("system", """Eres un evaluador académico para sistemas RAG. Tu tarea es generar pares de pregunta-respuesta de alta calidad en español.
@@ -189,7 +127,7 @@ def generate_base_dataset(n: int = N_SAMPLES) -> list:
 
     generator = prompt | llm.with_structured_output(QAPair)
 
-    #q_types = ["factual", "procedural", "comparative", "out_of_scope", "ambiguous"]
+
     q_types = ["factual", "summarization", "multi_hop", "ambiguous"]
     probabilities = [0.5, 0.2, 0.2, 0.1]
 

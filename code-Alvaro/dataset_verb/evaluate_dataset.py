@@ -21,7 +21,7 @@ custom_http_client = httpx.Client(timeout=1200.0)
 custom_async_client = httpx.AsyncClient(timeout=1200.0)
 
 
-ollama_url = "http://100.64.190.89:11434"
+ollama_url = "http://100.70.60.66:11434"
 
 # RAG fijo — mismo para los dos experimentos
 base_embeddings = OllamaEmbeddings(
@@ -29,8 +29,9 @@ base_embeddings = OllamaEmbeddings(
     base_url=ollama_url
 )
 llm = ChatOpenAI(
-        model="qwen2.5:32b",
-        base_url="http://100.64.190.89:11434/v1",
+        #model="Qwen/Qwen2.5-32B-Instruct-GPTQ-Int4", qwen2.5:
+        model = "qwen2.5:32b",
+        base_url="http://100.70.60.66:11434/v1",
         api_key="not_required",
         temperature=0.1,
         max_retries=2,
@@ -43,11 +44,7 @@ vectorstore = Chroma(
     embedding_function=base_embeddings
 )
 
-openai_client = OpenAI(
-    base_url="http://100.64.190.89:11434/v1",
-    api_key="not_required",
-    timeout=450
-)
+
 ragas_llm = LangchainLLMWrapper(llm)
 
 ragas_embeddings = LangchainEmbeddingsWrapper(base_embeddings)

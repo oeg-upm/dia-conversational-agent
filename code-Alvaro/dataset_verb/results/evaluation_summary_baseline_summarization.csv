@@ -1,5 +1,0 @@
-metric,Baseline
-context_recall,0.5986111111111111
-context_precision,0.3752893518211738
-faithfulness,0.9520006613756614
-answer_relevancy,0.6379031702644165
