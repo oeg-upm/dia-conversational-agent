@@ -1,5 +1,0 @@
-model,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness,safe_behavior
-with_multiquery,0.90562,0.6322,0.70889,0.73657,0.74967,0.62229,1.0
-no_multiquery,0.92396,0.65228,0.71659,0.7787,0.76088,0.62055,1.0
-,,,,,,,
-WINNER,no_multiquery,no_multiquery,no_multiquery,no_multiquery,no_multiquery,with_multiquery,with_multiquery

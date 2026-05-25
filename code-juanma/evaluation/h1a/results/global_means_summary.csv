@@ -1,7 +1,7 @@
 model,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness,safe_behavior
-bge,0.90562,0.6322,0.70889,0.73657,0.74967,0.62229,1.0
-harrier,0.88245,0.63801,0.67291,0.76435,0.75567,0.6444,1.0
-octen,0.8916,0.61666,0.70812,0.7588,0.76231,0.63167,0.91666
-qwen8b,0.94082,0.55394,0.63249,0.63472,0.76016,0.59393,1.0
+bge,0.84474,0.55373,0.59257,0.74822,0.70482,0.57871,0.9375
+harrier,0.91384,0.5836,0.60593,0.82877,0.72182,0.57502,1.0
+octen,0.91508,0.62344,0.6473,0.83029,0.73294,0.60225,1.0
+qwen8b,0.93477,0.54556,0.58086,0.83148,0.72108,0.60712,1.0
 ,,,,,,,
-WINNER,qwen8b,harrier,bge,harrier,octen,harrier,bge
+WINNER,qwen8b,octen,octen,qwen8b,octen,qwen8b,harrier

@@ -21,7 +21,7 @@ BACKEND_URL = "http://localhost:8001"
 
 LLM_CONFIG = {
     "model": "Qwen/Qwen2.5-32B-Instruct-GPTQ-Int4",
-    "base_url": "http://100.77.133.90:8005/v1",
+    "base_url": "http://100.73.118.82:8005/v1",
     "api_key": "not_required",
     "temperature": 0.7
 }
@@ -107,6 +107,11 @@ def get_rag_response(question: str, chunk_metadata: dict) -> dict:
             all_sources = [original_source]
 
         selected_context = []
+
+        print("------------------------------")
+        print("Numero de documentos: ", len(all_sources))
+        print("Documents: ", all_sources)
+        print("------------------------------")
 
         for src in all_sources:
             selected_context.append({
@@ -260,7 +265,7 @@ if __name__ == "__main__":
     # Generate X samples
     data = generate_evaluation_dataset(100)
     if data:
-        output_file = "rag_dataset_v3_octen_qwen2.5_V2.json"
+        output_file = "rag_dataset_v3_bge_qwen2.5_V2.json"
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
         print(f"Done! Dataset saved to {output_file}")

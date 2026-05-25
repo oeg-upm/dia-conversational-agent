@@ -1,13 +1,48 @@
 import pandas as pd
 
 evaluations = [
+    # --- MULTIQUERY ---
     {
-        "input": "evaluation_results_with_multiquery.csv",
-        "output": "evaluation_results_with_multiquery_mean.csv",
+        "input": "evaluation_results_octen_multiquery_deepseek_r1_distill_qwen_14b.csv",
+        "output": "evaluation_results_octen_multiquery_deepseek_r1_distill_qwen_14b_mean.csv",
     },
     {
-        "input": "evaluation_results_no_multiquery.csv",
-        "output": "evaluation_results_no_multiquery_mean.csv",
+        "input": "evaluation_results_octen_multiquery_mistral_3_14b.csv",
+        "output": "evaluation_results_octen_multiquery_mistral_3_14b_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_multiquery_nemotron3nano.csv",
+        "output": "evaluation_results_octen_multiquery_nemotron3nano_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_multiquery_qwen2.5_32b.csv",
+        "output": "evaluation_results_octen_multiquery_qwen2.5_32b_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_multiquery_qwen3_6_27b.csv",
+        "output": "evaluation_results_octen_multiquery_qwen3_6_27b_mean.csv",
+    },
+    
+    # --- NO MULTIQUERY ---
+    {
+        "input": "evaluation_results_octen_no_multiquery_deepseek_r1_distill_qwen_14b.csv",
+        "output": "evaluation_results_octen_no_multiquery_deepseek_r1_distill_qwen_14b_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_no_multiquery_mistral_3_14b.csv",
+        "output": "evaluation_results_octen_no_multiquery_mistral_3_14b_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_no_multiquery_nemotron3nano.csv",
+        "output": "evaluation_results_octen_no_multiquery_nemotron3nano_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_no_multiquery_qwen2.5_32b.csv",
+        "output": "evaluation_results_octen_no_multiquery_qwen2.5_32b_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_no_multiquery_qwen3_6_27b.csv",
+        "output": "evaluation_results_octen_no_multiquery_qwen3_6_27b_mean.csv",
     }
 ]
 
@@ -23,7 +58,7 @@ metric_columns = [
 
 for evaluation in evaluations:
 
-    print(f"Procesando: {evaluation['input']}")
+    print(f"Processing: {evaluation['input']}")
 
     df = pd.read_csv(evaluation["input"])
 

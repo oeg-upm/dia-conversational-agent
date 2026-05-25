@@ -35,10 +35,10 @@ app = FastAPI(title="RAG DIA")
 # --- 1. Initialization ---
 print("Initializing FastAPI backend...")
 
-IP = "100.87.95.86"
+IP = "100.73.42.105"
 
 ollama_url = f"http://{IP}:11434" 
-vllm_url = f"http://{IP}" 
+vllm_url = f"http://{IP}:8005/v1" 
 
 # LLM Local / Cluster
 """llm = ChatOpenAI(
@@ -48,17 +48,17 @@ vllm_url = f"http://{IP}"
     temperature=0.1
 )"""
 
-#vllm
+# LLM,vllm
 llm = ChatOpenAI(
-    model="cyankiwi/Qwen3.6-27B-AWQ-INT4", 
-    base_url=vllm_url + ":8005/v1",
+    model="mistralai/Ministral-3-14B-Reasoning-2512", 
+    base_url=vllm_url,
     api_key="not_required",
     temperature=0.1
 )
 
-# Embeddings (cluster)
+# Embeddings, ollama
 embeddings = OllamaEmbeddings(
-    model="bge-m3:latest",
+    model="nicolasfer45/Octen-Embedding-4B-GGUF:latest",
     base_url=ollama_url
 )
 
@@ -456,60 +456,97 @@ async def chat_response(request: ChatRequest, context: bool = False):
         if not formatted_history or context:
             formatted_history = "Beginning of the conversation."
 
-        
-        #print(f"\n--- Starting RAG-Fusion for: '{request.message}' ---")
+        multiquery = False
 
-        # --- 1. Multi-Query Generation ---
-        #mq_template = """
-        #    You are an expert Academic Search Assistant. Your goal is to rewrite and expand the user's 
-        #    current question into 5 distinct, standalone search queries for a vector database.
+        if multiquery:
+            print(f"\n--- Starting RAG-Fusion for: '{request.message}' ---")
 
-        #    CRITICAL RULES:
-        #    1. CONTEXTUAL RESOLUTION: If the user's question contains pronouns (it, they, he, she) or 
-        #    implicit references (e.g., "and for the other one?", "what about the credits?"), 
-        #    you MUST use the Chat History to resolve these references into full subject names or topics.
-        #    2. STANDALONE QUERIES: Each generated query must be complete and understandable 
-        #    WITHOUT the chat history. 
-        #    3. PERSPECTIVES: Generate queries covering different aspects: formal name, 
-        #    specific requirements, evaluation criteria, and related terminology.
-        #    4. LANGUAGE: Always output the queries in the same language as the user's question.
+            # --- 1. Multi-Query Generation ---
+            mq_template = """
+            You are an expert Academic Search Assistant. Your goal is to rewrite and expand the user's 
+            current question into 5 distinct, standalone search queries for a vector database.
 
-        #    Chat history:
-        #    {chat_history}
+            CRITICAL RULES:
+            1. CONTEXTUAL RESOLUTION: If the user's question contains pronouns (it, they, he, she) or 
+            implicit references (e.g., "and for the other one?", "what about the credits?"), 
+            you MUST use the Chat History to resolve these references into full subject names or topics.
+            2. STANDALONE QUERIES: Each generated query must be complete and understandable 
+            WITHOUT the chat history. 
+            3. PERSPECTIVES: Generate queries covering different aspects: formal name, 
+            specific requirements, evaluation criteria, and related terminology.
+            4. LANGUAGE: Always output the queries in the same language as the user's question.
 
-        #    User question:
-        #    {question}
+            Chat history:
+            {chat_history}
 
-        #    Output only the 5 standalone alternative queries, one per line, no numbering.
-        #"""
+            User question:
+            {question}
 
-        #prompt_mq = PromptTemplate.from_template(mq_template)
-        #mq_chain = prompt_mq | llm | StrOutputParser()
-        
-        #generated_queries_str = mq_chain.invoke({
-        #    "question": request.message, 
-        #    "chat_history": formatted_history
-        #})
+            Output only the 5 standalone alternative queries, one per line, no numbering.
+            """
+            mq_prompt = PromptTemplate.from_template(mq_template)
+            mq_chain = mq_prompt | llm | StrOutputParser()
+            generated_queries_str = mq_chain.invoke({
+                "question": request.message, 
+                "chat_history": formatted_history
+            })
+            
+            queries = [request.message] + [q.strip() for q in generated_queries_str.split('\n') if q.strip()]
+            print(f"Generated queries:\n{queries}")
+            mq_template = """
+                You are an expert Academic Search Assistant. Your goal is to rewrite and expand the user's 
+                current question into 5 distinct, standalone search queries for a vector database.
+
+                CRITICAL RULES:
+                1. CONTEXTUAL RESOLUTION: If the user's question contains pronouns (it, they, he, she) or 
+                implicit references (e.g., "and for the other one?", "what about the credits?"), 
+                you MUST use the Chat History to resolve these references into full subject names or topics.
+                2. STANDALONE QUERIES: Each generated query must be complete and understandable 
+                WITHOUT the chat history. 
+                3. PERSPECTIVES: Generate queries covering different aspects: formal name, 
+                specific requirements, evaluation criteria, and related terminology.
+                4. LANGUAGE: Always output the queries in the same language as the user's question.
+
+                Chat history:
+                {chat_history}
+
+                User question:
+                {question}
+
+                Output only the 5 standalone alternative queries, one per line, no numbering.
+            """
+
+            prompt_mq = PromptTemplate.from_template(mq_template)
+            mq_chain = prompt_mq | llm | StrOutputParser()
+            
+            generated_queries_str = mq_chain.invoke({
+                "question": request.message, 
+                "chat_history": formatted_history
+            })
 
 
-        #queries = [request.message] + [q.strip() for q in generated_queries_str.split('\n') if q.strip()]
-        #print(f"Generated queries:\n{queries}")
+            queries = [request.message] + [q.strip() for q in generated_queries_str.split('\n') if q.strip()]
+            #print(f"Generated queries:\n{queries}")
 
-        # --- 2. Parallel recovery ---
-        retriever = vectorstore.as_retriever(
-            search_kwargs={"k": 6, "filter": search_filter}
-        )
-        
-        #all_retrieved_results = []
-        #tasks = [retriever.ainvoke(q) for q in queries]
-        
-        #all_retrieved_results = await asyncio.gather(*tasks)
+            # --- 2. Parallel recovery ---
+            retriever = vectorstore.as_retriever(
+                search_kwargs={"k": 6, "filter": search_filter}
+            )
+            
+            all_retrieved_results = []
+            tasks = [retriever.ainvoke(q) for q in queries]
+            
+            all_retrieved_results = await asyncio.gather(*tasks)
 
-        # --- 3. Reciprocal Rank Fusion (RRF) ---
-        #fused_docs = reciprocal_rank_fusion(all_retrieved_results)
-        
-        #final_top_docs = [doc for doc, score in fused_docs[:6]]
-        final_top_docs = retriever.invoke(request.message)
+            # --- 3. Reciprocal Rank Fusion (RRF) ---
+            fused_docs = reciprocal_rank_fusion(all_retrieved_results)
+            
+            final_top_docs = [doc for doc, score in fused_docs[:6]]
+        else:
+            retriever = vectorstore.as_retriever(
+                search_kwargs={"k": 6, "filter": search_filter}
+            )
+            final_top_docs = retriever.invoke(request.message)
         user_session["last_docs"] = [{"page_content": d.page_content, "metadata": d.metadata} for d in final_top_docs]
 
         context_text = ""
