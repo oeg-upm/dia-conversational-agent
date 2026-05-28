@@ -1,0 +1,33 @@
+# ── RAG DIA · Backend ligero para evaluación ──────────────────────────────────
+#
+# Comparativa de tamaño vs. requirements.txt de Juanma:
+#   Juanma: torch + torchvision + torchaudio + easyocr + docling ≈ 5–7 GB
+#   Este:   sin torch, sin docling, sin easyocr                  ≈ 300 MB
+#
+# Requisitos previos (Ollama, fuera de pip):
+#   ollama pull qwen2.5:3b            # LLM  — ~1.9 GB en disco
+#   ollama pull qwen3-embedding:0.6b  # Emb  — ~400 MB en disco
+# ──────────────────────────────────────────────────────────────────────────────
+
+# API y servidor
+fastapi>=0.111
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+pydantic>=2.0
+
+# HTTP
+requests>=2.31
+
+# LangChain (sin HuggingFace, sin torch)
+langchain-core>=0.2
+# langchain-openai — eliminado: se colgaba en el import en Python 3.13
+langchain-ollama>=0.1          # OllamaEmbeddings
+langchain-chroma>=0.1
+langchain-community>=0.2
+langchain-text-splitters>=0.2
+
+# Vector store (cliente local persistente — sin Docker)
+chromadb>=0.5
+
+# PDF parsing sin GPU
+pypdf>=4.0
