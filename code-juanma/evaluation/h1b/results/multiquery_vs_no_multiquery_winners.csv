@@ -1,0 +1,9 @@
+model,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness,safe_behavior
+deepseek_r1_distill_qwen_14b,WITH_MQ (+5.32%),WITH_MQ (+8.22%),NO_MQ (+4.67%),NO_MQ (+1.39%),WITH_MQ (+0.45%),WITH_MQ (+0.61%),TIE (0.00%)
+mistral_3_14b,WITH_MQ (+1.29%),NO_MQ (+4.46%),NO_MQ (+7.75%),NO_MQ (+2.42%),WITH_MQ (+0.50%),NO_MQ (+1.90%),TIE (0.00%)
+nemotron3nano,WITH_MQ (+1.36%),NO_MQ (+2.71%),NO_MQ (+3.97%),WITH_MQ (+0.56%),NO_MQ (+1.14%),NO_MQ (+1.37%),NO_MQ (+7.14%)
+qwen2.5_32b,WITH_MQ (+1.57%),WITH_MQ (+1.57%),NO_MQ (+6.27%),NO_MQ (+1.59%),NO_MQ (+0.74%),NO_MQ (+2.22%),TIE (0.00%)
+qwen3_6_27b,WITH_MQ (+1.55%),NO_MQ (+0.77%),NO_MQ (+3.97%),WITH_MQ (+0.32%),NO_MQ (+0.77%),NO_MQ (+1.39%),TIE (0.00%)
+,,,,,,,
+TOTAL_WITH_MQ_WINS,5,2,0,2,2,1,0
+TOTAL_NO_MQ_WINS,0,3,5,3,3,4,1

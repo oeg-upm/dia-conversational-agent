@@ -20,9 +20,10 @@ RUN pip3 install --no-cache-dir --upgrade pip
 COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip3 install --no-cache-dir fastapi uvicorn gradio requests python-multipart pydantic chromadb langchain-openai langchain_ollama langchain-huggingface langchain-chroma langchain-community sentence_transformers langchain-docling docling easyocr && \
-    pip3 install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-COPY . .
+RUN pip3 install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+
+COPY src/ .
 
 CMD ["uvicorn", "backend:app", "--host", "0.0.0.0", "--port", "8001"]

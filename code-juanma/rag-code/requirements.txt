@@ -17,3 +17,5 @@ easyocr
 torch
 torchvision
 torchaudio
+minio
+langchain-google-genai

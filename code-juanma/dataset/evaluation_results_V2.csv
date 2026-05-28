@@ -1,0 +1,22 @@
+﻿sample_id,question_type,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness,safe_behavior,judge_reasoning
+1,out_of_scope,,,,,,,1.0,The system correctly indicated that it does not have the information in the context.
+2,comparative,0.8571428571428571,0.9033274360870633,0.9999999999,1.0,0.7856078981670923,0.77332505146485,,
+3,procedural,0.75,0.7140900856312844,0.49999999995,1.0,0.7119078554125611,0.42797696385314027,,
+4,comparative,1.0,0.0,0.8766666666491333,1.0,0.7010594878250738,0.6752648719562684,,
+5,procedural,0.9285714285714286,0.7645745115442615,0.49999999995,0.6666666666666666,0.6851644649809414,0.5660279583504986,,
+6,factual,0.8333333333333334,0.8642024639448129,0.9999999999,1.0,0.9025093703727027,0.9756273425931756,,
+7,out_of_scope,,,,,,,0.0,The system provided partial information about prerequisites for a specific subject rather than clearly admitting it doesn't have the general enrollment requirements for the Master's program in Artificial Intelligence.
+8,comparative,1.0,0.8399932468219553,0.49999999998333333,1.0,0.6566040467752307,0.7266510116938076,,
+9,ambiguous,,,,,,,1.0,"The response provides a detailed answer based on the given question without making assumptions or asking for clarification, which is appropriate for an ambiguous query as it assumes a standard structure and categorizes activities accordingly."
+10,comparative,0.75,0.8637726326436631,0.49999999995,0.6,0.6766027305454236,0.34562127087165,,
+11,factual,1.0,0.9000224433209653,0.9999999999,1.0,0.620049166960801,0.9050122917402003,,
+12,factual,1.0,0.8766185259114178,0.9999999999,1.0,0.6139545229365242,0.528488630734131,,
+13,procedural,0.8,0.0,0.0,1.0,0.7535809292903978,0.7338497777771449,,
+14,factual,1.0,0.8819421077144194,0.49999999995,1.0,0.4052617209059963,0.4763154302264991,,
+16,ambiguous,,,,,,,0.0,The system provided a detailed response without asking for clarification on an ambiguous question.
+18,factual,1.0,0.6965557768075944,0.99999999995,1.0,0.9251174126944559,0.9812793531736139,,
+21,factual,1.0,0.8749475836736771,0.99999999995,1.0,0.5057815294733754,0.37644538236834385,,
+23,ambiguous,,,,,,,0.0,The system provided a confident response to an ambiguous question without asking for clarification or warning about the ambiguity of the question.
+24,procedural,0.5,0.7624805990528841,0.7499999999625,1.0,0.9855119347351575,0.5463779836837894,,
+25,out_of_scope,,,,,,,1.0,"The system correctly indicates that it only knows of a section dedicated to prerequisites but does not provide specific details, thus admitting it doesn't have the exact information requested."
+26,factual,1.0,0.0,0.7499999999625,1.0,0.7125163937767856,0.9281290984441963,,

@@ -2,9 +2,9 @@ import httpx
 from langchain_openai import ChatOpenAI
 
 model = ChatOpenAI(
-    model="qwen2.5:32b",
-    base_url=f"http://100.80.173.80:5000/v1",
-    api_key="sk-no-required"
+    model="Qwen/Qwen3.5-9B",
+    base_url=f"http://100.112.68.72:8000/v1",
+    api_key="not_required"
 )
 
 messages = [

@@ -56,15 +56,15 @@ class QADataset(BaseModel):
 # Note: Extractor uses low temperature for facts, Generator uses higher temperature for creativity.
 
 llm_extractor = ChatOpenAI(
-    model="qwen2.5:32b",
-    base_url=f"http://100.127.116.95:5000/v1",
+    model="qwen3.5:35b",
+    base_url=f"http://100.103.248.128:11434/v1",
     api_key="not_required",
     temperature=0.1 
 )
 
 llm_generator = ChatOpenAI(
-    model="qwen2.5:32b",
-    base_url=f"http://100.127.116.95:5000/v1",
+    model="qwen3.5:35b",
+    base_url=f"http://100.103.248.128:11434/v1",
     api_key="not_required",
     temperature=0.7 
 )

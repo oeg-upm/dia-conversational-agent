@@ -5,7 +5,7 @@ WORKDIR /app
 # Install Gradio and Requests
 RUN pip install --no-cache-dir gradio requests
 
-COPY frontend.py . 
+COPY src/frontend.py .
 
 # Run the Gradio app
 CMD ["python", "frontend.py"]
