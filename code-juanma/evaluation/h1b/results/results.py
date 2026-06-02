@@ -27,7 +27,9 @@ metric_columns = [
     "safe_behavior",
 ]
 
-# Global mean
+# ----------------------------
+# Extract global mean rows
+# ----------------------------
 data_extracted = []
 
 for file in files:
@@ -55,12 +57,15 @@ for file in files:
             ).replace("_mean.csv", "")
 
         data_extracted.append(row_dict)
+
     except FileNotFoundError:
-        print(f"Archivo no encontrado: {file}. Ejecuta mean.py primero.")
+        print(f"File not found: {file}. Run mean.py first.")
 
 df_all = pd.DataFrame(data_extracted)
 
-# Pairwise comparison (Multiquery vs No Multiquery)
+# ----------------------------
+# Pairwise comparison MQ vs NO_MQ
+# ----------------------------
 comparison_results = []
 
 for model_name, group in df_all.groupby("model_base"):
@@ -71,43 +76,52 @@ for model_name, group in df_all.groupby("model_base"):
     row_mq = group[group["multiquery"] == True].iloc[0]
     row_no_mq = group[group["multiquery"] == False].iloc[0]
 
-    winner_row = {"model": model_name}
+    result_row = {"model": model_name}
 
     for metric in metric_columns:
         val_mq = float(row_mq[metric])
         val_no_mq = float(row_no_mq[metric])
 
-        multiplicador = 100 if (val_mq <= 1.0 and val_no_mq <= 1.0) else 1
+        result_row[f"{metric}_MQ"] = val_mq
+        result_row[f"{metric}_NO_MQ"] = val_no_mq
 
-        diff = abs(val_mq - val_no_mq) * multiplicador
-
-        if val_mq > val_no_mq:
-            winner_row[metric] = f"WITH_MQ (+{diff:.2f}%)"
-        elif val_no_mq > val_mq:
-            winner_row[metric] = f"NO_MQ (+{diff:.2f}%)"
-        else:
-            winner_row[metric] = "TIE (0.00%)"
-
-    comparison_results.append(winner_row)
+    comparison_results.append(result_row)
 
 final_df = pd.DataFrame(comparison_results)
-cols = ["model"] + metric_columns
+
+# ----------------------------
+# Column order
+# ----------------------------
+cols = ["model"]
+for metric in metric_columns:
+    cols.append(f"{metric}_MQ")
+    cols.append(f"{metric}_NO_MQ")
+
 final_df = final_df[cols]
 
-# Global winner count
-summary_row = {"model": "TOTAL_WITH_MQ_WINS"}
-summary_row_no = {"model": "TOTAL_NO_MQ_WINS"}
+# ----------------------------
+# Summary
+# ----------------------------
+summary_row_mq = {"model": "AVG_MQ"}
+summary_row_no_mq = {"model": "AVG_NO_MQ"}
 
 for metric in metric_columns:
-    summary_row[metric] = final_df[metric].str.contains("WITH_MQ").sum()
-    summary_row_no[metric] = final_df[metric].str.contains("NO_MQ").sum()
+    summary_row_mq[f"{metric}_MQ"] = final_df[f"{metric}_MQ"].mean()
+    summary_row_mq[f"{metric}_NO_MQ"] = ""
+
+    summary_row_no_mq[f"{metric}_MQ"] = ""
+    summary_row_no_mq[f"{metric}_NO_MQ"] = final_df[f"{metric}_NO_MQ"].mean()
 
 empty_row = {col: "" for col in final_df.columns}
-final_df.loc[len(final_df)] = empty_row
-final_df.loc[len(final_df)] = summary_row
-final_df.loc[len(final_df)] = summary_row_no
 
-output_filename = "multiquery_vs_no_multiquery_winners.csv"
+final_df.loc[len(final_df)] = empty_row
+final_df.loc[len(final_df)] = summary_row_mq
+final_df.loc[len(final_df)] = summary_row_no_mq
+
+# ----------------------------
+# Save
+# ----------------------------
+output_filename = "multiquery_vs_no_multiquery_wide_format.csv"
 final_df.to_csv(output_filename, index=False)
 
 print(f"\nGenerated file: {output_filename}")

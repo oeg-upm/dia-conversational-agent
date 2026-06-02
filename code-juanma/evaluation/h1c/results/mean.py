@@ -2,13 +2,29 @@ import pandas as pd
 
 evaluations = [
     {
-        "input": "evaluation_results_bge_no_multiquery_qwen2.5.csv",
-        "output": "evaluation_results_bge_no_multiquery_qwen2.5_mean.csv",
+        "input": "evaluation_results_octen_no_mq_deepseek_r1_distill_qwen_14b_basic.csv",
+        "output": "evaluation_results_octen_no_mq_deepseek_r1_distill_qwen_14b_basic_mean.csv",
     },
     {
-        "input": "evaluation_results_bge_no_multiquery_qwen3.6.csv",
-        "output": "evaluation_results_bge_no_multiquery_qwen3.6_mean.csv",
-    }
+        "input": "evaluation_results_octen_no_mq_deepseek_r1_distill_qwen_14b_few_shot.csv",
+        "output": "evaluation_results_octen_no_mq_deepseek_r1_distill_qwen_14b_few_shot_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_no_mq_deepseek_r1_distill_qwen_14b_structured.csv",
+        "output": "evaluation_results_octen_no_mq_deepseek_r1_distill_qwen_14b_structured_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_no_mq_qwen2.5_32b_structured.csv",
+        "output": "evaluation_results_octen_no_mq_qwen2.5_32b_structured_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_no_mq_qwen_2.5_32b_basic.csv",
+        "output": "evaluation_results_octen_no_mq_qwen_2.5_32b_basic_mean.csv",
+    },
+    {
+        "input": "evaluation_results_octen_no_mq_qwen_2.5_32b_few_shot.csv",
+        "output": "evaluation_results_octen_no_mq_qwen_2.5_32b_few_shot_mean.csv",
+    },
 ]
 
 metric_columns = [

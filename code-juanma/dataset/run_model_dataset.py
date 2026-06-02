@@ -11,9 +11,11 @@ BACKEND_URL = "http://localhost:8001"
 
 INPUT_FILE = "rag_dataset_v3_octen_qwen2.5_V2.json" 
 
-OUTPUT_FILE = "rag_dataset_v3_octen_no_multiquery_mistral_3_14b.json"
+OUTPUT_FILE = "rag_dataset_v3_octen_no_mq_qwen_2.5_32b_basic.json"
 
 HIERARCHY_CACHE = None
+
+COLLECTION = "rag_collection"
 
 # ==========================================
 # RAG API CALL FUNCTION
@@ -24,7 +26,7 @@ def get_all_sources_for_degree(course: str, degree: str) -> list:
     global HIERARCHY_CACHE
     if HIERARCHY_CACHE is None:
         try:
-            response = requests.get(f"{BACKEND_URL}/files")
+            response = requests.get(f"{BACKEND_URL}/files?collection_name={COLLECTION}")
             response.raise_for_status()
             HIERARCHY_CACHE = response.json().get("hierarchy", {})
         except Exception as e:
@@ -66,7 +68,8 @@ def get_rag_response(question: str, chunk_metadata: dict) -> dict:
         payload = {
             "message": question,
             "selected_context": selected_context,
-            "chat_history": [] # Empty history for evaluation
+            "chat_history": [], # Empty history for evaluation
+            "collection_name": COLLECTION
         }
 
         
@@ -88,6 +91,7 @@ def get_rag_response(question: str, chunk_metadata: dict) -> dict:
 
 def evaluate():
     print(f"Loading original dataset from: {INPUT_FILE}")
+    print(f"Evaluating against collection: {COLLECTION}")
     
     try:
         with open(INPUT_FILE, "r", encoding="utf-8") as f:

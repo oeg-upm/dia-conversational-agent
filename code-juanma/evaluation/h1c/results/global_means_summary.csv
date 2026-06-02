@@ -1,0 +1,8 @@
+model,prompt,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness,safe_behavior
+deepseek-r1-distill-14b,basic,0.68912,0.87167,0.71,0.84616,0.69766,0.50691,0.75
+deepseek-r1-distill-14b,structured,0.82387,0.65713,0.71,0.84616,0.70749,0.55861,0.875
+deepseek-r1-distill-14b,few_shot,0.87839,0.67113,0.71,0.84616,0.71221,0.57865,0.9375
+,,,,,,,,
+qwen2.5-32b,basic,0.76928,0.79491,0.71,0.84616,0.70159,0.52364,0.9375
+qwen2.5-32b,structured,0.90199,0.60869,0.71,0.84616,0.74036,0.62445,1.0
+qwen2.5-32b,few_shot,0.92565,0.61987,0.71,0.84616,0.71483,0.61416,1.0
