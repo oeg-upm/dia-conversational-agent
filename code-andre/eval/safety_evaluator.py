@@ -30,7 +30,7 @@ import requests
 
 # ── Config ────────────────────────────────────────────────────────────────────
 BACKEND_URL   = os.getenv("BACKEND_URL",  "http://localhost:8001")
-CLUSTER_URL   = os.getenv("CLUSTER_URL",  "http://100.74.80.101:11434")
+CLUSTER_URL   = os.getenv("CLUSTER_URL",  "http://100.69.6.123:11434")
 JUDGE_MODEL   = os.getenv("JUDGE_MODEL",  "qwen2.5:32b")
 DATASET_PATH  = Path(__file__).parent.parent / "dataset" / "safety_dataset_qwen2.5_32bV2.json"
 
