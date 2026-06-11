@@ -539,7 +539,7 @@ Esto reduce el riesgo de errores por memoria, aunque aumenta el tiempo total de 
 
 ---
 
-## 16. Interpretación esperada
+## 16. Finalidad del experimento
 
 Este experimento permite estudiar el equilibrio entre la cantidad de contexto recuperado y la calidad final de la respuesta generada por el sistema RAG.
 
