@@ -11,7 +11,7 @@ BACKEND_URL = "http://localhost:8001"
 
 INPUT_FILE = "rag_dataset_v3_octen_qwen2.5_V2.json" 
 
-OUTPUT_FILE = "rag_dataset_v3_octen_no_mq_qwen_2.5_32b_basic.json"
+OUTPUT_FILE = "rag_dataset_v3_octen_no_mq_qwen_3.6_27b_few_shot.json"
 
 HIERARCHY_CACHE = None
 

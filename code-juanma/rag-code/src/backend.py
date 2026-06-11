@@ -35,7 +35,7 @@ app = FastAPI(title="RAG DIA")
 # --- 1. Initialization ---
 print("Initializing FastAPI backend...")
 
-IP = "100.82.187.95"
+IP = "100.123.29.111"
 
 ollama_url = f"http://{IP}:11434" 
 vllm_url = f"http://{IP}:8005/v1" 
@@ -50,7 +50,7 @@ vllm_url = f"http://{IP}:8005/v1"
 
 # LLM,vllm
 llm = ChatOpenAI(
-    model="Qwen/Qwen2.5-32B-Instruct-GPTQ-Int4", 
+    model="cyankiwi/Qwen3.6-27B-AWQ-INT4", 
     base_url=vllm_url,
     api_key="not_required",
     temperature=0.1
@@ -684,7 +684,7 @@ async def chat_response(request: ChatRequest, context: bool = False):
         )
 
         # template_qa_basic, template_qa_structured, template_qa_multiquery_simple
-        prompt_qa = ChatPromptTemplate.from_template(template_qa_basic)
+        prompt_qa = ChatPromptTemplate.from_template(template_qa_few_shot)
         qa_chain = prompt_qa | llm | StrOutputParser()
         
 
