@@ -28,20 +28,20 @@ class BasicRAG:
 
         self.llm = ChatOpenAI(
             model="qwen2.5:32b",
-            base_url="http://100.97.20.71:5000/v1",
+            base_url="http://100.83.251.20:5000/v1",
             api_key="not_required",
             temperature=0.1
         )
 
         self.embeddings = OllamaEmbeddings(
         model="qwen3-embedding:8b",
-        base_url="http://100.97.20.71:5000"
+        base_url="http://100.83.251.20:5000"
         )
         
 
         chroma_client = chromadb.HttpClient(
             host="localhost",
-            port=8000
+            port=8001
         )
 
         self.vectorstore = Chroma(
@@ -50,10 +50,10 @@ class BasicRAG:
             embedding_function=self.embeddings,
         )
 
-        self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=200,
-            chunk_overlap=200
-        )
+        # self.text_splitter = RecursiveCharacterTextSplitter(
+        #     chunk_size=200,
+        #     chunk_overlap=200
+        # )
 
     def add_documents_from_files(self, file_paths: List[str]):
         new_docs = []
@@ -130,20 +130,35 @@ class BasicRAG:
         if not docs:
             return "No relevant context found."
 
+        # template = """
+        # Eres un asistente académico universitario. Responde usando el contexto proporcionado.
+        # Si la información está presente aunque sea parcialmente, extráela y respóndela.
+        # Solo di "No lo sé" si la información es completamente inexistente en el contexto.
+
+        # REGLAS:
+        # - Responde en español
+        # - Responde de forma directa y concisa
+        # - Incluye siempre los datos específicos: nombres, porcentajes, fechas, créditos
+        # - No uses listas ni bullets
+
+        # Contexto: {context}
+        # Pregunta: {question}
+        # Respuesta:"""
+        
         template = """
-        Eres un asistente académico universitario. Responde usando el contexto proporcionado.
-        Si la información está presente aunque sea parcialmente, extráela y respóndela.
-        Solo di "No lo sé" si la información es completamente inexistente en el contexto.
+Eres un asesor académico experto para estudiantes universitarios. Tu tarea es responder a la pregunta del usuario utilizando EXCLUSIVAMENTE el contexto proporcionado.
 
-        REGLAS:
-        - Responde en español
-        - Responde de forma directa y concisa
-        - Incluye siempre los datos específicos: nombres, porcentajes, fechas, créditos
-        - No uses listas ni bullets
+REGLAS ESTRICTAS:
 
-        Contexto: {context}
-        Pregunta: {question}
-        Respuesta:"""
+SIN CONOCIMIENTO EXTERNO: usa solo los fragmentos proporcionados. Si el contexto no contiene la respuesta, simplemente indica que no lo sabes.
+CLARIDAD: sé conciso pero claro. Si la pregunta es ambigua, pide aclaración en lugar de adivinar.
+FORMATO: responde siempre en prosa continua. NO uses viñetas, listas numeradas ni formato markdown. Integra toda la información en oraciones coherentes.
+SIN ALUCINACIONES: no inventes fechas, nombres de profesores ni porcentajes si no aparecen explícitamente en el contexto.
+IDIOMA: responde en el mismo idioma que la pregunta del usuario.
+
+Contexto: {context}
+Pregunta: {question}
+Respuesta:"""
 
         prompt = ChatPromptTemplate.from_template(template)
         chain = prompt | self.llm | StrOutputParser()

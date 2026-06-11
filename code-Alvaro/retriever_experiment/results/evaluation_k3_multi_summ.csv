@@ -1,0 +1,2 @@
+﻿sample_id,generation_latency,faithfulness,answer_relevancy,context_precision,context_recall
+MEAN,13.62,0.9719,0.7289,0.8,0.8613

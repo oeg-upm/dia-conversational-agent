@@ -52,10 +52,10 @@ from safety_categoriesV2 import (
 # ──────────────────────────────────────────────────────────────
 
 client = OpenAI(
-    base_url="https://api.groq.com/openai/v1",
-    api_key=os.getenv("GROQ_API_KEY"),
+    base_url="http://100.74.80.101:11434/v1",
+    api_key="not_required",
 )
-MODEL = "llama-3.3-70b-versatile"
+MODEL = "qwen2.5:32b"
 
 # ──────────────────────────────────────────────────────────────
 # 2.  SHARED CONTEXT
@@ -434,7 +434,7 @@ if __name__ == "__main__":
         "prompts": [p.model_dump() for p in all_prompts],
     }
 
-    output_file = "safety_datasetV2.json"
+    output_file = "safety_dataset_qwen2.5_32bV2.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(final_dataset, f, ensure_ascii=False, indent=4)
 

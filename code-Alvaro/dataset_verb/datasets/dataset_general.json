@@ -1,0 +1,1148 @@
+{
+  "questions": [
+    {
+      "question": "¿Cuál es la descripción de Sistemas de Planificación?",
+      "ground_truth": "Todos los procesos para ser desarrollados precisan de un proceso de planificación, la capacidad de planificar correctamente un plan debe ser aprendida no es innata, por eso el conocimiento de diferentes técnicas de planificación ayudan al desarrollo correcto proyecto bien construido y desarrollado.",
+      "ground_truth_context": "Todos los procesos para ser desarrollados precisan de un proceso de planificación, la capacidad de planificar correctamente un plan debe ser aprendida no es innata, por eso el conocimiento de diferentes técnicas de planificación ayudan al desarrollo correcto proyecto bien construido y desarrollado.",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuántos créditos tiene Sistemas de Planificación?",
+      "ground_truth": "Sistemas de Planificación tiene 3 ECTS.",
+      "ground_truth_context": "No de créditos: 3 ECTS",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la duración del examen final en Sistemas de Planificación?",
+      "ground_truth": "La duración del examen final en Sistemas de Planificación es de 1 hora.",
+      "ground_truth_context": "Duración = 01:00",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Quién coordina Sistemas de Planificación?",
+      "ground_truth": "El coordinador de la asignatura Sistemas de Planificación es Vicente Martinez Orga.",
+      "ground_truth_context": "Vicente Martinez Orga (Coordinador/a)",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es el horario de tutorías para los profesores de Sistemas de Planificación?",
+      "ground_truth": "Las tutorías de Vicente Martinez Orga y Miguel Garcia Remesal son los lunes de 11:00 a 13:00.",
+      "ground_truth_context": "Horario de tutorías * = L - 11:00 - 13:00",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cómo se realiza la evaluación continua en Sistemas de Planificación?",
+      "ground_truth": "La evaluación continua en Sistemas de Planificación es a través de la realización de 3 prácticas en grupo que serán defendidas por los integrantes del mismo. Para superar la asignatura, será necesario obtener al menos un 5 en cada una las prácticas.",
+      "ground_truth_context": "Sistema de evaluación continua: a través de la realización de 3 prácticas en grupo que será defendida en el por los integrantes del mismo. Para superar la asignatura, será necesario obtener, al menos un 5 en cada una las prácticas",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué competencias y resultados se esperan de Sistemas de Planificación?",
+      "ground_truth": "Sistemas de Planificación busca desarrollar la capacidad de gestión de la información, capacidad de abstracción, análisis y síntesis, capacitación para diseñar las líneas maestras de un proyecto, experiencia del desempeño profesional en un entorno real de empresa, y aplicar técnicas para planificar.",
+      "ground_truth_context": "CG-5 - Capacidad de gestión de la información. CG-6 - Capacidad de abstracción, análisis y síntesis. RA284 - Capacitación para diseñar las líneas maestras de un proyecto. RA283 - Experiencia del desempeño profesional del ingeniero y de sus funciones más habituales en un entorno real de empresa. RA515 - Aplicar técnicas para planificar",
+      "question_type": "Summarization",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan durante la asignatura Sistemas de Planificación?",
+      "ground_truth": "En Sistemas de Planificación, las actividades incluyen explicación de contenidos del tema y resolución de ejercicios en clase, defensa de prácticas por grupo, presentaciones presenciales para evaluación continua, y una prueba final.",
+      "ground_truth_context": "1, Actividad presencial en aula = Explicación de contenidos del tema 1 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral. 5, Actividades de evaluación = Defensa de la Práctica del Tema 1. 6, Actividades de evaluación = Técnica del tipo Presentación en Evaluación continua Presencial Duración: 01:00. 17, Descripción = Examen de Evaluación Prueba Final.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuál es la bibliografía recomendada para Sistemas de Planificación?",
+      "ground_truth": "La bibliografía básica de Sistemas de Planificación incluye 'Inteligencia Artificial. Un enfoque Moderno' y 'Inteligencia Artificial. Una nueva síntesis'.",
+      "ground_truth_context": "Inteligencia Artificial. Un enfoque Moderno., Tipo = Bibliografía. Inteligencia Artificial. Una nueva síntesis, Tipo = Bibliografía.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué se puede hacer en caso de no superar la asignatura Sistemas de Planificación?",
+      "ground_truth": "En caso de no superar Sistemas de Planificación, un estudiante tiene que obtener una nota de 5 o superior en el examen final.",
+      "ground_truth_context": "El examen de prueba final, versará sobre los contenidos impartidos en la asignatura y para ser superado en examen deberá obtener una nota de 5 o superior.",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuáles son los temas principales que se tratan en Sistemas de Planificación?",
+      "ground_truth": "Los temas principales de la asignatura Sistemas de Planificación incluyen planificación, análisis medios-fines, strips, planificación práctica, descomposición jerárquica, planificación y actuación, planificación condicional e integración de planificación y ejecución.",
+      "ground_truth_context": "1. Planificación\n2. Análisis Medios-Fines\n3. Strips\n4. Planificación Práctica\n5. Descomposición Jerárquica\n6. Planificación y Actuación\n7. Planificación Condicional\n8. Integración de Planificación y Ejecución",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué conocimientos previos se requieren para cursar Sistemas de Planificación?",
+      "ground_truth": "Es necesario haber cursado Inteligencia Artificial antes de tomar la asignatura Sistemas de Planificación.",
+      "ground_truth_context": "- Inteligencia Artificial. El plan de estudios Grado en Ingenieria Informatica no tiene definidos otros conocimientos previos para esta asignatura.",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades se realizan durante las clases presenciales en Sistemas de Planificación?",
+      "ground_truth": "Durante las clases presenciales de Sistemas de Planificación, se realiza la explicación de contenidos del tema y resolución de ejercicios.",
+      "ground_truth_context": "1, Actividad presencial en aula = Explicación de contenidos del tema 1 y/o resolución de ejercicios Duración: 02:00 LM: Actividad del tipo Lección Magistral.",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué es lo que se evalúa en la asignatura Sistemas de Planificación durante las clases presenciales?",
+      "ground_truth": "Durante las clases presenciales, se evalúa a los estudiantes mediante defensa de prácticas del tema y presentaciones para evaluación continua.",
+      "ground_truth_context": "5, Actividades de evaluación = Defensa de la Práctica del Tema 1. 6, Actividades de evaluación = Técnica del tipo Presentación en Evaluación continua Presencial Duración: 01:00",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué se puede hacer si no se aprueba la asignatura Sistemas de Planificación?",
+      "ground_truth": "Si un estudiante no aprueba Sistemas de Planificación en las prácticas, debe obtener una nota mínima de 5 o superior en el examen final.",
+      "ground_truth_context": "El examen de prueba final, versará sobre los contenidos impartidos en la asignatura y para ser superado en examen deberá obtener una nota de 5 o superior",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuándo se imparte Sistemas de Planificación y dónde está ubicado el centro responsable?",
+      "ground_truth": "Sistemas de Planificación se imparte durante el septiembre-enero en el cuarto curso del séptimo semestre, siendo impartida por la Escuela Técnica Superior de Ingenieros Informáticos.",
+      "ground_truth_context": "Período de impartición: Septiembre-Enero. Titulación: Grado en Ingenieria Informatica. Centro responsable de la titulación: Escuela Tecnica Superior de Ingenieros Informaticos",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades no están incluidas en Sistemas de Planificación?",
+      "ground_truth": "No se proporciona una lista completa de actividades que no están incluidas en la asignatura Sistemas de Planificación.",
+      "ground_truth_context": "No disponible en el documento",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Qué tipo de proyecto se realiza en Sistemas de Planificación?",
+      "ground_truth": "No lo sé.",
+      "ground_truth_context": "No disponible en el documento",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Sistemas de Planificación.pdf"
+    },
+    {
+      "question": "¿Cuántos créditos tiene Probabilidades y Estadistica II?",
+      "ground_truth": "Probabilidades y Estadistica II tiene 3 ECTS.",
+      "ground_truth_context": "No de créditos: 3 ECTS",
+      "question_type": "Factual",
+      "student_profile": "Estudiante en periodo de matrícula",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Quién es el coordinador/a de Probabilidades y Estadistica II?",
+      "ground_truth": "El coordinador/a de Probabilidades y Estadistica II es Alfonso Mateos Caballero.",
+      "ground_truth_context": "Alfonso Mateos Caballero (Coordinador/a)",
+      "question_type": "Factual",
+      "student_profile": "Estudiante en periodo de matrícula",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Qué unidades didácticas se estudian en Probabilidades y Estadistica II?",
+      "ground_truth": "En Probabilidades y Estadistica II, las unidades didácticas son: 1. Estimación; 2. Contrastes de hipótesis; 3. Regresión lineal simple.",
+      "ground_truth_context": "1. Unidad didáctica 1: Estimación... 2. Unidad didáctica 2: Contrastes de hipótesis... 3. Unidad didáctica 3: Regresión lineal simple",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Cuál es la bibliografía básica de Probabilidades y Estadistica II?",
+      "ground_truth": "La bibliografía básica de Probabilidades y Estadistica II incluye 'Fundamentos de Estadística' de Peña (2001), 'A Modern Introduction to Probability and Statistics' de Dekking et al. (2005) y otros libros indicados en el documento.",
+      "ground_truth_context": "Peña, D. (2001). Fundamentos de Estadística... Dekking, F.M., Kraaikamp, C., Lopuhaä, H.P., Meester, L.E. (2005), A Modern Introduction to Probability and Statistics...",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante de primer año",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Qué tipo de evaluación se realiza en Probabilidades y Estadistica II?",
+      "ground_truth": "En Probabilidades y Estadistica II, la evaluación continua incluye Examen Unidad 1 (50%) y Examen Unidades 2 y 3 (50%). La nota mínima es un 3/10 en cada examen. Alternativamente, hay una Evaluación sólo prueba final: Examen Escrito (100%) con nota mínima de 5/10.",
+      "ground_truth_context": "Evaluación continua: Examen Unidad 1 (50%), Examen Unidades 2 y 3 (50%). Nota mínima en cada examen: 3/10. Evaluación sólo prueba final: Examen Escrito (100%) con nota mínima de 5/10.",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Qué competencias y resultados del aprendizaje se desarrollan en Probabilidades y Estadistica II?",
+      "ground_truth": "En Probabilidades y Estadistica II, las competencias son Ce 43 (búsquedas bibliográficas) y Ce 5 (diseño de experimentos). Los resultados del aprendizaje incluyen RA230 (manejo de técnicas básicas de inferencia estadística) y RA229 (ajuste de modelos a un conjunto de datos).",
+      "ground_truth_context": "Competencias: Ce 43 - Capacidad de realizar búsquedas bibliográficas... Resultados del aprendizaje: RA230 - Manejar técnicas básicas de inferencia estadística. RA229 - Ajuste de modelos a un conjunto de datos.",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante en periodo de matrícula",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan durante el horario de clase en Probabilidades y Estadistica II?",
+      "ground_truth": "En las clases de Probabilidades y Estadistica II, se explican los contenidos teóricos y se resuelven ejercicios por temas. Las actividades incluyen sesiones presenciales en aula y laboratorio.",
+      "ground_truth_context": "Explicación de los contenidos teóricos y resolución de ejercicios por temas, actividades presenciales en aula y laboratorio.",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Cuál es la relación entre las Unidades Didácticas de Probabilidades y Estadistica II y los temas específicos?",
+      "ground_truth": "La Unidad didáctica 1 de Probabilidades y Estadistica II incluye Temas sobre Introducción a la Inferencia, Estimación puntual, Estimación por intervalos y Estimación Bayesiana. La Unidad didáctica 2 se centra en Contrastes paramétricos y no paramétricos. Finalmente, la Unidad didáctica 3 trata sobre Regresión lineal simple.",
+      "ground_truth_context": "1. Unidad didáctica 1: Estimación (Tema 1: Introducción a la Inferencia... Tema 4: Estimación Bayesiana). 2. Unidad didáctica 2: Contrastes de hipótesis (Tema 5: Contrastes paramétricos, Tema 6: Contrastes no paramétricos). 3. Unidad didáctica 3: Regresión lineal simple (Tema 7: Regresión lineal simple).",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Cómo se relaciona la competencia Ce 5 de Probabilidades y Estadistica II con los resultados del aprendizaje?",
+      "ground_truth": "La competencia Ce 5 en Probabilidades y Estadistica II, que implica la capacidad de diseñar y realizar experimentos apropiados e interpretar datos para extraer conclusiones, se relaciona directamente con el resultado del aprendizaje RA230, que enfatiza la habilidad para manejar técnicas básicas de inferencia estadística.",
+      "ground_truth_context": "Competencias: Ce 5 - Capacidad de diseñar y realizar experimentos apropiados... Resultados del aprendizaje: RA230 - Manejar técnicas básicas de inferencia estadística.",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Qué porcentaje de la calificación final representa cada examen en Probabilidades y Estadistica II?",
+      "ground_truth": "En Probabilidades y Estadistica II, el Examen Unidad 1 tiene un peso del 50% de la nota final, mientras que el Examen Unidades 2 y 3 también es del 50%. En la opción de Evaluación sólo prueba final se realiza un Examen Escrito (100%).",
+      "ground_truth_context": "Evaluación continua: Examen Unidad 1 (50%), Examen Unidades 2 y 3 (50%)... Evaluación sólo prueba final: Examen Escrito (100%)",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿En qué curso académico se impartía Probabilidades y Estadistica II según los datos proporcionados?",
+      "ground_truth": "Probabilidades y Estadistica II se impartió en el curso académico 2020-21.",
+      "ground_truth_context": "Curso académico: 2020-21",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de primer año",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Qué docentes imparten Probabilidades y Estadistica II?",
+      "ground_truth": "Los docentes que imparten Probabilidades y Estadistica II son Alfonso Mateos Caballero, Antonio Jimenez Martin, Juan Antonio Fdez Del Pozo De Salamanca y Mariano Rico Almodovar.",
+      "ground_truth_context": "Alfonso Mateos Caballero (Coordinador/a)...Antonio Jimenez Martin...Juan Antonio Fdez Del Pozo De Salamanca...Mariano Rico Almodovar",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante en periodo de matrícula",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Cuál es el centro responsable del Grado en Ingeniería Informática para la asignatura Probabilidades y Estadistica II?",
+      "ground_truth": "El centro responsable del Grado en Ingeniería Informática, donde se imparte Probabilidades y Estadistica II, es la Escuela Técnica Superior de Ingenieros Informáticos.",
+      "ground_truth_context": "Centro responsable de la titulación: Escuela Técnica Superior de Ingenieros Informáticos",
+      "question_type": "Factual",
+      "student_profile": "Estudiante en periodo de matrícula",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Cuáles son las asignaturas previas a Probabilidades y Estadistica II?",
+      "ground_truth": "Las asignaturas previas a Probabilidades y Estadistica II incluyen Cálculo, Matemática Discreta I y Probabilidades Y Estadistica I.",
+      "ground_truth_context": "Calculo - Matematica Discreta I - Probabilidades Y Estadistica I",
+      "question_type": "Factual",
+      "student_profile": "Estudiante de primer año",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades se realizan en la evaluación continua de Probabilidades y Estadistica II?",
+      "ground_truth": "La evaluación continua en Probabilidades y Estadistica II incluye exámenes telemáticos y entrega de informe de prácticas.",
+      "ground_truth_context": "Evaluaciones incluyen exámenes telemáticos y entrega de informe de prácticas",
+      "question_type": "Factual",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Cuál es la descripción general de Probabilidades y Estadistica II?",
+      "ground_truth": "La asignatura Probabilidades y Estadistica II consiste en inferir un modelo probabilístico a partir de las frecuencias observadas de una variable, con énfasis en técnicas como estimación puntual, por intervalos, bayesiana, contrastes de hipótesis y regresión lineal simple.",
+      "ground_truth_context": "La asignatura consiste en inferir un modelo probabilístico a partir de las frecuencias observadas de una variable. Se estudian técnicas de estimación puntual, por intervalos, bayesiana, contrastes de hipótesis y regresión lineal simple.",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar cada examen en la evaluación continua de Probabilidades y Estadistica II?",
+      "ground_truth": "La nota mínima necesaria para aprobar cada examen en la evaluación continua de Probabilidades y Estadistica II es un 3/10.",
+      "ground_truth_context": "Nota mínima en cada examen: 3/10",
+      "question_type": "Factual",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Cuáles son los resultados del aprendizaje esperados al finalizar Probabilidades y Estadistica II?",
+      "ground_truth": "Al finalizar Probabilidades y Estadistica II, se espera que los estudiantes hayan desarrollado la habilidad para manejar técnicas básicas de inferencia estadística (RA230) y sean capaces de ajustar modelos a un conjunto de datos (RA229).",
+      "ground_truth_context": "Resultados del aprendizaje: RA230 - Manejar técnicas básicas de inferencia estadística. RA229 - Ajuste de modelos a un conjunto de datos.",
+      "question_type": "Summarization",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades se realizan en las clases presenciales de Probabilidades y Estadistica II?",
+      "ground_truth": "En las clases presenciales de Probabilidades y Estadistica II, los estudiantes participan en explicaciones teóricas, resolución de ejercicios por temas y actividades tanto en aula como en laboratorio.",
+      "ground_truth_context": "Explicación de los contenidos teóricos y resolución de ejercicios por temas, actividades presenciales en aula y laboratorio",
+      "question_type": "Factual",
+      "student_profile": "Estudiante preparando el TFM",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Cuáles son los horarios de tutorías para los profesores de Probabilidades y Estadistica II?",
+      "ground_truth": "Los horarios de tutorías para los docentes de Probabilidades y Estadistica II no están disponibles, ya que todos tienen 'Sin horario' especificado.",
+      "ground_truth_context": "Horario de tutorías: - -. Antonio Jimenez Martin... Horario de tutorías: Sin horario. Juan Antonio Fdez Del Pozo De Salamanca... Horario de tutorías: Sin horario. Mariano Rico Almodovar, Correo electrónico: mariano.rico@upm.es, Horario de tutorías: Sin horario.",
+      "question_type": "Unanswerable",
+      "student_profile": "Estudiante en periodo de matrícula",
+      "source_document": "Probabilidades y Estadística II.pdf"
+    },
+    {
+      "question": "¿Quiénes son los miembros del personal docente de Investigacion Operativa?",
+      "ground_truth": "Los miembros del personal docente de Investigacion Operativa son Antonio Jimenez Martin y Alfonso Mateos Caballero. Alfonso Mateos es el coordinador.",
+      "ground_truth_context": "Antonio Jimenez Martin (Despacho: 2110, Correo electrónico: antonio.jimenez@upm.es), Alfonso Mateos Caballero (Coordinador/a, Despacho: 2110, Correo electrónico: alfonso.mateos@upm.es)",
+      "question_type": "Factual",
+      "student_profile": "estudiante de tercer curso",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuáles son los conocimientos previos necesarios para Investigacion Operativa?",
+      "ground_truth": "Para cursar Investigacion Operativa, se requiere dominio en Álgebra Lineal y Probabilidades Y Estadística I.",
+      "ground_truth_context": "- Algebra Lineal\n- Probabilidades Y Estadistica I",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuáles son los resultados de aprendizaje esperados en Investigacion Operativa?",
+      "ground_truth": "Los resultados de aprendizaje incluyen la capacidad de resolver problemas aplicando conocimientos matemáticos, trabajar en equipo y resolver conflictos, abstracción, análisis y síntesis, conocer los campos de aplicación de la informática y comprender la complejidad y viabilidad de soluciones a problemas informáticos.",
+      "ground_truth_context": "CG-1/21 - Capacidad de resolución de problemas aplicando conocimientos de matemáticas, ciencias e ingeniería. CG-7:10/16/17 - Capacidad para trabajar en equipo y resolver conflictos. CG-6 - Capacidad de abstracción, análisis y síntesis. Ce 12/16 - Conocer los campos de aplicación de la informática. Ce 19/20 - Comprender la complejidad de problemas informáticos y su viabilidad de solución.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué contenido se cubre en Investigacion Operativa?",
+      "ground_truth": "El temario de Investigacion Operativa incluye Programación Lineal, Análisis en Redes, Programación Entera y Programación Lineal Multiobjetivo.",
+      "ground_truth_context": "- Programación Lineal\n- Análisis en Redes\n- Programación Entera\n- Programación Lineal Multiobjetivo",
+      "question_type": "Summarization",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuáles son los criterios de evaluación en Investigacion Operativa?",
+      "ground_truth": "La evaluación continua en Investigacion Operativa se basa en Tests (60%) y Prácticas grupales (40%). La evaluación final es a través de un Examen escrito presencial (100%).",
+      "ground_truth_context": "- Evaluación continua: Tests (60%), Prácticas grupales (40%).\n- Evaluación final: Examen escrito presencial (100%).",
+      "question_type": "Summarization",
+      "student_profile": "estudiante de tercer curso",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cómo se puede obtener más información sobre los recursos didácticos de Investigacion Operativa?",
+      "ground_truth": "Para obtener más información, existen varios libros recomendados y un sitio Moodle específico: https://moodle.upm.es/titulaciones/oficiales/course/view.php?id=5837. También se puede visitar http://www.phpsimplex.com para el Método del Simplex.",
+      "ground_truth_context": "- A. Mateos, S. Ríos Insua, A. Jiménez y Ángel J. Fernández, Investigación Operativa: Ejercicios y Aplicaciones.\n- S. Ríos Insua, A. Mateos, C. Bielza y A. Jiménez (2004), Investigación Operativa: Modelos Determinísticos Estocásticos.\n- H.A. Taha (2004), Investigación de Operaciones.\n- Sitio Moodle de la asignatura: https://moodle.upm.es/titulaciones/oficiales/course/view.php?id=5837\n- Método del Simplex: http://www.phpsimplex.com",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en las sesiones de Investigacion Operativa?",
+      "ground_truth": "Las sesiones incluyen explicaciones de contenidos, resolución de ejercicios prácticos, tests de preguntas múltiples y la entrega de memorias de prácticas en grupo.",
+      "ground_truth_context": "Actividades presenciales y telemáticas incluyendo explicaciones de contenidos, resolución de ejercicios prácticos, tests de preguntas múltiples, entrega de memorias de prácticas en grupo.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante de tercer curso",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿En qué semestre y curso se imparte Investigacion Operativa?",
+      "ground_truth": "Investigacion Operativa se imparte en el quinto semestre, que es el tercer curso del Grado en Ingeniería Informática.",
+      "ground_truth_context": "Quinto semestre, Optativa, Tercero curso",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuántos créditos tiene Investigacion Operativa?",
+      "ground_truth": "Investigacion Operativa cuenta con 6 ECTS.",
+      "ground_truth_context": "Investigacion Operativa, 6 ECTS",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuáles son los recursos y bibliografía de Investigacion Operativa?",
+      "ground_truth": "La bibliografía incluye libros como 'Investigación Operativa: Ejercicios y Aplicaciones' por A. Mateos et al., 'Investigación Operativa: Modelos Determinísticos Estocásticos' por S. Ríos Insua et al. y 'Investigación de Operaciones' por H.A. Taha, además de recursos en Moodle y el sitio del Método del Simplex.",
+      "ground_truth_context": "- A. Mateos, S. Ríos Insua, A. Jiménez y Ángel J. Fernández, Investigación Operativa: Ejercicios y Aplicaciones.\n- S. Ríos Insua, A. Mateos, C. Bielza y A. Jiménez (2004), Investigación Operativa: Modelos Determinísticos Estocásticos.\n- H.A. Taha (2004), Investigación de Operaciones.\n- Sitio Moodle de la asignatura: https://moodle.upm.es/titulaciones/oficiales/course/view.php?id=5837\n- Método del Simplex: http://www.phpsimplex.com",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué competencias se desarrollan en Investigacion Operativa y cómo contribuyen a los objetivos generales?",
+      "ground_truth": "Investigacion Operativa busca desarrollar la capacidad de resolver problemas con matemáticas e ingeniería, trabajar en equipo y resolver conflictos, abstracción, análisis y síntesis. También se enfoca en conocer los campos aplicables de la informática y comprender la complejidad de soluciones a problemas informáticos.",
+      "ground_truth_context": "CG-1/21 - Capacidad de resolución de problemas aplicando conocimientos de matemáticas, ciencias e ingeniería. CG-7:10/16/17 - Capacidad para trabajar en equipo y resolver conflictos. CG-6 - Capacidad de abstracción, análisis y síntesis. Ce 12/16 - Conocer los campos de aplicación de la informática. Ce 19/20 - Comprender la complejidad de problemas informáticos y su viabilidad de solución.",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué porcentaje tiene la evaluación continua en Investigacion Operativa?",
+      "ground_truth": "La evaluación continua en Investigacion Operativa representa el 100% del total, dividido en Tests (60%) y Prácticas grupales (40%).",
+      "ground_truth_context": "- Evaluación continua: Tests (60%), Prácticas grupales (40%).\n- Evaluación final: Examen escrito presencial (100%).",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cómo se relacionan los resultados de aprendizaje con el contenido del curso en Investigacion Operativa?",
+      "ground_truth": "Los resultados de aprendizaje, que incluyen resolución de problemas y trabajo en equipo, están estrechamente ligados al contenido del curso como la programación lineal, análisis en redes y otros temas que permiten aplicar esos conocimientos.",
+      "ground_truth_context": "- Programación Lineal\n- Análisis en Redes\n- Programación Entera\n- Programación Lineal Multiobjetivo CG-1/21 - Capacidad de resolución de problemas aplicando conocimientos de matemáticas, ciencias e ingeniería. CG-7:10/16/17 - Capacidad para trabajar en equipo y resolver conflictos.",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es la competencia CG-6 de Investigacion Operativa?",
+      "ground_truth": "La competencia CG-6 en Investigacion Operativa se refiere a la capacidad de abstracción, análisis y síntesis.",
+      "ground_truth_context": "CG-6 - Capacidad de abstracción, análisis y síntesis",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cómo se pueden aplicar los conocimientos adquiridos en Investigacion Operativa en la vida profesional?",
+      "ground_truth": "Los conocimientos de Investigacion Operativa, como el análisis matemático de problemas y el trabajo colaborativo, son esenciales para resolver desafíos complejos y tomar decisiones informadas en roles profesionales que requieren habilidades analíticas y de gestión.",
+      "ground_truth_context": "",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuándo se imparte Investigacion Operativa?",
+      "ground_truth": "Investigacion Operativa se imparte desde septiembre hasta enero.",
+      "ground_truth_context": "Septiembre-Enero",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Dónde se imparte Investigacion Operativa?",
+      "ground_truth": "Investigacion Operativa se imparte en la Escuela Técnica Superior de Ingenieros Informáticos.",
+      "ground_truth_context": "Escuela Tecnica Superior de Ingenieros Informaticos",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Qué implica el programa impartido en Investigacion Operativa para los estudiantes?",
+      "ground_truth": "El programa de Investigacion Operativa proporciona a los estudiantes un conocimiento teórico y práctico sobre la programación lineal, análisis en redes y otros temas de investigación operativa que son fundamentales para la toma de decisiones y resolución de problemas complejos.",
+      "ground_truth_context": "- Programación Lineal\n- Análisis en Redes\n- Programación Entera\n- Programación Lineal Multiobjetivo",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar Investigacion Operativa?",
+      "ground_truth": "No se especifica una nota mínima específica en las pautas de evaluación proporcionadas para Investigacion Operativa.",
+      "ground_truth_context": "",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Investigación Operativa.pdf"
+    },
+    {
+      "question": "¿Cuál es el número de créditos de la asignatura logica?",
+      "ground_truth": "La asignatura logica tiene 6 ECTS.",
+      "ground_truth_context": "No de créditos = 6 ECTS",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Quién es el coordinador/a de la asignatura logica?",
+      "ground_truth": "El coordinador/a de la asignatura logica es Damiano Zanardini.",
+      "ground_truth_context": "Damiano Zanardini (Coordinador/a)",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿En qué idioma se imparte la asignatura logica?",
+      "ground_truth": "La asignatura logica se imparte en castellano.",
+      "ground_truth_context": "Idioma de impartición = Castellano",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es el porcentaje correspondiente al examen individual del tema 3 en la asignatura logica?",
+      "ground_truth": "El examen individual del tema 3 en la asignatura logica tiene un peso del 35% en la nota final.",
+      "ground_truth_context": "Examen individual del tema 3 EX Evaluación continua Presencial Peso en la nota = 35%",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿En qué semestre se imparte la asignatura logica?",
+      "ground_truth": "La asignatura logica se imparte en el primer semestre.",
+      "ground_truth_context": "Semestre = Primer semestre",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué competencias se evalúan en los exámenes individuales del tema 2 y del tema 3 de logica?",
+      "ground_truth": "En los exámenes individuales del tema 2 y del tema 3 de la asignatura logica, se evalúan las competencias CG-2/CE45, CG-1/21, CG-6, CG-7:10/16/17 y Ce 53/54.",
+      "ground_truth_context": "Competencias evaluadas = CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuáles son los principales temas abordados en la asignatura logica?",
+      "ground_truth": "Los principales temas de la asignatura logica incluyen Introducción, Lógica Proposicional y Lógica de Primer Orden.",
+      "ground_truth_context": "Introducción: El concepto de Razonamiento... 2. Lógica Proposicional... 3. Lógica de Primer Orden:",
+      "question_type": "Summarization",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es el horario de las tutorías para la asignatura logica?",
+      "ground_truth": "El horario de tutorías para la asignatura logica es sin horario fijo, se debe concertar cita por email con cualquier profesor.",
+      "ground_truth_context": "Horario de tutorías * = Sin horario. concertar cita por email",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar los exámenes individuales del tema 2 y del tema 3 en logica?",
+      "ground_truth": "La nota mínima para aprobar los exámenes individuales del tema 2 y del tema 3 de la asignatura logica es un 0/10.",
+      "ground_truth_context": "Examen individual del tema 2 EX Evaluación continua Presencial Nota mínima = 0 / 10... Examen individual del tema 3 EX Evaluación continua Presencial Nota mínima = 0 / 10",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es la descripción de la asignatura logica?",
+      "ground_truth": "La descripción de la asignatura logica no está especificada.",
+      "ground_truth_context": "",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué porcentaje representa cada tipo de evaluación continua en logica?",
+      "ground_truth": "En la asignatura logica, el examen individual del tema 2 y el tema 3 representan un 35% cada uno. La participación en clase y trabajo en grupo tiene un peso del 2%, mientras que la evaluación final de toda la asignatura es del 100%.",
+      "ground_truth_context": "Examen individual del tema 2 EX Evaluación continua Presencial Peso en la nota = 35%... Examen individual del tema 3 EX Evaluación continua Presencial Peso en la nota = 35% Nota mínima = 0 / 10 Competencias evaluadas = CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54. Examen individual de toda la asignatura EX Evaluación sólo prueba final Presencial Peso en la nota = 100% Nota mínima = 0 / 10 Competencias evaluadas = CG-2/CE45 CG-1/21 CG-6 CG-7:10/16/17 Ce 53/54.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuáles son los libros de la bibliografía recomendada para logica?",
+      "ground_truth": "La bibliografía recomendada para la asignatura logica incluye 'Lógica para principiantes' (Manzano, M. y Huertas, A.), 'Introducción a la lógica formal' (Deaño, A.), 'Razón, dulce razón' (Tymoczko y Henle), 'Lógica informática. Teorías de primer orden' (García Serrano, A.), 'Introducción a la demostración automática de teoremas' (Bueno Carrillo, F.), 'Language, proof and logic' (Barwise, J. and Etchemendy, J.), y otros.",
+      "ground_truth_context": "Lógica para principiantes, Manzano, M. y Huertas, A.. Introducción a la lógica formal, Deaño, A.. Razón, dulce razón, Tymoczko y Henle. Lógica informática. Teorías de primer orden, García Serrano, A.. Introducción a la demostración automática de teoremas, Bueno Carrillo, F.. Language, proof and logic, Barwise, J. and Etchemendy, J.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es el total de horas asignadas para la evaluación continua y participación en clase en logica?",
+      "ground_truth": "En la asignatura logica, se dedican 3.5 horas a actividades de evaluación continua y participación en clase.",
+      "ground_truth_context": "Participación en clase y trabajo en grupo OT Evaluación continua Presencial Duración: 01:00... Ejercitar el contenido del tema 2 Duración: 01:30 PR. Examen individual del tema 2 EX Evaluación continua Presencial Duración: 02:00... Participación en clase y trabajo en grupo OT Evaluación continua Presencial Duración: 01:00",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué actividades presenciales se realizan en las clases de logica?",
+      "ground_truth": "En la asignatura logica, las actividades presenciales incluyen desarrollo de contenidos del tema 1 y 2, participación en clase y trabajo en grupo, ejercitación del contenido del tema 2 y 3, y exámenes individuales para cada tema y toda la asignatura.",
+      "ground_truth_context": "Desarrollo de contenidos del tema 1 Duración: 02:00 LM. Desarrollo de contenidos del tema 2 Duración: 02:00 LM... Participación en clase y trabajo en grupo OT Evaluación continua Presencial Duración: 00:30... Ejercitar el contenido del tema 2 Duración: 01:30 PR. Desarrollo de contenidos del tema 2 Duración: 01:30 LM... Examen individual del tema 2 EX Evaluación continua Presencial Duración: 02:00.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades se realizan durante el desarrollo del tema 3 en logica?",
+      "ground_truth": "Durante la impartición del tema 3 en la asignatura logica, se desarrollan contenidos del tema 3, se ejercitan problemas relacionados con este contenido y hay exámenes individuales para evaluar la comprensión de dichos temas.",
+      "ground_truth_context": "Desarrollo de contenidos del tema 3 Duración: 01:30 LM. Ejercitar el contenido del tema 3 Duración: 01:30 PR... Examen individual del tema 3 EX Evaluación continua Presencial",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar la asignatura logica?",
+      "ground_truth": "La asignatura logica no tiene una nota mínima especificada para ser aprobada.",
+      "ground_truth_context": "",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Lógica.pdf"
+    },
+    {
+      "question": "¿Quiénes son los profesores de la asignatura Mineria de Datos?",
+      "ground_truth": "Los profesores de Mineria de Datos son Maria Concepcion Bielza Lozoya y Pedro Maria Larrañaga Mugica, siendo este último el coordinador.",
+      "ground_truth_context": "Maria Concepcion Bielza Lozoya, Despacho: 2210, Correo electrónico: c.bielza@upm.es, Horario de tutorías: M - 15:00 - 19:00 V - 15:00 - 17:00; Pedro Maria Larrañaga Mugica (Coordinador/a), Despacho: 2208, Correo electrónico: pedro.larranaga@upm.es, Horario de tutorías: M - 15:00 - 19:00 V - 15:00 - 17:00",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es el número de créditos ECTS que se obtienen al aprobar Mineria de Datos?",
+      "ground_truth": "La asignatura Mineria de Datos tiene 3 créditos ECTS.",
+      "ground_truth_context": "Créditos (ECTS): 3",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es la competencia CG-1/21 en Mineria de Datos?",
+      "ground_truth": "La asignatura Mineria de Datos incluye entre sus competencias la CG-1/21.",
+      "ground_truth_context": "CG-1/21",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué temas se tratan en el temario de Mineria de Datos?",
+      "ground_truth": "El temario de Mineria de Datos incluye Introducción a la minería de datos, Clasificación supervisada y Clasificación no supervisada.",
+      "ground_truth_context": "- Introducción a la minería de datos\n- Clasificación supervisada (Regresión logística, Vecinos más cercanos, Clasificadores Bayesianos y teoría de la información, Árboles de clasificación, Inducción de reglas, Selección de variables, Metaclasificadores)\n- Clasificación no supervisada (Métodos particionales, Clasificación ascendente jerárquica, Clustering probabilista)",
+      "question_type": "Summarization",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué software se utiliza para aplicar los métodos vistos en Mineria de Datos?",
+      "ground_truth": "En la asignatura Mineria de Datos, se utiliza el software WEKA.",
+      "ground_truth_context": "- Software WEKA: http://www.cs.waikato.ac.nz/ml/weka",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuáles son las fechas clave para la evaluación del curso Mineria de Datos?",
+      "ground_truth": "En Mineria de Datos, los tests se realizan durante las semanas 5, 9 y 13. Las entregas y exposiciones orales de trabajos sobre clasificación supervisada y no supervisada están programadas para las semanas 11 y 15 respectivamente.",
+      "ground_truth_context": "- Semana 5: Clases teóricas del tema 2.4, Test 1\n- Semana 9: Clases teóricas del tema 2.8, Test 2\n- Semana 11: Entrega y exposición oral del trabajo sobre clasificación supervisada\n- Semana 13: Test 3\n- Semana 15: Entrega y exposición oral del trabajo 2 sobre clasificación no supervisada",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso de la evaluación continua en Mineria de Datos?",
+      "ground_truth": "La evaluación continua en Mineria de Datos se compone de varios tests y trabajos, cada uno con un peso del 16.66% para los tests y 33.34% para las entregas y exposiciones orales de los trabajos.",
+      "ground_truth_context": "- Test 1 (Peso en la nota: 16.66%, Nota mínima: 4 / 10)\n- Test 2 (Peso en la nota: 16.66%, Nota mínima: 4 / 10)\n- Entrega y exposición oral del trabajo sobre clasificación supervisada (Peso en la nota: 33.34%, Nota mínima: 4 / 10)\n- Test 3 (Peso en la nota: 16.66%, Nota mínima: 4 / 10)\n- Entrega y exposición oral del trabajo sobre clasificación no supervisada (Peso en la nota: 16.66%, Nota mínima: 4 / 10)",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es el requisito previo para la asignatura Mineria de Datos?",
+      "ground_truth": "El requisito previo para tomar la asignatura Mineria de Datos es Probabilidades Y Estadistica I.",
+      "ground_truth_context": "- Probabilidades Y Estadistica I",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué repositorios de datos se mencionan para la asignatura Mineria de Datos?",
+      "ground_truth": "Los repositorios de datos recomendados para la asignatura Mineria de Datos incluyen las páginas web http://www.inside-r.org/howto/finding-data-on-the-internet y https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public.",
+      "ground_truth_context": "- Repositorios de datos: - http://www.inside-r.org/howto/finding-data-on-the-internet<br /> - https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cómo se evalúa la asignatura Mineria de Datos?",
+      "ground_truth": "La evaluación en Mineria de Datos incluye tres tests y dos trabajos con exposición oral, cada uno valiendo un 16.66% o 33.34% respectivamente.",
+      "ground_truth_context": "- Test 1 (Peso en la nota: 16.66%, Nota mínima: 4 / 10)\n- Entrega y exposición oral del trabajo sobre clasificación supervisada (Peso en la nota: 33.34%, Nota mínima: 4 / 10)",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué bibliografía se recomienda para Mineria de Datos?",
+      "ground_truth": "La bibliografía recomendada para la asignatura Mineria de Datos incluye 'Introduction to Machine Learning' de E. Alpaydin, 'Introducción a la Minería de Datos' de J. Hernández-Orallo y M.J. Ramírez C., entre otros.",
+      "ground_truth_context": "- E. Alpaydin, Introduction to Machine Learning, MIT Press\n- J. Hernández-Orallo, M.J. Ramírez, C., Introducción a la Minería de Datos, Pearson Educación, 2004.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuáles son los horarios de tutorías para Mineria de Datos?",
+      "ground_truth": "En la asignatura Mineria de Datos, el profesor Maria Concepcion Bielza Lozoya y Pedro Maria Larrañaga Mugica tienen sus tutorías los lunes de 15:00 a 19:00 y viernes de 15:00 a 17:00.",
+      "ground_truth_context": "Maria Concepcion Bielza Lozoya, Despacho: 2210, Correo electrónico: c.bielza@upm.es, Horario de tutorías: M - 15:00 - 19:00 V - 15:00 - 17:00; Pedro Maria Larrañaga Mugica (Coordinador/a), Despacho: 2208, Correo electrónico: pedro.larranaga@upm.es, Horario de tutorías: M - 15:00 - 19:00 V - 15:00 - 17:00",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Quién es el coordinador de la asignatura Mineria de Datos?",
+      "ground_truth": "El coordinador de la asignatura Mineria de Datos es Pedro Maria Larrañaga Mugica.",
+      "ground_truth_context": "Pedro Maria Larrañaga Mugica (Coordinador/a)",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué temas se estudian durante las primeras cuatro semanas de Mineria de Datos?",
+      "ground_truth": "Durante las primeras cuatro semanas de la asignatura Mineria de Datos se estudia Introducción a la minería de datos, seguido por Clasificación supervisada.",
+      "ground_truth_context": "- Semana 1: Clases teóricas del tema 1\n- Semana 2: Clases teóricas del tema 2.1",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué actividades se desarrollan durante la semana 10 en Mineria de Datos?",
+      "ground_truth": "Durante la semana 10 en Mineria de Datos, los estudiantes realizan su primer trabajo y presentación oral relacionada con el tema 2.",
+      "ground_truth_context": "- Semana 10: Trabajo 1 y exposición oral (tema 2)",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué porcentaje de la nota final representa cada test en Mineria de Datos?",
+      "ground_truth": "Cada test en Mineria de Datos tiene un peso del 16.66% en la nota final.",
+      "ground_truth_context": "- Test 1 (Peso en la nota: 16.66%, Nota mínima: 4 / 10)",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es el tema de los trabajos que se realizan en Mineria de Datos?",
+      "ground_truth": "Los estudiantes realizan dos trabajos y presentaciones orales en Mineria de Datos: uno sobre clasificación supervisada (semana 11) y otro sobre clasificación no supervisada (semana 15).",
+      "ground_truth_context": "- Semana 11: Entrega y exposición oral del trabajo sobre clasificación supervisada\n- Semana 15: Entrega y exposición oral del trabajo 2 sobre clasificación no supervisada",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué porcentaje de la nota final se obtiene con las entregas y exposiciones orales de los trabajos en Mineria de Datos?",
+      "ground_truth": "Las entregas y exposiciones orales de los trabajos en Mineria de Datos representan un total del 50% de la nota final.",
+      "ground_truth_context": "- Entrega y exposición oral del trabajo sobre clasificación supervisada (Peso en la nota: 33.34%, Nota mínima: 4 / 10)\n- Entrega y exposición oral del trabajo sobre clasificación no supervisada (Peso en la nota: 16.66%, Nota mínima: 4 / 10)",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué tipo de competencias se desarrollan en Mineria de Datos?",
+      "ground_truth": "En la asignatura Mineria de Datos, se desarrollan competencias CG y CE como por ejemplo CG-1/21, CG-13/CE55, entre otras.",
+      "ground_truth_context": "CG-1/21, CG-13/CE55",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar Mineria de Datos?",
+      "ground_truth": "La nota mínima para aprobar cada parte de la evaluación en Mineria de Datos es 4 / 10.",
+      "ground_truth_context": "- Test 3 (Peso en la nota: 16.66%, Nota mínima: 4 / 10)",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué temas se estudian durante las últimas semanas de Mineria de Datos?",
+      "ground_truth": "Durante las últimas semanas de Mineria de Datos se tratan Clasificación no supervisada, la entrega y exposición oral del trabajo 2 sobre este tema en semana 15 y una evaluación final.",
+      "ground_truth_context": "- Semana 14: Trabajo 2 y exposición oral (tema 3)\n- Semana 15: Entrega y exposición oral del trabajo 2 sobre clasificación no supervisada\n- Semana 17: Entrega y exposición oral de los trabajos 1 y 2, examen tipo test",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 7 de Mineria de Datos?",
+      "ground_truth": "En la semana 7 de Mineria de Datos, los estudiantes asisten a clases teóricas del tema 2.6.",
+      "ground_truth_context": "- Semana 7: Clases teóricas del tema 2.6",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuándo se realiza el primer test en Mineria de Datos?",
+      "ground_truth": "El primer test en la asignatura Mineria de Datos se lleva a cabo durante la semana 5.",
+      "ground_truth_context": "- Semana 5: Clases teóricas del tema 2.4, Test 1",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 17 de Mineria de Datos?",
+      "ground_truth": "Durante la semana 17 en Mineria de Datos, los estudiantes entregan y presentan oralmente sus trabajos anteriores y realizan un examen tipo test.",
+      "ground_truth_context": "- Semana 17: Entrega y exposición oral de los trabajos 1 y 2, examen tipo test",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan en la semana 3 de Mineria de Datos?",
+      "ground_truth": "Durante la semana 3 en Mineria de Datos, los estudiantes asisten a clases teóricas del tema 2.2.",
+      "ground_truth_context": "- Semana 3: Clases teóricas del tema 2.2",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es el idioma de impartición de Mineria de Datos?",
+      "ground_truth": "La asignatura Mineria de Datos se imparte en castellano.",
+      "ground_truth_context": "Idioma: Castellano",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es el perfil de competencias que se adquiere con la asignatura Mineria de Datos?",
+      "ground_truth": "En la asignatura Mineria de Datos, los estudiantes desarrollan diversas competencias CG y CE como CG-1/21, CG-13/CE55, entre otros.",
+      "ground_truth_context": "CG-1/21, CG-13/CE55",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué métodos de clasificación supervisada se estudian en Mineria de Datos?",
+      "ground_truth": "En la asignatura Mineria de Datos, los métodos de clasificación supervisada que se estudian incluyen Regresión logística, Vecinos más cercanos, Clasificadores Bayesianos y teoría de la información, Árboles de clasificación, Inducción de reglas, Selección de variables y Metaclasificadores.",
+      "ground_truth_context": "- Clasificación supervisada (Regresión logística, Vecinos más cercanos, Clasificadores Bayesianos y teoría de la información, Árboles de clasificación, Inducción de reglas, Selección de variables, Metaclasificadores)",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el segundo trabajo en Mineria de Datos?",
+      "ground_truth": "La nota mínima para aprobar el segundo trabajo y su exposición oral en Mineria de Datos es 4 / 10.",
+      "ground_truth_context": "- Entrega y exposición oral del trabajo sobre clasificación no supervisada (Peso en la nota: 16.66%, Nota mínima: 4 / 10)",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué se evalúa durante el test final en Mineria de Datos?",
+      "ground_truth": "No se proporciona información específica sobre qué se evalúa en el examen tipo test final en la asignatura Mineria de Datos.",
+      "ground_truth_context": "No disponible en el documento",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué se hace durante las semanas 12 y 13 en la asignatura Mineria de Datos?",
+      "ground_truth": "Durante la semana 12 de Mineria de Datos, los estudiantes asisten a clases teóricas del tema 3. En la semana 13, realizan el Test 3.",
+      "ground_truth_context": "- Semana 12: Clases teóricas del tema 3\n- Semana 13: Test 3",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué se hace durante la semana 6 de Mineria de Datos?",
+      "ground_truth": "En la semana 6 de Mineria de Datos, los estudiantes asisten a clases teóricas del tema 2.5.",
+      "ground_truth_context": "- Semana 6: Clases teóricas del tema 2.5",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar el primer test en Mineria de Datos?",
+      "ground_truth": "La nota mínima para aprobar el primer test en Mineria de Datos es 4 / 10.",
+      "ground_truth_context": "- Test 1 (Peso en la nota: 16.66%, Nota mínima: 4 / 10)",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan durante las semanas 8 y 9 en Mineria de Datos?",
+      "ground_truth": "En la semana 8 de Mineria de Datos, los estudiantes asisten a clases teóricas del tema 2.7. En la semana 9, hay clases teóricas del tema 2.8 y el Test 2.",
+      "ground_truth_context": "- Semana 8: Clases teóricas del tema 2.7\n- Semana 9: Clases teóricas del tema 2.8, Test 2",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Qué actividades se realizan durante la semana 16 de Mineria de Datos?",
+      "ground_truth": "No lo sé.",
+      "ground_truth_context": "No disponible en el documento",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante preparando exámenes",
+      "source_document": "Minería de Datos.pdf"
+    },
+    {
+      "question": "¿Cuál es el crédito ECTS para Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "Programacion Declarativa: Logica y Restricciones tiene 3 créditos ECTS.",
+      "ground_truth_context": "Créditos (ECTS): 3",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Quién es el coordinador y su correo electrónico para Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "El coordinador de Programacion Declarativa: Logica y Restricciones es Manuel De Hermenegildo Salinas, y su correo electrónico es manuel.hermenegildo@upm.es.",
+      "ground_truth_context": "Manuel De Hermenegildo Salinas (Coordinador/a), Correo electrónico: manuel.hermenegildo@upm.es",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuáles son los requisitos previos para Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "Los requisitos previos para Programacion Declarativa: Logica y Restricciones incluyen Lógica, Programación I, y Programación II - Algoritmos Y Estructura De Datos.",
+      "ground_truth_context": "- Logica\n- Programacion I\n- Programacion II - Algoritmos Y Estructura De Datos",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la descripción de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "Programacion Declarativa: Logica y Restricciones presenta la programación lógica como uno de los paradigmas fundamentales, basada en el uso de la lógica formal para programar aplicaciones. Se estudia Prolog, técnicas de programación eficiente y una introducción a la programación con restricciones.",
+      "ground_truth_context": "Esta asignatura presenta la programación lógica como uno de los paradigmas fundamentales de programación, basada en la utilización de la lógica formal para la programación de aplicaciones. Se estudia la programación en Prolog, técnicas de programación eficiente y una introducción a la programación con restricciones.",
+      "question_type": "Factual",
+      "student_profile": "estudiante buscando información sobre asignaturas",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades se realizan en el horario de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "En Programacion Declarativa: Logica y Restricciones, las actividades incluyen lecciones magistrales presenciales, ejercicios individuales de clase, elaboración de prácticas en grupo y exámenes tanto continuos como ordinarios.",
+      "ground_truth_context": "LM: Lección Magistral.\n- Actividades de evaluación = Ejercicios de clase TI: Trabajo Individual Evaluación continua No presencial\n- Elaboración de las prácticas TG: Trabajo en Grupo Evaluación continua No presencial\n- Examen Eval. Continua EP: Examen de Prácticas, Evaluación continua No presencial.\n- Examen Eval. Ordinaria EX: Examen Escrito, Evaluación sólo prueba final Presencial",
+      "question_type": "Summarization",
+      "student_profile": "estudiante buscando información sobre asignaturas",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuáles son las competencias y resultados de aprendizaje que se desarrollan en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "En Programacion Declarativa: Logica y Restricciones, se fomenta la formalización y especificación de problemas reales (Ce 2), elegir lenguajes de programación adecuados (Ce 24), crear prototipos o simulaciones para validar sistemas con clientes (Ce 34) y poseer destrezas fundamentales de programación (Ce 8). También se busca que los estudiantes puedan modelar declarativamente soluciones a problemas y expresarlas eficientemente en un programa lógico (RA298), así como conocer los fundamentos de la programación lógica y sus aplicaciones (RA297).",
+      "ground_truth_context": "Ce 2 - Formalización y especificación de problemas reales cuya solución requiere el uso de la informática. Ce 24 - Elegir y usar los lenguajes de programación adecuados al tipo de aplicación a desarrollar. Ce 34 - Crear prototipos, simulaciones o modelos que permitan la validación del sistema con el cliente. Ce 8 - Poseer destrezas fundamentales de la programación que permitan la implementación de los algoritmos y las estructuras de datos en el software.\nRA298 - Modelar declarativamente la solución a un problema y expresarlo elegantemente con un programa lógico eficiente. RA297 - Conocer los fundamentos de la programación lógica y sus campos de aplicación.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante buscando información sobre asignaturas",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso de la evaluación continua en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "En Programacion Declarativa: Logica y Restricciones, la evaluación continua incluye ejercicios individuales (sin porcentaje), elaboración de prácticas en grupo (25%), y el examen de prácticas continuo (50%).",
+      "ground_truth_context": "- Ejercicios de clase TI: Trabajo Individual, Peso en la nota: %\n- Elaboración de las prácticas TG: Trabajo en Grupo, Peso en la nota: 25%\n- Examen Eval. Continua EP: Examen de Prácticas, Peso en la nota: 50%",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la bibliografía básica de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "La bibliografía básica de Programacion Declarativa: Logica y Restricciones incluye 'The Art of Prolog' (Second edition) por Sterling & Shapiro, 'From Logic Programming to Prolog' por K. Apt, 'Prolog Programming for Artificial Intelligence' por I. Bratko, 'Programming in Prolog' por Clocksin Mellish, 'Programming with Constraints: An Introduction' por Marriott & Stuckey y 'Essentials of Logic Programming' por C. Hogger.",
+      "ground_truth_context": "- ``The Art of Prolog'' (Second edition), Sterling & Shapiro, MIT Press, 1994.\n- ``From Logic Programming to Prolog'', K. Apt, Prentice-Hall, 1997.\n- ``Prolog Programming for Artificial Intelligence'', I. Bratko, Addison-Wesley Ltd., 1990 (2nd edition); 2000 (3rd edition).\n- ``Programming in Prolog'', Clocksin Mellish, Springer-Verlag, 1981.\n- ``Programming with Constraints: An Introduction'', Marriott & Stuckey, MIT Press, 1998.\n- ``Essentials of Logic Programming'', C. Hogger, Clarendon Press, Oxford, 1990.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué recursos adicionales se mencionan para Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "Para Programacion Declarativa: Logica y Restricciones, los recursos adicionales incluyen la página web de la asignatura en http://www.clip.dia.fi.upm.es/prode y el lenguaje de programación Ciao Prolog disponible en http://ciao-lang.org.",
+      "ground_truth_context": "Página web de la asignatura: http://www.clip.dia.fi.upm.es/prode\nLenguaje de programación Ciao Prolog: http://ciao-lang.org",
+      "question_type": "Summarization",
+      "student_profile": "estudiante buscando información sobre asignaturas",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué actividades evalúan las competencias Ce 2, Ce 8 y Ce 34 en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "En Programacion Declarativa: Logica y Restricciones, se evalúan las competencias Ce 2, Ce 8 y Ce 34 a través de la elaboración de prácticas en grupo (25%) y del examen continuo (50%).",
+      "ground_truth_context": "- Elaboración de las prácticas TG: Trabajo en Grupo, Peso en la nota: 25%, Nota mínima: 5 / 10, Competencias evaluadas: Ce 34 Ce 2 Ce 8 Ce 24.\n- Examen Eval. Continua EP: Examen de Prácticas, Peso en la nota: 50%, Nota mínima: 5 / 10.",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es la distribución de tiempo entre las lecciones magistrales y los trabajos individuales en Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "En Programacion Declarativa: Logica y Restricciones, las lecciones magistrales toman un total de 10 horas y los ejercicios individuales ocupan hasta 3 horas.",
+      "ground_truth_context": "- Actividad presencial en aula = 1.1 y 1.2 Duración: 02:00 LM: Lección Magistral.\n- Actividades de evaluación = Ejercicios de clase TI: Trabajo Individual Evaluación continua No presencial Duración: 03:00.\n- Actividad presencial en aula = 2.1 y 2.2 Duración: 02:00 LM: Lección Magistral.\n- Actividad presencial en aula = 3.1 y 3.2 Duración: 02:00 LM: Lección Magistral.\n- Actividad presencial en aula = 3.5 Duración: 02:00 LM: Lección Magistral.",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante buscando información sobre asignaturas",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cómo se evalúa la Programacion Declarativa: Logica y Restricciones a través de los exámenes?",
+      "ground_truth": "En Programacion Declarativa: Logica y Restricciones, el examen continuo (Examen de Prácticas) representa 50% del total, mientras que el examen ordinario es un 100%, pero este último se evalúa solo a través de la prueba final.",
+      "ground_truth_context": "- Examen Eval. Continua EP: Examen de Prácticas, Peso en la nota: 50%\n- Examen Eval. Ordinaria EX: Examen Escrito, Peso en la nota: 100%, Evaluación sólo prueba final",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuál es el peso específico de las prácticas y ejercicios en la nota final de Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "No lo se",
+      "ground_truth_context": "No disponible en el documento",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante buscando información sobre asignaturas",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Qué horario específico tienen las tutorías de los profesores para Programacion Declarativa: Logica y Restricciones?",
+      "ground_truth": "No lo se",
+      "ground_truth_context": "No disponible en el documento",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante buscando información sobre asignaturas",
+      "source_document": "Programación Declarativa, Lógica y Restricciones.pdf"
+    },
+    {
+      "question": "¿Cuántos créditos tiene la asignatura Reconocimiento de Formas?",
+      "ground_truth": "La asignatura Reconocimiento de Formas tiene 3 créditos (ECTS).",
+      "ground_truth_context": "Créditos (ECTS): 3.",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuáles son las competencias y resultados de aprendizaje asociados a Reconocimiento de Formas?",
+      "ground_truth": "La asignatura Reconocimiento de Formas está relacionada con la CG-19, que es la capacidad de usar tecnologías de la información y la comunicación. Los resultados de aprendizaje son RA276, RA277, RA278, RA281, RA283.",
+      "ground_truth_context": "CG-19 - Capacidad de usar las tecnologías de la información y la comunicación. RA276, RA277, RA278, RA281, RA283.",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Quiénes son los profesores responsables de Reconocimiento de Formas?",
+      "ground_truth": "Los profesores responsables de Reconocimiento de Formas son Luis Baumela Molina y Darío Maravall Gómez-Allende.",
+      "ground_truth_context": "Luis Baumela Molina (Coordinador/a)..., Darío Maravall Gómez-Allende",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la bibliografía básica de Reconocimiento de Formas?",
+      "ground_truth": "La bibliografía básica de Reconocimiento de Formas incluye 'Statistical Pattern Recognition' de A. Webb, publicado en Wiley 2002 y 'Pattern Classification' de R.O. Duda, P.E. Hart y R. Stork, editado por Addison Wesley.",
+      "ground_truth_context": "- A. Webb, \"Statistical Pattern Recognition\", Wiley, 2002.\n- R.O. Duda, P.E. Hart, R. Stork, \"Pattern Classification\", Addison Wesley.",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuáles son los prerequisitos para tomar la asignatura Reconocimiento de Formas?",
+      "ground_truth": "Los prerequisitos para Reconocimiento de Formas incluyen Álgebra Lineal, Probabilidades y Estadística I, y Programación.",
+      "ground_truth_context": "- Algebra Lineal\n- Probabilidades Y Estadistica I\n- Programación",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿En qué semestre se imparte Reconocimiento de Formas?",
+      "ground_truth": "Reconocimiento de Formas se imparte en el séptimo semestre.",
+      "ground_truth_context": "Semestre: Séptimo semestre",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuáles son los temas que se tratan en el programa de Reconocimiento de Formas?",
+      "ground_truth": "El programa de Reconocimiento de Formas incluye Preprocesamiento de datos, Transformaciones reductoras de dimensionalidad, Validación cruzada, Reconocimiento supervisado determinístico y estadístico, y Técnicas de clustering.",
+      "ground_truth_context": "- Preprocesamiento de datos\n- Transformaciones reductoras de dimensionalidad\n- Validación cruzada\n- Reconocimiento supervisado determinístico y estadístico\n- Técnicas de clustering",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la descripción general de la asignatura Reconocimiento de Formas?",
+      "ground_truth": "La asignatura se centra en técnicas de reconocimiento de formas, incluyendo preprocesamiento de datos, transformaciones reductoras de dimensionalidad y validación cruzada.",
+      "ground_truth_context": "La asignatura se centra en técnicas de reconocimiento de formas, incluyendo preprocesamiento de datos, transformaciones reductoras de dimensionalidad y validación cruzada.",
+      "question_type": "Factual",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cómo se evalúa la asignatura Reconocimiento de Formas?",
+      "ground_truth": "La evaluación de Reconocimiento de Formas incluye un examen de la primera parte (20%), una práctica de la primera parte (30%), presentación y defensa pública de la Práctica (30%) y un examen de la segunda parte (20%).",
+      "ground_truth_context": "- Examen de la primera parte: 20%\n- Práctica primera parte: 30%\n- Presentacion y defensa pública de la Práctica: 30%\n- Examen segunda parte: 20%",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué actividades se incluyen en el horario semanal de Reconocimiento de Formas?",
+      "ground_truth": "En Reconocimiento de Formas, las actividades semanales incluyen lecciones magistrales sobre reconocimiento supervisado, técnicas de reducción de dimensionalidad, algoritmos de clustering y reconocimiento basado en aprendizaje, además se incluyen actividades de evaluación continua y un examen final.",
+      "ground_truth_context": "Semanalmente se imparten lecciones magistrales sobre temas como reconocimiento supervisado, técnicas de reducción de dimensionalidad, algoritmos de clustering, y reconocimiento basado en aprendizaje. Se incluyen actividades de evaluación continua y un examen final.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cómo se distribuye la carga horaria entre los diferentes tipos de actividad en Reconocimiento de Formas?",
+      "ground_truth": "La asignatura Reconocimiento de Formas imparte lecciones magistrales sobre diversos temas y también incluye actividades de evaluación continua y un examen final.",
+      "ground_truth_context": "Semanalmente se imparten lecciones magistrales...Se incluyen actividades de evaluación continua y un examen final.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante en periodo de matrícula",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es el nivel de complejidad y los requisitos previos para la asignatura Reconocimiento de Formas?",
+      "ground_truth": "Reconocimiento de Formas requiere un conocimiento previo de Álgebra Lineal, Probabilidades y Estadística I, y Programación. Este curso es considerado avanzado y está dirigido a estudiantes del séptimo semestre que deben tener competencias en tecnologías de la información y comunicación.",
+      "ground_truth_context": "- Algebra Lineal\n- Probabilidades Y Estadistica I\n- Programación...CG-19 - Capacidad de usar las tecnologías de la información y la comunicación...",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué tipo de software se recomienda utilizar en Reconocimiento de Formas para aplicar técnicas de clasificación?",
+      "ground_truth": "En Reconocimiento de Formas, se recomienda usar software de clasificación como scikit-learn, que puede ser encontrado en https://scikit-learn.org/stable/index.html.",
+      "ground_truth_context": "- Software de clasificación: https://scikit-learn.org/stable/index.html",
+      "question_type": "Factual",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuáles son los principales componentes del programa académico en Reconocimiento de Formas?",
+      "ground_truth": "En Reconocimiento de Formas, se incluyen los siguientes temas: Preprocesamiento de datos, Transformaciones reductoras de dimensionalidad y Validación cruzada entre otros.",
+      "ground_truth_context": "- Preprocesamiento de datos\n- Transformaciones reductoras de dimensionalidad\n- Validación cruzada",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué tipo de aprendizaje y evaluación se proporciona en Reconocimiento de Formas?",
+      "ground_truth": "Reconocimiento de Formas ofrece lecciones magistrales, evaluación continua a través del examen de la primera parte (20%), práctica de la primera parte (30%), presentación y defensa pública de la Práctica (30%) y un examen final (20%).",
+      "ground_truth_context": "Semanalmente se imparten lecciones magistrales...Se incluyen actividades de evaluación continua y un examen final.\n- Examen de la primera parte: 20%\n- Práctica primera parte: 30%\n- Presentacion y defensa pública de la Práctica: 30%\n- Examen segunda parte: 20%",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cómo se relacionan los temas del programa con las competencias de Reconocimiento de Formas?",
+      "ground_truth": "En Reconocimiento de Formas, se pretende que mediante la adquisición de conocimientos en preprocesamiento de datos, transformaciones reductoras de dimensionalidad y validación cruzada, los estudiantes desarrollen una capacidad de usar tecnologías de la información y comunicación (CG-19).",
+      "ground_truth_context": "- Preprocesamiento de datos\n- Transformaciones reductoras de dimensionalidad\n- Validación cruzada...CG-19 - Capacidad de usar las tecnologías de la información y la comunicación.",
+      "question_type": "Multi-hop Reasoning",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuándo se realizaron las tutorías del profesor Luis Baumela Molina en Reconocimiento de Formas?",
+      "ground_truth": "Las tutorías del profesor Luis Baumela Molina para la asignatura Reconocimiento de Formas fueron los martes, de 12:00 a 12:45.",
+      "ground_truth_context": "Luis Baumela Molina (Coordinador/a)... Tutorías M - 12:00 - 12:45",
+      "question_type": "Factual",
+      "student_profile": "estudiante de primer año",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Qué tipo de actividades se realizan en Reconocimiento de Formas?",
+      "ground_truth": "En Reconocimiento de Formas, las actividades incluyen lecciones magistrales sobre reconocimiento supervisado, técnicas de reducción de dimensionalidad y algoritmos de clustering, así como evaluaciones continuas.",
+      "ground_truth_context": "Semanalmente se imparten lecciones magistrales...Se incluyen actividades de evaluación continua",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la estructura del programa académico en Reconocimiento de Formas?",
+      "ground_truth": "El programa académico de Reconocimiento de Formas se compone de lecciones magistrales sobre reconocimiento supervisado, técnicas de reducción de dimensionalidad y algoritmos de clustering, además incluye actividades de evaluación continua y un examen final.",
+      "ground_truth_context": "Semanalmente se imparten lecciones magistrales...Se incluyen actividades de evaluación continua y un examen final.",
+      "question_type": "Summarization",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la nota mínima para aprobar Reconocimiento de Formas?",
+      "ground_truth": "No lo se",
+      "ground_truth_context": "No disponible en el documento",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    },
+    {
+      "question": "¿Cuál es la descripción de las actividades presenciales y virtuales en Reconocimiento de Formas?",
+      "ground_truth": "No lo se",
+      "ground_truth_context": "No disponible en el documento",
+      "question_type": "Unanswerable",
+      "student_profile": "estudiante preparando el TFM",
+      "source_document": "Reconocimiento de Formas.pdf"
+    }
+  ]
+}

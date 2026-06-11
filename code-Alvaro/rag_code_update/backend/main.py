@@ -79,13 +79,64 @@ async def upload_files(
     return {"processed_files": list(processed_files), "status_message": status_message}
 
 
+# @app.post("/chat")
+# async def chat(request: ChatRequest, k: int = 6, context: bool = False, use_multiquery: bool = True):
+#     """
+#     Query endpoint. Accepts both legacy and advanced payload shapes.
+#     - k: number of chunks to retrieve (for H6 experiment).
+#     - context: if True, returns the retrieved chunks alongside the answer.
+#     """
+#     question = request.message or request.question
+#     if not question:
+#         raise HTTPException(status_code=400, detail="Missing 'message' or 'question' field")
+
+#     if request.selected_context:
+#         selected = [ctx.model_dump() for ctx in request.selected_context]
+#     elif request.selected_files:
+#         selected = request.selected_files
+#     else:
+#         return {"answer": "No context selected.", "response": "No context selected."}
+
+#     answer = await rag.query(question, selected, k=k, use_multiquery=use_multiquery)
+
+#     if context:
+#         return {
+#             "answer": answer,
+#             "response": answer,
+#             "context": [doc.page_content for doc in rag.last_retrieved_docs],
+#         }
+
+#     return {"answer": answer, "response": answer}
+
+
+# @app.post("/chat")
+# async def chat(request: ChatRequest, k: int = 6, context: bool = False, use_multiquery: bool = True):
+#     question = request.message or request.question
+#     if not question:
+#         raise HTTPException(status_code=400, detail="Missing 'message' or 'question' field")
+
+#     if request.selected_context:
+#         selected = [ctx.model_dump() for ctx in request.selected_context]
+#     elif request.selected_files:
+#         selected = request.selected_files
+#     else:
+#         return {"answer": "No context selected.", "response": "No context selected."}
+
+#     answer = await rag.query(question, selected, k=k, use_multiquery=use_multiquery)
+
+#     response_payload = {
+#         "answer": answer,
+#         "response": answer,
+#         "generation_latency": rag.last_generation_latency,  # ← nuevo
+#     }
+
+#     if context:
+#         response_payload["context"] = [doc.page_content for doc in rag.last_retrieved_docs]
+
+#     return response_payload
+
 @app.post("/chat")
-async def chat(request: ChatRequest, k: int = 6, context: bool = False):
-    """
-    Query endpoint. Accepts both legacy and advanced payload shapes.
-    - k: number of chunks to retrieve (for H6 experiment).
-    - context: if True, returns the retrieved chunks alongside the answer.
-    """
+async def chat(request: ChatRequest, k: int = 6, context: bool = False, use_multiquery: bool = True):
     question = request.message or request.question
     if not question:
         raise HTTPException(status_code=400, detail="Missing 'message' or 'question' field")
@@ -95,19 +146,20 @@ async def chat(request: ChatRequest, k: int = 6, context: bool = False):
     elif request.selected_files:
         selected = request.selected_files
     else:
-        return {"answer": "No context selected.", "response": "No context selected."}
+        selected = []  # ← sin filtro, busca en toda la base de datos
 
-    answer = await rag.query(question, selected, k=k)
+    answer = await rag.query(question, selected, k=k, use_multiquery=use_multiquery)
+
+    response_payload = {
+        "answer": answer,
+        "response": answer,
+        "generation_latency": rag.last_generation_latency,
+    }
 
     if context:
-        return {
-            "answer": answer,
-            "response": answer,
-            "context": [doc.page_content for doc in rag.last_retrieved_docs],
-        }
+        response_payload["context"] = [doc.page_content for doc in rag.last_retrieved_docs]
 
-    return {"answer": answer, "response": answer}
-
+    return response_payload
 
 @app.get("/list_documents")
 async def list_documents():
