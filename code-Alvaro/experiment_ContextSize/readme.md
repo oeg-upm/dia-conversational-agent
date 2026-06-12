@@ -4,7 +4,14 @@ Este experimento analiza el impacto del número de fragmentos recuperados por el
 
 El objetivo principal es estudiar cómo afecta el parámetro `k`, es decir, el número de chunks recuperados, al rendimiento del sistema. Para ello, se evalúa el mismo sistema RAG con distintos valores de `k` y se comparan las métricas obtenidas.
 
-Este experimento se ejecuta sobre el RAG actualizado:
+Además, el experimento permite realizar esta evaluación bajo dos configuraciones de recuperación diferentes:
+
+```text
+Retrieve puro
+Multi-Query
+```
+
+Este experimento se ejecuta sobre el RAG:
 
 ```text
 rag_code_ContextSize
@@ -266,6 +273,29 @@ K_VALUES = [1, 3, 5, 7, 10, 15, 20]
 
 Por cada valor de `k`, el script genera un dataset con las respuestas y contextos obtenidos del RAG y ejecuta la evaluación correspondiente.
 
+Además de modificar los valores de `k`, este experimento permite evaluar el tamaño de contexto bajo dos configuraciones distintas de recuperación:
+
+```text
+Retrieve puro
+Multi-Query
+```
+
+Esta configuración se modifica en `experiment_h6.py`, concretamente en la petición realizada al endpoint `/chat`.
+
+Para ejecutar el experimento con **retrieve puro**, se debe establecer:
+
+```python
+use_multiquery = False
+```
+
+Para ejecutar el experimento con **Multi-Query**, se debe establecer:
+
+```python
+use_multiquery = True
+```
+
+Por tanto, el experimento puede repetirse dos veces, manteniendo los mismos valores de `k`, pero cambiando la estrategia de recuperación utilizada. Esto permite comparar si el tamaño óptimo de contexto varía entre una recuperación directa y una recuperación basada en Multi-Query.
+
 ---
 
 ## 8. Valores de k evaluados
@@ -360,7 +390,7 @@ El flujo completo para reproducir el experimento es:
 6. Entrar en experiment_ContextSize.
 7. Revisar CHROMA_HOST, CHROMA_PORT y COLLECTION_NAME en generate_base_dataset.py.
 8. Ejecutar generate_base_dataset.py para crear datasets/base_dataset.json.
-9. Revisar BACKEND_URL y K_VALUES en experiment_h6.py.
+9. Revisar BACKEND_URL, K_VALUES y use_multiquery en experiment_h6.py.
 10. Ejecutar experiment_h6.py.
 11. Revisar los datasets generados en datasets/.
 12. Revisar los resultados generados en results/.
@@ -411,7 +441,6 @@ Colección de ChromaDB
 Documentos indexados
 Número de muestras del dataset base
 Valores de k evaluados
-Configuración de Multi-Query
 Métricas de evaluación
 Servidor del modelo
 Versión de las librerías
@@ -428,7 +457,7 @@ Collection name: rag_dia
 Dataset base: datasets/base_dataset.json
 Número de muestras: 50
 Valores de k: 1, 3, 5, 7, 10, 15, 20
-Multi-Query: activado
+Configuración de recuperación: retrieve puro o Multi-Query
 LLM: qwen2.5:32b
 Embeddings: qwen3-embedding:8b
 ```
