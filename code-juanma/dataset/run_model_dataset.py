@@ -9,9 +9,9 @@ from tqdm import tqdm
 
 BACKEND_URL = "http://localhost:8001"
 
-INPUT_FILE = "rag_dataset_v3_octen_qwen2.5_V2.json" 
+INPUT_FILE = "rag_dataset_v3_qwen2.5_32b.json" 
 
-OUTPUT_FILE = "rag_dataset_v3_octen_no_mq_qwen_3.6_27b_few_shot.json"
+OUTPUT_FILE = "rag_dataset_v3_no_mq_llama_3.1_8b_instruct_few_shot.json"
 
 HIERARCHY_CACHE = None
 

@@ -35,7 +35,7 @@ app = FastAPI(title="RAG DIA")
 # --- 1. Initialization ---
 print("Initializing FastAPI backend...")
 
-IP = "100.123.29.111"
+IP = "100.96.238.28"
 
 ollama_url = f"http://{IP}:11434" 
 vllm_url = f"http://{IP}:8005/v1" 
@@ -50,7 +50,7 @@ vllm_url = f"http://{IP}:8005/v1"
 
 # LLM,vllm
 llm = ChatOpenAI(
-    model="cyankiwi/Qwen3.6-27B-AWQ-INT4", 
+    model="meta-llama/Llama-3.1-8B-Instruct", 
     base_url=vllm_url,
     api_key="not_required",
     temperature=0.1
