@@ -65,6 +65,9 @@ Backend (API Docs): http://localhost:8001/docs
 
 ChromaDB: http://localhost:8000/docs
 
+MinIO: http://localhost:9001/
+Usuario y contraseña por defecto: minioadmin / minioadmin
+
 
 ### 3. Mantenimiento y logs
 Al estar en segundo plano, puedes monitorear qué está haciendo el sistema:

@@ -4,7 +4,9 @@ import time
 
 # Configuration
 BACKEND_URL = "http://localhost:8001/upload"
-BASE_DIR = r"C:\Users\juanm\Desktop\Juanma\aa UPM\aaa TFM\DocumentosRAG\Guías aprendizaje"
+#BASE_DIR = r"C:\Users\juanm\Desktop\Juanma\aa UPM\aaa TFM\DocumentosRAG\Guías aprendizaje"
+BASE_DIR = r"C:\Users\juanm\Desktop\Juanma\aa UPM\aaa TFM\DocumentosRAG\Guias_verbalizadas"
+COLLECTION = "verbalized_rag_collection"
 
 def upload_all_guides():
     if not os.path.exists(BASE_DIR):
@@ -73,7 +75,8 @@ def process_degree_folder(course, category, degree, path):
         payload = {
             "course": course,
             "category": category,
-            "degree": degree
+            "degree": degree,
+            "collection_name": COLLECTION
         }
         
         print(f"  [{index}/{total_files}] Uploading: {pdf[:40]}...", end="\r")

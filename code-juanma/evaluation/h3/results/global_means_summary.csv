@@ -1,5 +1,0 @@
-model,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness,safe_behavior
-bge_no_multiquery_qwen2.5,0.92396,0.65228,0.71659,0.7787,0.76088,0.62055,1.0
-bge_no_multiquery_qwen3.6,0.90676,0.4645,0.71659,0.7787,0.72298,0.5885,1.0
-,,,,,,,
-WINNER,bge_no_multiquery_qwen2.5,bge_no_multiquery_qwen2.5,bge_no_multiquery_qwen2.5,bge_no_multiquery_qwen2.5,bge_no_multiquery_qwen2.5,bge_no_multiquery_qwen2.5,bge_no_multiquery_qwen2.5

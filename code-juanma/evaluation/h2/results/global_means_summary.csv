@@ -1,0 +1,11 @@
+model,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness,safe_behavior
+octen_no_mq_deepseek_r1_distill_qwen_14b_few_shot,0.87839,0.67113,0.71,0.84616,0.71221,0.57865,0.9375
+octen_no_mq_mistral_3_14b_reasoning_few_shot,0.90158,0.60085,0.71307,0.84616,0.7137,0.55424,1.0
+octen_no_mq_mistral_3_14b_instruct_few_shot,0.86067,0.59102,0.71307,0.84616,0.69685,0.54325,1.0
+octen_no_mq_nemotron3nano_few_shot,0.8677,0.53178,0.71307,0.84616,0.69342,0.59267,0.92857
+octen_no_mq_qwen_2.5_32b_few_shot,0.92565,0.61987,0.71,0.84616,0.71483,0.61416,1.0
+octen_no_mq_qwen_3.6_27b_few_shot,0.96002,0.48262,0.71307,0.84616,0.7123,0.59062,1.0
+octen_no_mq_gemma_3_12b_few_shot,0.9418,0.56534,0.71307,0.84616,0.70723,0.60653,1.0
+octen_no_mq_llama_3.1_8b_instruct_few_shot,0.82171,0.70272,0.71307,0.84616,0.70419,0.53731,1.0
+,,,,,,,
+WINNER,octen_no_mq_qwen_3.6_27b_few_shot,octen_no_mq_llama_3.1_8b_instruct_few_shot,octen_no_mq_mistral_3_14b_reasoning_few_shot,octen_no_mq_deepseek_r1_distill_qwen_14b_few_shot,octen_no_mq_qwen_2.5_32b_few_shot,octen_no_mq_qwen_2.5_32b_few_shot,octen_no_mq_mistral_3_14b_reasoning_few_shot

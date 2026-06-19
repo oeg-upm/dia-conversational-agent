@@ -11,12 +11,12 @@ DB_CACHE = {"hierarchy": {}}
 
 # --- API communication functions ---
 
-def load_existing_files_ui():
+def load_existing_files_ui(collection_name: str = "rag_collection"):
     """Initial load of the database hierarchy."""
     global DB_CACHE
     print("Requesting hierarchy from the backend...")
     try:
-        response = requests.get(f"{API_URL}/files")
+        response = requests.get(f"{API_URL}/files?collection_name={collection_name}")
         response.raise_for_status()
         DB_CACHE["hierarchy"] = response.json().get("hierarchy", {})
         
@@ -49,25 +49,26 @@ def update_degree_dropdown(selected_courses):
     
     return gr.update(choices=sorted(list(degrees)), value=[])
 
-def process_files_ui(files):
+def process_files_ui(files, collection_name: str = "rag_collection"):
     """Uploads new files to the backend."""
     if not files:
         return gr.update(), gr.update(), "No files were uploaded."
 
     print(f"Uploading {len(files)} files to the backend...")
     upload_data = [('files', (os.path.basename(f.name), open(f.name, 'rb'))) for f in files]
+    data_payload = {"collection_name": collection_name}
     
     try:
-        response = requests.post(f"{API_URL}/upload", files=upload_data)
+        response = requests.post(f"{API_URL}/upload", files=upload_data, data=data_payload)
         response.raise_for_status()
         
         # Refresh the whole UI after upload
-        return load_existing_files_ui() + ("Upload completed successfully.",)
+        return load_existing_files_ui(collection_name) + ("Upload completed successfully.",)
     except Exception as e:
         print(f"Error uploading files: {e}")
         return gr.update(), gr.update(), f"Error connecting to backend: {e}"
 
-def delete_file_ui(selected_file_to_delete):
+def delete_file_ui(selected_file_to_delete, collection_name: str = "rag_collection"):
     """Deletes a file from the database and MinIO"""
     if not selected_file_to_delete:
         return gr.update(), gr.update(), gr.update(), "Please select a file to delete."
@@ -94,7 +95,8 @@ def delete_file_ui(selected_file_to_delete):
             payload = {
                 "filename": filename_part,
                 "course": course_part,
-                "degree": degree_part
+                "degree": degree_part,
+                "collection_name": collection_name
             }
             
             response = requests.post(f"{API_URL}/delete_file", data=payload)
@@ -109,10 +111,10 @@ def delete_file_ui(selected_file_to_delete):
     if errors:
         last_message += f"\nErrors: {', '.join(errors)}"
 
-    return load_existing_files_ui() + (last_message,)
+    return load_existing_files_ui(collection_name) + (last_message,)
 
 
-def chat_response_ui(message, history, selected_courses, selected_degrees, session_id):
+def chat_response_ui(message, history, selected_courses, selected_degrees, session_id, collection_name):
     """Bridge between ChatInterface and RAG backend."""
 
     if not message: 
@@ -140,7 +142,8 @@ def chat_response_ui(message, history, selected_courses, selected_degrees, sessi
         "message": message, 
         "selected_context": selected_context,
         "chat_history": history,
-        "session_id": session_id
+        "session_id": session_id,
+        "collection_name": collection_name
     }
     
     try:
@@ -151,10 +154,10 @@ def chat_response_ui(message, history, selected_courses, selected_degrees, sessi
     except Exception as e:
         return f"Error connecting to backend: {e}"
 
-def visualize_extended_context_ui(session_id):
+def visualize_extended_context_ui(session_id, collection_name: str = "rag_collection"):
     """Fetches the HTML visualization of the chunks used."""
     try:
-        response = requests.get(f"{API_URL}/inspector?session_id={session_id}")
+        response = requests.get(f"{API_URL}/inspector?session_id={session_id}&collection_name={collection_name}")
         response.raise_for_status()
         return response.json().get("html", "")
     except Exception as e:
@@ -169,6 +172,13 @@ with gr.Blocks(title="RAG DIA") as demo:
 
     with gr.Row():
         with gr.Column(scale=1):
+            gr.Markdown("### Collections management")
+            collection_selector = gr.Radio(
+                choices=[("RAG default collection", "rag_collection"), ("Verbalized RAG collection", "verbalized_rag_collection")],
+                value="rag_collection",
+                label="Select collection"
+            )
+            
             gr.Markdown("### 1. Documents")
             file_upload = gr.File(file_count="multiple", label="Upload new files")
             upload_btn = gr.Button("Process files", variant="primary")
@@ -197,7 +207,7 @@ with gr.Blocks(title="RAG DIA") as demo:
                 with gr.TabItem("Chatbot"):
                     chatbot = gr.ChatInterface(
                         fn=chat_response_ui,
-                        additional_inputs=[course_selector, degree_selector, session_state],
+                        additional_inputs=[course_selector, degree_selector, session_state, collection_selector],
                         description="Ask questions. The system will search in the selected documents."
                     )
 
@@ -213,18 +223,25 @@ with gr.Blocks(title="RAG DIA") as demo:
                     )
 
     # --- Events ---
+
+    # When collection changes, update the ui shown 
+    collection_selector.change(
+        fn=load_existing_files_ui,
+        inputs=[collection_selector],
+        outputs=[course_selector, degree_selector, file_to_delete_dropdown]
+    )
     
     # Load data on page load
     demo.load(
         fn=load_existing_files_ui,
-        inputs=[],
+        inputs=[collection_selector],
         outputs=[course_selector, degree_selector, file_to_delete_dropdown]
     )
 
     # Manual refresh
     btn_refresh_files.click(
         fn=load_existing_files_ui,
-        inputs=[],
+        inputs=[collection_selector],
         outputs=[course_selector, degree_selector, file_to_delete_dropdown]
     )
 
@@ -238,15 +255,22 @@ with gr.Blocks(title="RAG DIA") as demo:
     # Upload and refresh
     upload_btn.click(
         fn=process_files_ui,
-        inputs=[file_upload],
+        inputs=[file_upload, collection_selector],
         outputs=[course_selector, degree_selector, file_to_delete_dropdown,status_msg]
     )
 
     # Delete file event
     delete_btn.click(
         fn=delete_file_ui,
-        inputs=[file_to_delete_dropdown],
+        inputs=[file_to_delete_dropdown, collection_selector],
         outputs=[course_selector, degree_selector, file_to_delete_dropdown, delete_status_msg]
+    )
+
+    # Update inspector with the collection name 
+    btn_refresh_context.click(
+        fn=visualize_extended_context_ui,
+        inputs=[session_state, collection_selector],
+        outputs=[html_viewer]
     )
 
 if __name__ == "__main__":

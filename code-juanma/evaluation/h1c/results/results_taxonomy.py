@@ -24,14 +24,6 @@ results = []
 for file in files:
     df = pd.read_csv(file)
 
-    global_mean_row = df[df["question_type"] == "Global mean"]
-
-    if global_mean_row.empty:
-        print(f"Could not find 'Global mean' in {file}")
-        continue
-
-    row = global_mean_row.iloc[0]
-
     filename = file.replace("evaluation_results_", "").replace("_mean.csv", "")
 
     if "deepseek_r1_distill_qwen_14b" in filename:
@@ -48,15 +40,26 @@ for file in files:
     else:
         prompt = ""
 
-    result = {
-        "model": model,
-        "prompt": prompt,
-    }
+    df = df.dropna(subset=["question_type"])
 
-    for metric in metric_columns:
-        result[metric] = row.get(metric)
+    df = df[
+        ~df["question_type"].isin(
+            ["Global mean", ""]
+        )
+    ]
 
-    results.append(result)
+    for _, row in df.iterrows():
+
+        result = {
+            "model": model,
+            "prompt": prompt,
+            "taxonomy": row["question_type"]
+        }
+
+        for metric in metric_columns:
+            result[metric] = row.get(metric)
+
+        results.append(result)
 
 prompt_order = {
     "basic": 0,
@@ -69,11 +72,20 @@ model_order = {
     "qwen2.5-32b": 1
 }
 
+taxonomy_order = {
+    "ambiguous": 0,
+    "comparative": 1,
+    "factual": 2,
+    "out_of_scope": 3,
+    "procedural": 4
+}
+
 results = sorted(
     results,
     key=lambda x: (
-        model_order[x["model"]],
-        prompt_order[x["prompt"]]
+        model_order.get(x["model"], 999),
+        prompt_order.get(x["prompt"], 999),
+        taxonomy_order.get(x["taxonomy"], 999)
     )
 )
 
@@ -82,11 +94,13 @@ final_rows = []
 current_model = None
 
 for row in results:
+
     if current_model is not None and row["model"] != current_model:
         final_rows.append(
             {
                 "model": "",
                 "prompt": "",
+                "taxonomy": "",
                 **{metric: "" for metric in metric_columns}
             }
         )
@@ -96,7 +110,7 @@ for row in results:
 
 final_df = pd.DataFrame(final_rows)
 
-final_df.to_csv("global_means_summary.csv", index=False)
+final_df.to_csv("taxonomy_summary.csv", index=False)
 
-print("File generated: global_means_summary.csv")
+print("File generated: taxonomy_summary.csv")
 print(final_df)

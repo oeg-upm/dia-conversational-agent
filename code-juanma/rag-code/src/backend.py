@@ -35,7 +35,7 @@ app = FastAPI(title="RAG DIA")
 # --- 1. Initialization ---
 print("Initializing FastAPI backend...")
 
-IP = "100.73.42.105"
+IP = "100.96.238.28"
 
 ollama_url = f"http://{IP}:11434" 
 vllm_url = f"http://{IP}:8005/v1" 
@@ -50,7 +50,7 @@ vllm_url = f"http://{IP}:8005/v1"
 
 # LLM,vllm
 llm = ChatOpenAI(
-    model="mistralai/Ministral-3-14B-Reasoning-2512", 
+    model="meta-llama/Llama-3.1-8B-Instruct", 
     base_url=vllm_url,
     api_key="not_required",
     temperature=0.1
@@ -71,11 +71,15 @@ embeddings = OllamaEmbeddings(
 
 # ChromaDB client
 chroma_client = chromadb.HttpClient(host="chromadb", port=8000)
-vectorstore = Chroma(
+
+collection_default = chroma_client.get_or_create_collection(name="rag_collection")
+collection_verbalized = chroma_client.get_or_create_collection(name="verbalized_rag_collection")
+
+"""vectorstore = Chroma(
     client=chroma_client,
     collection_name="rag_collection",
     embedding_function=embeddings
-)
+)"""
 
 # MinIO Client
 MINIO_URL = "minio:9000"
@@ -109,7 +113,9 @@ def init_db():
                   last_docs TEXT)''')
 
     c.execute('''CREATE TABLE IF NOT EXISTS processed_files
-                 (file_id TEXT PRIMARY KEY)''')
+                 (file_id TEXT, 
+                  collection_name TEXT,
+                  PRIMARY KEY (file_id, collection_name))''')
 
     conn.commit()
     conn.close()
@@ -146,37 +152,37 @@ def save_session(session_id: str, session_data: dict):
     conn.commit()
     conn.close()
 
-def get_all_processed_files():
+def get_all_processed_files(collection_name: str = "rag_collection"):
     """Get all processed files from the database."""
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
-    c.execute("SELECT file_id FROM processed_files")
+    c.execute("SELECT file_id FROM processed_files WHERE collection_name=?", (collection_name,))
     files = [row[0] for row in c.fetchall()]
     conn.close()
     return files
 
-def is_file_processed(file_id: str) -> bool:
+def is_file_processed(file_id: str, collection_name: str = "rag_collection") -> bool:
     """Check if a file is already processed."""
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
-    c.execute("SELECT 1 FROM processed_files WHERE file_id=?", (file_id,))
+    c.execute("SELECT 1 FROM processed_files WHERE file_id=? AND collection_name=?", (file_id, collection_name))
     result = c.fetchone()
     conn.close()
     return result is not None
 
-def add_processed_file(file_id: str):
+def add_processed_file(file_id: str, collection_name: str = "rag_collection"):
     """Add a processed file to the database."""
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
-    c.execute("INSERT OR IGNORE INTO processed_files (file_id) VALUES (?)", (file_id,))
+    c.execute("INSERT OR IGNORE INTO processed_files (file_id, collection_name) VALUES (?, ?)", (file_id, collection_name))
     conn.commit()
     conn.close()
 
-def remove_processed_file(file_id: str):
+def remove_processed_file(file_id: str, collection_name: str = "rag_collection"):
     """Remove a processed file from the database."""
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
-    c.execute("DELETE FROM processed_files WHERE file_id=?", (file_id,))
+    c.execute("DELETE FROM processed_files WHERE file_id=? AND collection_name=?", (file_id, collection_name))
     conn.commit()
     conn.close()
 
@@ -192,6 +198,7 @@ class ChatRequest(BaseModel):
     selected_context: List[ContextItem]
     chat_history: List[Any] = []
     session_id: Optional[str] = None
+    collection_name: str = "rag_collection"
 
 
 def reciprocal_rank_fusion(results: list[list], k=60):
@@ -232,9 +239,18 @@ def reciprocal_rank_fusion(results: list[list], k=60):
 # --- 2. Endpoints ---
 
 @app.get("/files")
-async def get_available_files():
+async def get_available_files(
+    collection_name: str = "rag_collection",
+):
     """Returns hierarchy: Course -> Degree -> [Prefix] Filename."""
     try:
+        
+        vectorstore = Chroma(
+            client=chroma_client,
+            collection_name=collection_name,
+            embedding_function=embeddings
+        )
+        
         # Get all metadata entries from the vectorstore
         db_data = vectorstore.get(include=["metadatas"])
         metadatas = db_data.get("metadatas", [])
@@ -266,6 +282,7 @@ async def get_available_files():
 @app.post("/upload")
 def process_files(
     files: List[UploadFile] = File(...),
+    collection_name: str = Form("rag_collection"),
     course: Optional[str] = Form("Unknown"), # Default value to avoid breaking frontend
     category: Optional[str] = Form("Unknown"), # Degree/Master
     degree: Optional[str] = Form("Unknown")
@@ -274,6 +291,12 @@ def process_files(
     Processes uploaded files and attaches hierarchical metadata.
     'Optional' and default values.
     """
+    
+    vectorstore = Chroma(
+        client=chroma_client,
+        collection_name=collection_name,
+        embedding_function=embeddings
+    )
 
     new_docs = []
     new_filenames = []
@@ -288,7 +311,7 @@ def process_files(
         
         unique_file_id = f"{effective_course}_{effective_degree}_{filename}"
         
-        if is_file_processed(unique_file_id):
+        if is_file_processed(unique_file_id, collection_name):
             print(f"File already processed: {filename}")
             continue 
 
@@ -299,7 +322,7 @@ def process_files(
         try:
             print(f"Processing: {filename} | Course: {effective_course} | Degree: {effective_degree}")
             
-            object_name = f"{effective_course}/{effective_degree}/{filename}"
+            object_name = f"{collection_name}/{effective_course}/{effective_degree}/{filename}"
             minio_client.fput_object(
                 bucket_name=MINIO_BUCKET,
                 object_name=object_name,
@@ -346,7 +369,7 @@ def process_files(
             
             new_docs.extend(splits)
             new_filenames.append(filename)
-            add_processed_file(unique_file_id)
+            add_processed_file(unique_file_id, collection_name)
             
         except Exception as e:
             print(f"Error processing {filename}: {str(e)}")
@@ -365,17 +388,25 @@ def process_files(
     else:
         status_message = "No new files were added (they might already exist)."
 
-    return {"processed_files": list(get_all_processed_files()), "status_message": status_message}
+    return {"processed_files": list(get_all_processed_files(collection_name)), "status_message": status_message}
 
 @app.post("/delete_file")
 async def delete_file_from_db(
     filename: str = Form(...),
+    collection_name: str = Form("rag_collection"),
     course: str = Form(...),
     degree: str = Form(...)
 ):
     """Delete a file from MinIO and ChromaDB"""
     try:
-        object_name = f"{course}/{degree}/{filename}"
+        
+        vectorstore = Chroma(
+            client=chroma_client,
+            collection_name=collection_name,
+            embedding_function=embeddings
+        )
+
+        object_name = f"{collection_name}/{course}/{degree}/{filename}"
         unique_file_id = f"{course}_{degree}_{filename}"
         
         try:
@@ -400,8 +431,8 @@ async def delete_file_from_db(
         else:
             msg = "The file was deleted from MinIO, but no chunks were found in ChromaDB."
         
-        if is_file_processed(unique_file_id):
-            remove_processed_file(unique_file_id)
+        if is_file_processed(unique_file_id, collection_name):
+            remove_processed_file(unique_file_id, collection_name)
         print(msg)
         return {"status": "success", "message": msg}
 
@@ -417,6 +448,14 @@ async def chat_response(request: ChatRequest, context: bool = False):
         
         if not request.message: 
             raise HTTPException(status_code=400, detail="Empty message")
+
+        selected_col = request.collection_name if request.collection_name else "rag_collection"
+
+        vectorstore = Chroma(
+            client=chroma_client,
+            collection_name=selected_col,
+            embedding_function=embeddings
+        )
 
         session_id = request.session_id if request.session_id else str(uuid.uuid4())
         user_session = get_session(session_id)
@@ -559,7 +598,24 @@ async def chat_response(request: ChatRequest, context: bool = False):
         for i, doc in enumerate(final_top_docs):
             print(f"  {i+1}. {doc.metadata.get('course')} - {doc.metadata.get('degree')} - {doc.metadata.get('source', 'Unknown')} - Chunk {doc.metadata.get('chunk_index', 0)}")
 
-        template_qa = (
+
+        template_qa_basic = (
+            "You are an AI assistant. Answer the user's question based on the provided context.\n\n"
+            
+            "CONTEXT:\n"
+            "{context}\n\n"
+            
+            "CHAT HISTORY:\n"
+            "{chat_history}\n\n"
+            
+            "QUESTION:\n"
+            "{question}\n\n"
+            
+            "ANSWER:"
+        )
+
+
+        template_qa_structured = (
             "You are an expert Academic Advisor for university students.\n"
             "Your task is to answer the user's question using EXCLUSIVELY the provided context.\n\n"
             
@@ -584,8 +640,51 @@ async def chat_response(request: ChatRequest, context: bool = False):
             "ANSWER (precise, structured):"
         )
 
-        
-        prompt_qa = ChatPromptTemplate.from_template(template_qa)
+        template_qa_few_shot = (
+            "You are an expert Academic Advisor for university students.\n"
+            "Your task is to answer the user's question using EXCLUSIVELY the provided context.\n\n"
+            
+            "STRICT RULES:\n"
+            "1. NO EXTERNAL KNOWLEDGE: use only the provided fragments. If the context doesn't contain the answer, simply state that you don't know.\n"
+            "2. CLARITY: be concise but clear. If the question is ambiguous, state that you don't understand and ask for clarification instead of guessing.\n"
+            "3. STRUCTURE: you can use bullet points or numbered lists for complex information only if it is needed.\n"
+            "4. NO HALLUCINATIONS: do not invent dates, names of professors, or percentages if they are not explicitly in the context.\n"
+            "5. LANGUAGE: respond in the same language as the user's question.\n"
+            "6. ANSWER: do not say 'based on the context...', '...in the documents provided...' or similar phrases. Just answer the question directly.\n\n"
+            
+            "Here are some examples of how you should respond:\n\n"
+            
+            "Example 1 (Factual Question - Exact Extraction):\n"
+            "CONTEXT: [Curso 2023_2024 - Grado en Ingenieria Informatica - Investigacion Operativa.pdf] La asignatura de Investigación Operativa se divide en una parte teórica y una parte práctica, siendo necesario superar ambas partes (sacar una nota de 5 o superior) por separado para aprobar la asignatura.\n"
+            "USER QUESTION: ¿Qué nota mínima se requiere para aprobar por separado cada parte de la asignatura de Investigación Operativa?\n"
+            "ANSWER: Es necesario sacar una nota de 5 o superior por separado en la parte teórica y en la práctica para aprobar la asignatura.\n\n"
+            
+            "Example 2 (Out-of-Scope Question - Strict containment):\n"
+            "CONTEXT: [Curso 2024_2025 - Grado en Ingeniería Informática - Lógica.pdf] 2.1. Profesorado implicado en la docencia. Capacidad para trabajar dentro de un equipo, organizando, planificando, tomando decisiones...\n"
+            "USER QUESTION: ¿Cuál es el menú de la cafetería de la Facultad de Informática para el día de hoy?\n"
+            "ANSWER: No dispongo de esa información en el contexto proporcionado.\n\n"
+            
+            "Example 3 (Procedural Question - Context synthesis):\n"
+            "CONTEXT: [Curso 2024_2025 - Grado en Ingeniería Informática - Lógica.pdf] El alumno suspende al final del semestre. Decide presentarse al examen de la convocatoria extraordinaria de Julio del mismo curso, y solo tendrá que examinarse del primer bloque. Si su nota en este examen es 5.00, la nota final será aprobada.\n"
+            "USER QUESTION: ¿Qué ocurre si un estudiante suspende la asignatura y va a la convocatoria de Julio?\n"
+            "ANSWER: El estudiante deberá presentarse al examen de la convocatoria extraordinaria de julio, pero solo tendrá que examinarse de los bloques que haya suspendido.\n\n"
+            
+            "Now, answer the following question based ONLY on the provided context.\n\n"
+            
+            "CHAT HISTORY (for conversation flow):\n"
+            "{chat_history}\n\n"
+            
+            "CONTEXT (relevant fragments from academic guides):\n"
+            "{context}\n\n"
+            
+            "USER QUESTION:\n"
+            "{question}\n\n"
+            
+            "ANSWER (precise, structured):"
+        )
+
+        # template_qa_basic, template_qa_structured, template_qa_multiquery_simple
+        prompt_qa = ChatPromptTemplate.from_template(template_qa_few_shot)
         qa_chain = prompt_qa | llm | StrOutputParser()
         
 
@@ -616,7 +715,7 @@ async def chat_response(request: ChatRequest, context: bool = False):
 
 
 @app.get("/inspector")
-async def visualize_extended_context(session_id: str):
+async def visualize_extended_context(session_id: str, collection_name: str = "rag_collection"):
 
     user_session = get_session(session_id)
     last_docs = user_session.get("last_docs", [])
@@ -643,6 +742,11 @@ async def visualize_extended_context(session_id: str):
         text_next = "<i>(End of document)</i>"
         
         try:
+            vectorstore = Chroma(
+                client=chroma_client,
+                collection_name=collection_name,
+                embedding_function=embeddings
+            )
             neighbors = vectorstore._collection.get(ids=[prev_id, next_id])
             if neighbors and "ids" in neighbors:
                 for j, doc_id in enumerate(neighbors["ids"]):

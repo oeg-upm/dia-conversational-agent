@@ -1,0 +1,8 @@
+question_type,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness,safe_behavior
+ambiguous,,,,,,,1.0
+comparative,0.9057,0.46727,0.61146,0.77778,0.7451,0.54692,
+factual,0.97436,0.65276,0.84865,0.975,0.68653,0.71423,
+out_of_scope,,,,,,,1.0
+procedural,1.0,0.32783,0.6791,0.78571,0.70528,0.51071,
+,,,,,,,
+Global mean,0.96002,0.48262,0.71307,0.84616,0.7123,0.59062,1.0
