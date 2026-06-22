@@ -15,10 +15,8 @@ for run_id in range(1, NUM_RUNS + 1):
     print(f"🚀 RUN {run_id}/{NUM_RUNS}")
     print("="*60)
 
-    # 👇 opcional: cambiar seed en cada ejecución
-    #random.seed(run_id)
 
-    scores = run_evaluation(DATASET_PATH, f"Verbalizado run {run_id}", question_type="")
+    scores = run_evaluation(DATASET_PATH, f"Verbalizado run {run_id}", QUESTION_TYPE)
 
     print("\nRaw scores:", scores)
 

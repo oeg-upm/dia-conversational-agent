@@ -1,0 +1,26 @@
+# Frontend
+gradio
+requests
+
+# Backend API
+fastapi
+uvicorn
+
+# RAG / LangChain
+langchain
+langchain-openai
+langchain-huggingface
+langchain-chroma
+langchain-community
+langchain-core
+langchain-text-splitters
+
+# Vector DB
+chromadb
+
+# Embeddings
+sentence-transformers
+
+# PDF loading
+pypdf
+langchain-docling

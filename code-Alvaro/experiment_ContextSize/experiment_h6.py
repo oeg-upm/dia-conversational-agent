@@ -22,7 +22,7 @@ from evaluate import run_evaluation
  
 BACKEND_URL = "http://localhost:9000"
 BASE_DATASET_PATH = "datasets/base_dataset.json"
-K_VALUES = [5, 7, 10, 15, 20]
+K_VALUES = [1, 3 ,5, 7, 10, 15, 20]
  
 os.makedirs("datasets", exist_ok=True)
 os.makedirs("results", exist_ok=True)
@@ -32,35 +32,6 @@ os.makedirs("results", exist_ok=True)
 # ==========================================
  
 
-
-# def get_rag_response(question: str, chunk_metadata: dict, k: int) -> dict:
-#     try:
-#         payload = {
-#             "message": question,
-#             "selected_context": [{
-#                 "course": chunk_metadata.get("course", "Unknown"),
-#                 "degree": chunk_metadata.get("degree", "Unknown"),
-#                 "source": chunk_metadata.get("source", "Unknown"),
-#             }],
-#             "chat_history": []
-#         }
-
-#         response = requests.post(
-#             f"{BACKEND_URL}/chat?context=True&k={k}&use_multiquery=False",
-#             json=payload,
-#             timeout=300,
-#         )
-#         response.raise_for_status()
-#         data = response.json()
-
-#         return {
-#             "response": data.get("response", "No response from RAG"),
-#             "context": data.get("context", []),
-#             "latency": data.get("generation_latency", -1),  # ← del backend
-#         }
-
-#     except Exception as e:
-#         return {"response": f"RAG Error: {str(e)}", "context": [], "latency": -1}
 
 def get_rag_response(question: str, chunk_metadata: dict, k: int) -> dict:
     try:

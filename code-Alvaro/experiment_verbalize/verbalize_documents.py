@@ -1,8 +1,11 @@
 import os
 import re
 from typing import List
-from concurrent.futures import ThreadPoolExecutor, as_completed
+#from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+import torch
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_docling import DoclingLoader
@@ -23,7 +26,7 @@ OUTPUT_BASE_DIR = "/home/alvaro/Escritorio/Guias_verbalizadas"
 
 llm_verbalizer = ChatOpenAI(
     model="qwen2.5:32b",
-    base_url="http://100.92.139.47:5000/v1",
+    base_url="http://100.89.199.79:11434/v1",
     api_key="not_required",
     temperature=0.2,
     timeout=300  # ⏱️ reducido
@@ -174,7 +177,68 @@ def verbalize_markdown(markdown_text: str) -> str:
 # PIPELINE
 # ==========================================
 
+# def process_pdf(pdf_path: str):
+#     try:
+#         print(f"Processing: {pdf_path}")
+
+#         relative = os.path.relpath(pdf_path, INPUT_BASE_DIR)
+#         output_path = os.path.join(OUTPUT_BASE_DIR, relative)
+#         output_path = os.path.splitext(output_path)[0] + ".pdf"
+
+#         if os.path.exists(output_path):
+#             print("   Skipped (already processed)")
+#             return
+
+#         markdown = load_pdf_as_markdown(pdf_path)
+#         verbalized = verbalize_markdown(markdown)
+
+#         os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+#         save_markdown_as_pdf(verbalized, output_path)
+
+#         print(f"   Saved: {output_path}")
+
+#     except Exception as e:
+#         print(f"\n❌ Error en: {pdf_path}")
+#         print(f"Detalle: {e}")
+
+# def process_pdf(pdf_path: str):
+#     try:
+#         print(f"Processing: {pdf_path}")
+
+#         relative = os.path.relpath(pdf_path, INPUT_BASE_DIR)
+#         output_path = os.path.join(OUTPUT_BASE_DIR, relative)
+#         output_path = os.path.splitext(output_path)[0] + ".pdf"
+
+#         if os.path.exists(output_path):
+#             print("   Skipped (already processed)")
+#             return
+
+#         markdown = load_pdf_as_markdown(pdf_path)
+
+#         # limpieza de memoria entre documentos
+#         import gc
+#         gc.collect()
+#         if torch.cuda.is_available():
+#             torch.cuda.empty_cache()
+
+#         verbalized = verbalize_markdown(markdown)
+
+#         os.makedirs(os.path.dirname(output_path), exist_ok=True)
+#         save_markdown_as_pdf(verbalized, output_path)
+
+#         print(f"   Saved: {output_path}")
+
+#     except Exception as e:
+#         print(f"\n❌ Error en: {pdf_path}")
+#         print(f"Detalle: {e}")
+
 def process_pdf(pdf_path: str):
+    import gc
+
+    markdown = None
+    verbalized = None
+
     try:
         print(f"Processing: {pdf_path}")
 
@@ -190,7 +254,6 @@ def process_pdf(pdf_path: str):
         verbalized = verbalize_markdown(markdown)
 
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
-
         save_markdown_as_pdf(verbalized, output_path)
 
         print(f"   Saved: {output_path}")
@@ -198,6 +261,15 @@ def process_pdf(pdf_path: str):
     except Exception as e:
         print(f"\n❌ Error en: {pdf_path}")
         print(f"Detalle: {e}")
+
+    finally:
+        del markdown
+        del verbalized
+
+        gc.collect()
+
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
 
 # ==========================================
 # WALKER
@@ -219,9 +291,10 @@ if __name__ == "__main__":
 
     print(f"Found {total} PDFs\n")
 
-    max_workers = 2
+    max_workers = 1
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+    #with ThreadPoolExecutor(max_workers=max_workers) as executor:
+    with ProcessPoolExecutor(max_workers=max_workers) as executor:
         futures = {executor.submit(process_pdf, pdf): pdf for pdf in pdfs}
 
         for i, future in enumerate(as_completed(futures), 1):

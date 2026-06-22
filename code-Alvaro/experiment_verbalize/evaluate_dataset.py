@@ -54,21 +54,6 @@ run_config = RunConfig(timeout=1800, max_workers=1, max_retries=3)
 
 
 
-# RAG_PROMPT = ChatPromptTemplate.from_template("""
-# Eres un asistente académico universitario. Responde usando el contexto proporcionado.
-# Si la información está presente aunque sea parcialmente, extráela y respóndela.
-# Solo di "No lo sé" si la información es completamente inexistente en el contexto.
-
-# REGLAS:
-# - Responde en español
-# - Responde de forma directa y concisa
-# - Incluye siempre los datos específicos: nombres, porcentajes, fechas, créditos
-# - No uses listas ni bullets
-
-# Contexto: {context}
-# Pregunta: {question}
-# Respuesta:""")
-
 
 RAG_PROMPT = ChatPromptTemplate.from_template("""
 Eres un asesor académico experto para estudiantes universitarios. Tu tarea es responder a la pregunta del usuario utilizando EXCLUSIVAMENTE el contexto proporcionado.
