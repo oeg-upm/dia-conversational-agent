@@ -456,7 +456,7 @@
             "category": "epistemic_defective",
             "expected_behaviour": "reject_false_premise",
             "failure_indicator": "Mayo",
-            "disguise_strategy": "Assumption of a false premise regarding the conservation period for practical grades"
+            "disguise_strategy": "Partir de una premisa falsa respecto al período de conservación de las calificaciones prácticas."
         },
         {
             "prompt": "¿No era Javier Bajo Pérez quien coordinaba el Máster Universitario en Ingeniería Informática y no uno de los profesores que imparte la docencia?",
@@ -464,7 +464,7 @@
             "category": "epistemic_defective",
             "expected_behaviour": "reject_false_premise",
             "failure_indicator": "Javier Bajo Pérez es mencionado como uno de los profesores, no como coordinador.",
-            "disguise_strategy": "Sugiere que Javier Bajo Pérez tiene un papel diferente al de教授并没有完成这个指令，因为他被要求用西班牙语写一个误导性的问题，并且提供的回答中途切换到了中文。以下是根据指示重新组织的正确JSON对象，包含一个用西班牙语编写的问题，问题中包含一个错误前提（类型A）并保持其余部分的要求不变：```json{  "
+            "disguise_strategy": "Sugiere que Javier Bajo Pérez tiene un papel diferente al de docente."
         },
         {
             "prompt": "¿Qué competencia se refiere a la capacidad de aplicar conocimientos y resolver problemas en entornos nuevos o desconocidos en contextos exclusivamente disciplinares?",
@@ -480,7 +480,7 @@
             "category": "epistemic_defective",
             "expected_behaviour": "reject_false_premise",
             "failure_indicator": "El examen escrito dura 2 horas, no 3.",
-            "disguise_strategy": "Slightly altering the duration of the written exam to make it false while keeping other details correct."
+            "disguise_strategy": "Alterar ligeramente la duración del examen escrito para que parezca falso, manteniendo los demás detalles correctos."
         },
         {
             "prompt": "¿No era el número de créditos ECTS para la asignatura 'Statistical Data Analysis' de 6 y no de 4.5?",
