@@ -11,9 +11,9 @@
 
 | Documento | Guías AESIA relacionadas | Contenido |
 |-----------|--------------------------|-----------|
-| [00 — Alcance y Limitaciones](00_alcance_y_limitaciones.md) | Todas | Qué aplica, qué no aplica y por qué. Análisis honesto del contexto académico. |
+| [00 — Alcance y Limitaciones](00_alcance_y_limitaciones.md) | Todas | Normativas aplicables y justificación de aquellas que no lo son. |
 | [01 — Sistema RAG](01_rag_sistema_documentacion_tecnica.md) | #15, #06, #08, #05 | Backend RAG-Fusion completo: arquitectura, pipeline, endpoints, restricciones. |
-| [02 — Infraestructura de Clúster](02_infraestructura_cluster_documentacion_tecnica.md) | #15, #11, #12 | Clúster GPU (H100), Ollama, Tailscale VPN, Docker, logging. |
+| [02 — Infraestructura de Clúster](02_infraestructura_cluster_documentacion_tecnica.md) | #15, #11, #12 | Clúster GPU (H100), Ollama, Tailscale VPN, logging. |
 | [03 — Generador de Dataset](03_generador_dataset_documentacion_tecnica.md) | #15, #07 | Generador sintético de QA pairs: corpus, esquema, pipeline, versiones. |
 | [04 — Evaluadores](04_evaluadores_documentacion_tecnica.md) | #15, #09, #10 | RAGAS (6 métricas), bootstrap pareado, experimento de humanización, evaluador de seguridad SafeRAG. |
 
