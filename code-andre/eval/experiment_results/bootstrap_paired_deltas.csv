@@ -1,0 +1,4 @@
+﻿config,faithfulness,faithfulness_lo,faithfulness_hi,faithfulness_sig,answer_relevancy,answer_relevancy_lo,answer_relevancy_hi,answer_relevancy_sig,context_precision,context_precision_lo,context_precision_hi,context_precision_sig,context_recall,context_recall_lo,context_recall_hi,context_recall_sig,answer_similarity,answer_similarity_lo,answer_similarity_hi,answer_similarity_sig,answer_correctness,answer_correctness_lo,answer_correctness_hi,answer_correctness_sig
+bge,-0.0212,-0.07,0.0287,ns,-0.021,-0.1015,0.0692,ns,-0.0356,-0.1186,0.0533,ns,-0.0506,-0.133,0.0353,ns,-0.0385,-0.0639,-0.0147,sig,-0.0388,-0.0894,0.0098,ns
+qwen4b,-0.0077,-0.0469,0.0323,ns,0.0249,-0.0423,0.0945,ns,0.0608,0.0042,0.1245,sig,0.0533,-0.0137,0.122,ns,-0.0254,-0.0474,-0.002,sig,-0.034,-0.0825,0.0131,ns
+octen,-0.018,-0.0727,0.0397,ns,-0.0688,-0.144,0.0041,ns,-0.0085,-0.0676,0.0526,ns,-0.0655,-0.14,0.0177,ns,-0.033,-0.0607,-0.0075,sig,-0.0651,-0.1135,-0.0184,sig

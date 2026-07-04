@@ -40,8 +40,8 @@ import requests
 # ── Config ────────────────────────────────────────────────────────────────────
 BACKEND_PORT   = 8001
 BACKEND_URL    = f"http://127.0.0.1:{BACKEND_PORT}"   # avoid localhost→IPv6 on macOS
-CLUSTER_URL    = os.getenv("CLUSTER_URL", "http://100.69.6.123:11434")
-OLLAMA_URL     = os.getenv("OLLAMA_URL",  "http://100.69.6.123:11434")
+CLUSTER_URL    = os.getenv("CLUSTER_URL", "http://100.78.104.3:11434")
+OLLAMA_URL     = os.getenv("OLLAMA_URL",  "http://100.78.104.3:11434")
 EMBED_MODEL    = "qwen3-embedding:8b"
 BACKEND_SCRIPT = Path(__file__).parent / "rag_backend_lite.py"
 EVALUATOR      = Path(__file__).parent / "safety_evaluator.py"
