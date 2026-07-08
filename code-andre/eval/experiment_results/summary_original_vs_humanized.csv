@@ -1,0 +1,10 @@
+﻿config,dataset,faithfulness,answer_relevancy,context_precision,context_recall,answer_similarity,answer_correctness
+bge,delta (hum-orig),-0.0234,-0.021,-0.0357,-0.0505,-0.0385,-0.0398
+bge,humanized,0.8865,0.542,0.5565,0.662,0.6403,0.4778
+bge,original,0.9099,0.563,0.5922,0.7125,0.6788,0.5176
+octen,delta (hum-orig),-0.018,-0.0687,-0.0085,-0.0655,-0.033,-0.0651
+octen,humanized,0.8632,0.4946,0.5967,0.6698,0.6265,0.4769
+octen,original,0.8812,0.5633,0.6052,0.7353,0.6595,0.542
+qwen4b,delta (hum-orig),-0.009,0.0249,0.0608,0.0533,-0.0254,-0.0383
+qwen4b,humanized,0.8863,0.516,0.6108,0.6925,0.6249,0.468
+qwen4b,original,0.8953,0.4911,0.55,0.6392,0.6503,0.5063
