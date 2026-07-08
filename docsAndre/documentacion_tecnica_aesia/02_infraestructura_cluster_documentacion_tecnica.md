@@ -22,12 +22,48 @@ El sistema DIA se ejecuta sobre una infraestructura de clúster universitario qu
 
 ### 1.2 Modelos alojados en el clúster
 
-| Modelo | Tipo | Parámetros | Función en el sistema |
-|--------|------|-----------|----------------------|
-| `qwen2.5:32b` | LLM generativo | 32B | Generación de respuestas RAG, generación de consultas múltiples (Multi-Query), juez LLM en evaluación RAGAS |
-| `qwen3-embedding:8b` | Modelo de embeddings | 8B | Vectorización de chunks y consultas para búsqueda semántica |
+Inventario completo de modelos disponibles en el clúster (`ollama list`, julio 2026). Ordenados por función y fecha de instalación descendente:
 
-*Nota: Durante los experimentos de evaluación se utilizaron modelos adicionales con diferentes configuraciones de embeddings. Ver [04_evaluadores_documentacion_tecnica.md](04_evaluadores_documentacion_tecnica.md) para el detalle completo.*
+#### Modelos de embeddings
+
+| Modelo | Tamaño | Última vez modificado | Uso en el proyecto |
+|--------|--------|----------------------|-------------------|
+| `nicolasfer45/Octen-Embedding-4B-GGUF:latest` | 2.5 GB | Hace 3 semanas | **Experimento de embeddings (H1A, André)** — mejor recall en H1A (0.830). Usado en la configuración *Octen* del experimento de humanización. Cuantizado en GGUF. |
+| `leoipulsar/harrier-0.6b:latest` | 639 MB | Hace 3 semanas | Evaluado en H1A (Juanma). Buen balance general pero no seleccionado para los experimentos de André por no destacar sobre Octen y ser menos citado en la literatura. |
+| `embeddinggemma:latest` | 621 MB | Hace 3 semanas | Exploración temprana. No utilizado en experimentos formales — descartado por rendimiento inferior a bge-m3 en pruebas iniciales. |
+| `bge-m3:latest` | 1.2 GB | Hace 5 semanas | **Experimento de embeddings (H1A, André)** — baseline canónico. Modelo más referenciado en la literatura RAG en español. Usado en configuración *BGE* del experimento de humanización. |
+| `qwen3-embedding:4b` | 2.5 GB | Hace 6 semanas | **Experimento de embeddings (H1A, André)** — usado en configuración *Qwen4b* del experimento de humanización. Se eligió la versión 4b (en lugar de la 8b evaluada por Juanma) para estudiar el efecto del tamaño dentro de la familia qwen3. |
+| `qwen3-embedding:8b` | 4.7 GB | Hace 2 meses | **Sistema RAG en producción** — embedding del sistema desplegado (`BasicRAG`). También usado como embedding del juez RAGAS. Evaluado por Juanma en H1A (mejor faithfulness del grupo). |
+
+#### Modelos de lenguaje grandes (LLM generativos)
+
+| Modelo | Tamaño | Última vez modificado | Uso en el proyecto |
+|--------|--------|----------------------|-------------------|
+| `llama3.1:8b` | 4.9 GB | Hace 2 semanas | Usado en la versión V1 del generador de dataset (`generate_dataset_v1.py`, Juanma). Descartado para versiones posteriores por generar ground truth demasiado corto y distribución de dificultades sesgada hacia "easy". |
+| `gemma3:27b` | 17 GB | Hace 2 semanas | Probado como LLM generador del dataset v3. Calidad aceptable pero con tendencia a mezclar idiomas en preguntas largas. No seleccionado como dataset final. |
+| `gemma4:31b` | 19 GB | Hace 5 semanas | Variante grande de la familia gemma4. Instalado para experimentación posterior; no utilizado en experimentos formales documentados. |
+| `qwen3.6:27b` | 17 GB | Hace 5 semanas | Modelo reciente de la familia qwen3.6. Instalado para exploración; no utilizado en experimentos formales documentados. |
+| `gemma4:latest` | 9.6 GB | Hace 2 meses | Usado por Juanma en generación de dataset (`rag_dataset_v3_gemma4_26b.json`). Calidad alta — preguntas muy naturales. Seleccionado en experimentos alternativos de Juanma pero no en el dataset principal del experimento de humanización. |
+| `qwen2.5:14b` | 9.0 GB | Hace 2 meses | Probado como generador de dataset v3. Mejora notable sobre los modelos de 7-8B pero inferior a la versión 32B. Descartado en favor de `qwen2.5:32b`. |
+| `ministral-3:14b` | 9.1 GB | Hace 2 meses | Probado como generador de dataset v3. Baja diversidad de preguntas y errores frecuentes en el campo `language` (mezcla es/en). Descartado. |
+| `qwen3.5:9b` | 6.6 GB | Hace 2 meses | Probado como generador de dataset v3. Calidad similar a llama3.1:8b. Inferior a qwen2.5:32b. Descartado. |
+| `qwen3.5:27b` | 17 GB | Hace 2 meses | Explorado como generador de dataset. No utilizado en experimentos formales documentados. |
+| `qwen2.5:7b` | 4.7 GB | Hace 2 meses | Exploración temprana. No utilizado en experimentos formales — inferior a las variantes de mayor tamaño de la misma familia. |
+| `qwen3.5:35b` | 23 GB | Hace 2 meses | Probado como generador de dataset v3. Calidad comparable a `qwen2.5:32b` pero mayor tiempo de generación. Sin ventaja suficiente para justificar el coste computacional adicional. Descartado. |
+| `deepseek-r1:32b` | 19 GB | Hace 2 meses | Probado como generador de dataset v3. Alta calidad de razonamiento pero genera "chain of thought" en los ground truths (explicaciones largas en vez de respuestas directas). Incompatible con el formato requerido por RAGAS. Descartado. |
+| `qwen2.5:32b` | 19 GB | Hace 2 meses | **Sistema RAG en producción** (LLM de generación de respuestas, Multi-Query). **Juez LLM en evaluación RAGAS**. **Generador del dataset final** (`rag_dataset_v3_octen_qwen2.5_V2.json`). El modelo más utilizado del proyecto. |
+
+#### Resumen de uso por modelo en experimentos formales
+
+| Experimento | Embedding | LLM generativo |
+|------------|-----------|----------------|
+| RAG en producción | qwen3-embedding:8b | qwen2.5:32b |
+| H1A — comparación de embeddings (Juanma) | bge-m3, harrier-0.6b, Octen-4B, qwen3-embedding:8b | qwen2.5:32b (fijo) |
+| H1B — Octen × LLM × multiquery (Juanma) | Octen-4B | qwen2.5:32b |
+| H3 — BGE × LLM (Juanma) | bge-m3 | qwen2.5:32b |
+| Generación dataset v3 final (Juanma) | — | qwen2.5:32b |
+| Experimento de humanización (André) | bge-m3, qwen3-embedding:4b, Octen-4B | qwen2.5:32b (fijo) |
+| Evaluación RAGAS (juez) | qwen3-embedding:8b | qwen2.5:32b |
 
 ---
 
